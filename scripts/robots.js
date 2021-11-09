@@ -1,1 +1,1 @@
-require('@atelierfabien/sanity-shop-app/scripts/robots');
+require('@atelierfabien/next-base/scripts/robots');

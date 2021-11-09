@@ -1,1 +1,1 @@
-export { default } from '@atelierfabien/sanity-shop-app/preval/app.preval';
+export { default } from '@atelierfabien/next-base/preval/app.preval';

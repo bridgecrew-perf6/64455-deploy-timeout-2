@@ -6,38 +6,40 @@
     "paths": {
       "@root/*": ["./*"],
       "@base/*": [
-        "./node_modules/@atelierfabien/sanity-shop-app/layers/shop/basic/*",
-        "../../../node_modules/@atelierfabien/sanity-shop-app/layers/shop/basic/*",
-        "./node_modules/@atelierfabien/sanity-shop-app/src/*",
-        "../../../node_modules/@atelierfabien/sanity-shop-app/src/*"
+        "./node_modules/@atelierfabien/next-base/layers/shop/basic/*",
+        "../../../node_modules/@atelierfabien/next-base/layers/shop/basic/*",
+        "./node_modules/@atelierfabien/next-base/src/*",
+        "../../../node_modules/@atelierfabien/next-base/src/*"
       ],
       "@app/*": [
         "./src/*",
-        "./node_modules/@atelierfabien/sanity-shop-app/layers/shop/basic/*",
-        "../../../node_modules/@atelierfabien/sanity-shop-app/layers/shop/basic/*",
-        "./node_modules/@atelierfabien/sanity-shop-app/src/*",
-        "../../../node_modules/@atelierfabien/sanity-shop-app/src/*"
+        "./node_modules/@atelierfabien/next-base/layers/theme/basic/*",
+        "../../../node_modules/@atelierfabien/next-base/layers/theme/basic/*",
+        "./node_modules/@atelierfabien/next-base/layers/shop/basic/*",
+        "../../../node_modules/@atelierfabien/next-base/layers/shop/basic/*",
+        "./node_modules/@atelierfabien/next-base/src/*",
+        "../../../node_modules/@atelierfabien/next-base/src/*"
       ],
       "@app/config/*": [
         "./config/*",
         "./config/*.preval",
         "./src/config/*",
         "./src/config/*.preval",
-        "./node_modules/@atelierfabien/sanity-shop-app/config/*",
-        "../../../node_modules/@atelierfabien/sanity-shop-app/config/*",
-        "./node_modules/@atelierfabien/sanity-shop-app/config/*.preval",
-        "../../../node_modules/@atelierfabien/sanity-shop-app/config/*.preval",
-        "./node_modules/@atelierfabien/sanity-shop-app/src/config/*",
-        "../../../node_modules/@atelierfabien/sanity-shop-app/src/config/*",
-        "./node_modules/@atelierfabien/sanity-shop-app/src/config/*.preval",
-        "../../../node_modules/@atelierfabien/sanity-shop-app/src/config/*.preval"
+        "./node_modules/@atelierfabien/next-base/config/*",
+        "../../../node_modules/@atelierfabien/next-base/config/*",
+        "./node_modules/@atelierfabien/next-base/config/*.preval",
+        "../../../node_modules/@atelierfabien/next-base/config/*.preval",
+        "./node_modules/@atelierfabien/next-base/src/config/*",
+        "../../../node_modules/@atelierfabien/next-base/src/config/*",
+        "./node_modules/@atelierfabien/next-base/src/config/*.preval",
+        "../../../node_modules/@atelierfabien/next-base/src/config/*.preval"
       ],
       "@shop/*": [
         "./src/*",
-        "./node_modules/@atelierfabien/sanity-shop-app/layers/shop/basic/*",
-        "../../../node_modules/@atelierfabien/sanity-shop-app/layers/shop/basic/*",
-        "./node_modules/@atelierfabien/sanity-shop-app/src/*",
-        "../../../node_modules/@atelierfabien/sanity-shop-app/src/*",
+        "./node_modules/@atelierfabien/next-base/layers/shop/basic/*",
+        "../../../node_modules/@atelierfabien/next-base/layers/shop/basic/*",
+        "./node_modules/@atelierfabien/next-base/src/*",
+        "../../../node_modules/@atelierfabien/next-base/src/*",
         "./node_modules/@atelierfabien/next-shop/*",
         "../../../node_modules/@atelierfabien/next-shop/*"
       ],

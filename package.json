@@ -1,5 +1,5 @@
 {
-  "name": "@atelierfabien/sanity-starter",
+  "name": "@atelierfabien/shop-starter",
   "version": "0.0.0",
   "author": "Fabien Franzen <info@atelierfabien.com>",
   "license": "MIT",
@@ -10,15 +10,13 @@
     "postbuild": "node ./scripts/robots.js",
     "check": "node -r esm -r tsconfig-paths/register ./scripts/sanity-check.js",
     "analyze": "ANALYZE=true next build",
-    "start": "next start",
-    "test": "mocha 'test/**/*.test.js' --bail --timeout 10000",
-    "algolia:replace": "mocha 'scripts/algolia.js' --bail --timeout 60000"
+    "start": "next start"
   },
   "dependencies": {
+    "@atelierfabien/next-base": "^0.0.1",
     "@atelierfabien/next-foundation": "^0.0.7",
     "@atelierfabien/next-sanity": "^0.0.7",
     "@atelierfabien/next-shop": "^0.0.7",
-    "@atelierfabien/sanity-shop-app": "^0.0.0",
     "@atelierfabien/uikit": "^3.7.1",
     "@carbon/icons-react": "^10.33.0",
     "@styled-jsx/plugin-sass": "^3.0.0",

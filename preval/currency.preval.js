@@ -1,1 +1,1 @@
-export { default } from '@atelierfabien/sanity-shop-app/preval/currency.preval';
+export { default } from '@atelierfabien/next-base/preval/currency.preval';

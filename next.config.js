@@ -12,7 +12,7 @@ module.exports = config({
     modules: [
       '@atelierfabien/next-shop',
       '@atelierfabien/next-sanity',
-      '@atelierfabien/sanity-shop-app',
+      '@atelierfabien/next-base',
     ],
   },
   experimental: {

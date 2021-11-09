@@ -1,4 +1,4 @@
-import translations from '@atelierfabien/sanity-shop-app/src/translations/nl/app';
+import translations from '@atelierfabien/next-base/src/translations/nl/app';
 
 export default {
   ...translations,
