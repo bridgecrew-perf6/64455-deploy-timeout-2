@@ -1,3 +1,4 @@
-import Page from '@base/pages/shop';
+import { default as Page, getServerSideProps } from '@base/pages/shop';
 
 export default Page;
+export { getServerSideProps };
