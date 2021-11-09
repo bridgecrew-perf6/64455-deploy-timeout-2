@@ -6,11 +6,15 @@
     "paths": {
       "@root/*": ["./*"],
       "@base/*": [
+        "./node_modules/@atelierfabien/sanity-shop-app/layers/shop/basic/*",
+        "../../../node_modules/@atelierfabien/sanity-shop-app/layers/shop/basic/*",
         "./node_modules/@atelierfabien/sanity-shop-app/src/*",
         "../../../node_modules/@atelierfabien/sanity-shop-app/src/*"
       ],
       "@app/*": [
         "./src/*",
+        "./node_modules/@atelierfabien/sanity-shop-app/layers/shop/basic/*",
+        "../../../node_modules/@atelierfabien/sanity-shop-app/layers/shop/basic/*",
         "./node_modules/@atelierfabien/sanity-shop-app/src/*",
         "../../../node_modules/@atelierfabien/sanity-shop-app/src/*"
       ],
@@ -30,6 +34,8 @@
       ],
       "@shop/*": [
         "./src/*",
+        "./node_modules/@atelierfabien/sanity-shop-app/layers/shop/basic/*",
+        "../../../node_modules/@atelierfabien/sanity-shop-app/layers/shop/basic/*",
         "./node_modules/@atelierfabien/sanity-shop-app/src/*",
         "../../../node_modules/@atelierfabien/sanity-shop-app/src/*",
         "./node_modules/@atelierfabien/next-shop/*",
