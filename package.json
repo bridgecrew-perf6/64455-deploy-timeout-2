@@ -13,10 +13,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@atelierfabien/next-base": "^0.0.7",
-    "@atelierfabien/next-foundation": "^0.0.7",
-    "@atelierfabien/next-sanity": "^0.0.7",
-    "@atelierfabien/next-shop": "^0.0.7",
+    "@atelierfabien/next-base": "^0.0.8",
+    "@atelierfabien/next-foundation": "^0.0.8",
+    "@atelierfabien/next-sanity": "^0.0.8",
+    "@atelierfabien/next-shop": "^0.0.8",
     "@atelierfabien/uikit": "^3.9.2",
     "@carbon/icons-react": "^10.42.0",
     "dotenv-flow": "^3.2.0",
