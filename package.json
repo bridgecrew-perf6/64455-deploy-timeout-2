@@ -1,0 +1,41 @@
+{
+  "name": "@atelierfabien/voedinginbalans-app",
+  "version": "0.0.0",
+  "author": "Fabien Franzen <info@atelierfabien.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "postbuild": "node ./scripts/robots.js",
+    "check": "node -r esm -r tsconfig-paths/register ./scripts/sanity-check.js",
+    "analyze": "ANALYZE=true next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@atelierfabien/next-base": "^0.0.7",
+    "@atelierfabien/next-foundation": "^0.0.7",
+    "@atelierfabien/next-sanity": "^0.0.7",
+    "@atelierfabien/next-shop": "^0.0.7",
+    "@atelierfabien/uikit": "^3.9.2",
+    "@carbon/icons-react": "^10.42.0",
+    "dotenv-flow": "^3.2.0",
+    "esm": "^3.2.25",
+    "next": "12.0.4-canary.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass": "1.43.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "mocha": "^9.0.1",
+    "postcss": "^8.3.11",
+    "should": "^13.2.3",
+    "tailwindcss": "^2.2.19",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.3.4"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
