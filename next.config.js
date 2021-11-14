@@ -13,6 +13,7 @@ module.exports = config({
       '@atelierfabien/next-shop',
       '@atelierfabien/next-sanity',
       '@atelierfabien/next-base',
+      '@atelierfabien/next-auth',
     ],
   },
   experimental: {

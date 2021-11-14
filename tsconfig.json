@@ -17,6 +17,8 @@
         "../../../node_modules/@atelierfabien/next-base/layers/theme/basic/*",
         "./node_modules/@atelierfabien/next-base/layers/shop/basic/*",
         "../../../node_modules/@atelierfabien/next-base/layers/shop/basic/*",
+        "./node_modules/@atelierfabien/next-auth/src/*",
+        "../../../node_modules/@atelierfabien/next-auth/src/*",
         "./node_modules/@atelierfabien/next-base/src/*",
         "../../../node_modules/@atelierfabien/next-base/src/*"
       ],
