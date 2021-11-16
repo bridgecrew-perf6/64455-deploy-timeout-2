@@ -4,6 +4,6 @@ module.exports = config({
   locales: ['en', 'nl'],
   defaultLocale: 'en',
   pages: {
-    '*': ['common', 'app', 'lexicons', 'shop'],
+    '*': ['common', 'app', 'lexicons', 'shop', 'auth'],
   },
 });

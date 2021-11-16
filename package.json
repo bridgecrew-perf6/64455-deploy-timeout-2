@@ -13,6 +13,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@atelierfabien/next-auth": "^0.0.8",
     "@atelierfabien/next-base": "^0.0.8",
     "@atelierfabien/next-foundation": "^0.0.8",
     "@atelierfabien/next-sanity": "^0.0.8",

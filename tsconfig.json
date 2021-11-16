@@ -27,6 +27,8 @@
         "./config/*.preval",
         "./src/config/*",
         "./src/config/*.preval",
+        "./node_modules/@atelierfabien/next-auth/src/config/*",
+        "../../../node_modules/@atelierfabien/next-auth/src/config/*",
         "./node_modules/@atelierfabien/next-base/config/*",
         "../../../node_modules/@atelierfabien/next-base/config/*",
         "./node_modules/@atelierfabien/next-base/config/*.preval",
