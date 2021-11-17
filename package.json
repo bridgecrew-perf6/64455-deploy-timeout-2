@@ -23,7 +23,6 @@
     "dotenv-flow": "^3.2.0",
     "esm": "^3.2.25",
     "next": "12.0.4-canary.9",
-    "nodemailer": "^6.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sass": "1.43.4"
