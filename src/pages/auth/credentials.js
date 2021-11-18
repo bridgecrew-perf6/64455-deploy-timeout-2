@@ -1,9 +1,5 @@
 import AuthPage from '@app/components/Auth/Page';
 
-const Page = () => (
-  <div>
-    <AuthPage callbackUrl="/" />
-  </div>
-);
+const Page = () => <AuthPage />;
 
 export default Page;
