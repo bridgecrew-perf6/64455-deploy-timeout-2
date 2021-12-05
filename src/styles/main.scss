@@ -1,0 +1,20 @@
+// Override variables before import:
+
+// TODO set dark/secondary color to #151515 (for Snipcart background for example)
+
+$global-font-family: 'Droid Sans', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+$navbar-background: #151515;
+$border-rounded-border-radius: 0;
+
+@import '@atelierfabien/next-base/src/styles/main.scss';
+
+@import './purged/theme.scss';
+@import './purged/responsive.scss';
+
+.uk-navbar-right {
+  margin-right: $margin-margin;
+}
+
+[class^='ion-'] {
+  font-size: 1.5em;
+}

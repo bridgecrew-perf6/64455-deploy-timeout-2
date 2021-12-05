@@ -4,7 +4,9 @@
     "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
-      "@root/*": ["./*"],
+      "@root/*": [
+        "./*"
+      ],
       "@base/*": [
         "./node_modules/@atelierfabien/next-base/layers/shop/basic/*",
         "../../../node_modules/@atelierfabien/next-base/layers/shop/basic/*",
@@ -51,10 +53,16 @@
         "./node_modules/@atelierfabien/next-foundation/*",
         "../../../node_modules/@atelierfabien/next-foundation/*"
       ],
-      "@slices/*": ["./slices/*"]
+      "@slices/*": [
+        "./slices/*"
+      ]
     },
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
@@ -64,8 +72,15 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "incremental": true
   },
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }
