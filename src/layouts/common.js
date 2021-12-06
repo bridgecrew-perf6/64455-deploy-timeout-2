@@ -7,7 +7,7 @@ import { SnipcartContainer } from '@shop/components/Snipcart';
 import CommonModalLogin from '@shop/components/Common/Modal/Login';
 import CommonModalSearch from '@shop/components/Common/Modal/Search';
 
-const DefaultLayout = ({ children }) => {
+const CommonLayout = ({ children }) => {
   return (
     <>
       <div className="tm-page">
@@ -23,4 +23,4 @@ const DefaultLayout = ({ children }) => {
   );
 };
 
-export default DefaultLayout;
+export default CommonLayout;

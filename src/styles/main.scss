@@ -3,7 +3,9 @@
 // TODO set dark/secondary color to #151515 (for Snipcart background for example)
 
 $global-font-family: 'Droid Sans', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+$base-body-background: #ffffff;
 $navbar-background: #151515;
+$navbar-border: none;
 $border-rounded-border-radius: 0;
 
 @import '@atelierfabien/next-base/src/styles/main.scss';
@@ -15,6 +17,6 @@ $border-rounded-border-radius: 0;
   margin-right: $margin-margin;
 }
 
-[class^='ion-'] {
+.uk-navbar-container [class^='ion-'] {
   font-size: 1.5em;
 }
