@@ -1,102 +1,36 @@
+import SitePageSectionSlideshow from '@shop/components/Site/Page/Section/Slideshow';
+
+const Item = ({ title, subtitle, meta, href, image }) => (
+  <div className="post-item">
+    <div className="entry-media">
+      <a
+        href={href}
+        className="tw-image-hover uk-cover-container"
+        title={title}
+        uk-ratio="3/2"
+      >
+        <img
+          src={`/dev/assets/images/images-p/${image}`}
+          uk-cover="true"
+          alt=""
+        />
+      </a>
+    </div>
+    <div className="post-content">
+      <div className="tw-meta">{subtitle}</div>
+      <h3 className="post-title uk-text-truncate">
+        <a href={href}>{title}</a>
+      </h3>
+      <div className="tw-meta">
+        <a href={href}>{meta}</a>
+      </div>
+    </div>
+  </div>
+);
+
 const Page = () => (
   <div className="main-container">
-    <section className="tw-slider uk-light">
-      <div className="owl-carousel owl-theme">
-        <div
-          className="slider-item"
-          data-uk-parallax="bgy: -200"
-          data-overlay="0.4"
-          style={{
-            backgroundColor: '#151515',
-            backgroundImage: 'url(/dev/assets/images/images-p/home-slide2.jpg)',
-          }}
-        >
-          <div className="slider-content">
-            <div
-              className="tw-element uk-text-center tw-heading full"
-              data-uk-scrollspy="target: > *; cls:uk-animation-slide-bottom-medium; delay: 400;"
-            >
-              <h4 className="tw-sub-title">Welkom bij</h4>
-              <h1>Voeding in balans</h1>
-              <a
-                href="contact.html"
-                className="
-                  uk-button uk-button-default uk-button-small uk-button-radius
-                  tw-hover
-                "
-              >
-                <span className="tw-hover-inner">
-                  <span>Contacteer mij</span>
-                  <i className="ion-ios-arrow-thin-right" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div
-          className="slider-item"
-          data-uk-parallax="bgy: -200"
-          data-overlay="0.4"
-          style={{
-            backgroundColor: '#151515',
-            backgroundImage: 'url(/dev/assets/images/images-p/home-slide1.jpg)',
-          }}
-        >
-          <div className="slider-content">
-            <div
-              className="tw-element uk-text-center tw-heading full"
-              data-uk-scrollspy="target: > *; cls:uk-animation-slide-bottom-medium; delay: 400;"
-            >
-              <h4 className="tw-sub-title">Ben je klaar</h4>
-              <h1>voor een nieuwe start?</h1>
-              <a
-                href="contact.html"
-                className="
-                  uk-button uk-button-default uk-button-small uk-button-radius
-                  tw-hover
-                "
-              >
-                <span className="tw-hover-inner">
-                  <span>Contacteer mij</span>
-                  <i className="ion-ios-arrow-thin-right" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div
-          className="slider-item"
-          data-uk-parallax="bgy: -200"
-          data-overlay="0.4"
-          style={{
-            backgroundColor: '#151515',
-            backgroundImage: 'url(/dev/assets/images/images-p/home-slide3.jpg)',
-          }}
-        >
-          <div className="slider-content">
-            <div
-              className="tw-element uk-text-center tw-heading full"
-              data-uk-scrollspy="target: > *; cls:uk-animation-slide-bottom-medium; delay: 400;"
-            >
-              <h4 className="tw-sub-title">Samen investeren we</h4>
-              <h1>in een gezond lichaam!</h1>
-              <a
-                href="contact.html"
-                className="
-                  uk-button uk-button-default uk-button-small uk-button-radius
-                  tw-hover
-                "
-              >
-                <span className="tw-hover-inner">
-                  <span>Contacteer mij</span>
-                  <i className="ion-ios-arrow-thin-right" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <SitePageSectionSlideshow />
 
     <section className="uk-section uk-padding-remove-top uk-margin-top-minus">
       <div className="uk-container">
@@ -218,137 +152,77 @@ const Page = () => (
           </p>
         </div>
 
-        <div className="tw-element tw-carousel-post tw-posts">
-          <div
-            className="owl-carousel owl-theme"
-            data-uk-scrollspy="target:.post-item; cls:uk-animation-slide-bottom-medium; delay: 350;"
-          >
-            <div className="post-item">
-              <div className="entry-media" data-uk-lightbox>
-                <a
-                  href="/dev/assets/images/images-p/home-new-suikerstop.jpg"
-                  className="tw-image-hover"
-                  title="Closeup of the woman's hand wearing beautiful rings"
-                >
-                  <img
-                    src="/dev/assets/images/images-p/home-new-suikerstop.jpg"
-                    alt=""
-                  />
-                </a>
-              </div>
-              <div className="post-content">
-                <div className="tw-meta">Groepssessies</div>
-                <h3 className="post-title">
-                  <a href="#">Suikerstop!</a>
-                </h3>
-                <div className="tw-meta">
-                  <a href="#">Startdag 10 december 2021</a>
-                </div>
+        <div
+          uk-slider="true"
+          className="uk-slider tw-element tw-carousel-post tw-posts"
+        >
+          <div className="uk-position-relative">
+            <div className="uk-slider-container">
+              <div
+                className="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-grid"
+                data-uk-scrollspy="target:.post-item; cls:uk-animation-slide-bottom-medium; delay: 350;"
+                uk-grid="true"
+              >
+                <Item
+                  title="Suikerstop!"
+                  subtitle="Groepssessies"
+                  meta="Startdag 10 december 2021"
+                  href="#"
+                  image="home-new-suikerstop.jpg"
+                />
+
+                <Item
+                  title="Suikerstop 2.0!"
+                  subtitle="Groepssessies"
+                  meta="Startdag 5 januari 2022"
+                  href="#"
+                  image="home-new-suikerstop2.jpg"
+                />
+
+                <Item
+                  title="Vegetarische burgers"
+                  subtitle="Kookworkshop"
+                  meta="7 december 2021"
+                  href="#"
+                  image="home-new-burgers.jpg"
+                />
+
+                <Item
+                  title="Thermomix-demo"
+                  subtitle="Demonstratie"
+                  meta="11 december 2021"
+                  href="#"
+                  image="home-new-thermomix.jpg"
+                />
+
+                <Item
+                  title="Winterse soepen"
+                  subtitle="Kookworkshop"
+                  meta="29 december 2021"
+                  href="#"
+                  image="home-new-soepen2.jpg"
+                />
               </div>
             </div>
-
-            <div className="post-item">
-              <div className="entry-media" data-uk-lightbox>
-                <a
-                  href="/dev/assets/images/images-p/home-new-suikerstop2.jpg"
-                  className="tw-image-hover"
-                  title="Closeup of the woman's hand wearing beautiful rings"
-                >
-                  <img
-                    src="/dev/assets/images/images-p/home-new-suikerstop2.jpg"
-                    alt=""
-                  />
-                </a>
-              </div>
-              <div className="post-content">
-                <div className="tw-meta">Groepssessies</div>
-                <h3 className="post-title">
-                  <a href="#">Suikerstop 2.0!</a>
-                </h3>
-                <div className="tw-meta">
-                  <a href="#">Startdag 5 januari 2022</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="post-item">
-              <div className="entry-media" data-uk-lightbox>
-                <a
-                  href="/dev/assets/images/images-p/home-new-burgers.jpg"
-                  className="tw-image-hover"
-                  title="Young woman relaxing at home and reading a book"
-                >
-                  <img
-                    src="/dev/assets/images/images-p/home-new-burgers.jpg"
-                    alt=""
-                  />
-                </a>
-              </div>
-              <div className="post-content">
-                <div className="tw-meta">Kookworkshop</div>
-                <h3 className="post-title">
-                  <a href="#">Vegetarische burgers</a>
-                </h3>
-                <div className="tw-meta">
-                  <a href="#">7 december 2021</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="post-item">
-              <div className="entry-media" data-uk-lightbox>
-                <a
-                  href="/dev/assets/images/images-p/home-new-thermomix.jpg"
-                  className="tw-image-hover"
-                  title="Axiom Essential Watch auctor ornare odio sed non"
-                >
-                  <img
-                    src="/dev/assets/images/images-p/home-new-thermomix.jpg"
-                    alt=""
-                  />
-                </a>
-              </div>
-              <div className="post-content">
-                <div className="tw-meta">Demonstratie</div>
-                <h3 className="post-title">
-                  <a href="#">Thermomix-demo</a>
-                </h3>
-                <div className="tw-meta">
-                  <a href="#">11 december 2021</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="post-item">
-              <div className="entry-media" data-uk-lightbox>
-                <a
-                  href="/dev/assets/images/images-p/home-new-soepen2.jpg"
-                  className="tw-image-hover"
-                  title="Alud. Winter Magazine Cover amet nibh vulputate cursus"
-                >
-                  <img
-                    src="/dev/assets/images/images-p/home-new-soepen2.jpg"
-                    alt=""
-                  />
-                </a>
-              </div>
-              <div className="post-content">
-                <div className="tw-meta">
-                  <a href="#">Kookworkshop</a>
-                </div>
-                <h3 className="post-title">
-                  <a href="#">Winterse soepen</a>
-                </h3>
-                <div className="tw-meta">
-                  <a href="#">29 december 2021</a>
-                </div>
-              </div>
+            <div className="uk-visible@s">
+              <a
+                className="uk-position-center-left-out uk-position-small"
+                href="#"
+                uk-slidenav-previous="true"
+                uk-slider-item="previous"
+              />
+              <a
+                className="uk-position-center-right-out uk-position-small"
+                href="#"
+                uk-slidenav-next="true"
+                uk-slider-item="next"
+              />
             </div>
           </div>
+          <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin" />
         </div>
 
-        <div className="uk-text-center">
-          <div style={{ height: '100px' }} />
+        <div className="uk-margin-large-top uk-text-center">
           <a
             className="
               uk-button
@@ -361,6 +235,7 @@ const Page = () => (
           >
             <span className="tw-hover-inner">
               <span>Bezoek de shop</span>
+              {/* TODO */}
               <i className="ion-ios-arrow-thin-right" />
             </span>
           </a>

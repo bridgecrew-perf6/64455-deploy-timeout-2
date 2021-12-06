@@ -1518,6 +1518,10 @@ ul.portfolio-single-meta + .portfolio-btn {
   transform: scale3d(1.1, 1.1, 1);
 }
 
+.tw-image-hover.uk-cover-container:hover > img {
+  transform: scale3d(1.1, 1.1, 1) translate(-50%, -50%);
+}
+
 /* TW Social Icons Element*/
 .tw-socials {
   margin-left: -3px;
