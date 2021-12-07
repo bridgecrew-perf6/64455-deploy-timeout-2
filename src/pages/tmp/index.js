@@ -244,9 +244,9 @@ const Page = () => (
     </section>
 
     <section
-      className="uk-section uk-section-large uk-light"
+      className="uk-section uk-light"
       data-uk-parallax="bgy: -200"
-      data-overlay="0.6"
+      data-overlay="0.4"
       style={{
         backgroundColor: '#151515',
         backgroundImage:
@@ -255,49 +255,71 @@ const Page = () => (
     >
       <div className="uk-container">
         <div className="tw-carousel-testimonial uk-text-center">
-          <div
-            className="owl-carousel owl-theme"
-            data-uk-scrollspy="target:.testimonial-item; cls:uk-animation-slide-bottom-medium; delay: 350;"
-          >
-            <div className="testimonial-item">
-              <h3 className="testimonial-title">Getuigenissen</h3>
-              <div className="testimonial-content">
-                <p>
-                  Nog nooit zo'n leuk 'dieet' gedaan, die maand is
-                  voorbijgevlogen! 
-                </p>
-              </div>
-              <div className="testimonial-author">
-                <span>Annette B. / Suikerstop!</span>
+          <div uk-slider="true">
+            <div className="uk-position-relative">
+              <div className="uk-slider-container">
+                <ul className="uk-slider-items uk-child-width-1-1">
+                  <li className="uk-height-small uk-flex uk-flex-center uk-flex-middle">
+                    <div className="testimonial-item">
+                      <h3 className="testimonial-title">Getuigenissen</h3>
+                      <div className="testimonial-content">
+                        <p>
+                          Nog nooit zo'n leuk 'dieet' gedaan, die maand is
+                          voorbijgevlogen! 
+                        </p>
+                      </div>
+                      <div className="testimonial-author">
+                        <span>Annette B. / Suikerstop!</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="uk-height-small uk-flex uk-flex-center uk-flex-middle">
+                    <div className="testimonial-item">
+                      <h3 className="testimonial-title">Getuigenissen</h3>
+                      <div className="testimonial-content">
+                        <p>
+                          Petra haar aanpak is heel aanmoedigend, ondersteunend
+                          en uiterst respectvol! 
+                        </p>
+                      </div>
+                      <div className="testimonial-author">
+                        <span>Piet S. / Individuele begeleiding</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="uk-height-small uk-flex uk-flex-center uk-flex-middle">
+                    <div className="testimonial-item">
+                      <h3 className="testimonial-title">Getuigenissen</h3>
+                      <div className="testimonial-content">
+                        <p>
+                          G E W E L D I G! De documentatie, het traject, de tips
+                          en community spirit zorgen ervoor dat het gemakkelijk
+                          is en je een nieuwe levenswijze kan installeren.
+                        </p>
+                      </div>
+                      <div className="testimonial-author">
+                        <span>Bertha / Suikerstop!</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div className="uk-visible@s">
+                  <a
+                    className="uk-position-center-left-out uk-position-small"
+                    href="#"
+                    uk-slidenav-previous="true"
+                    uk-slider-item="previous"
+                  />
+                  <a
+                    className="uk-position-center-right-out uk-position-small"
+                    href="#"
+                    uk-slidenav-next="true"
+                    uk-slider-item="next"
+                  />
+                </div>
               </div>
             </div>
-
-            <div className="testimonial-item">
-              <h3 className="testimonial-title">Getuigenissen</h3>
-              <div className="testimonial-content">
-                <p>
-                  Petra haar aanpak is heel aanmoedigend, ondersteunend en
-                  uiterst respectvol! 
-                </p>
-              </div>
-              <div className="testimonial-author">
-                <span>Piet S. / Individuele begeleiding</span>
-              </div>
-            </div>
-
-            <div className="testimonial-item">
-              <h3 className="testimonial-title">Getuigenissen</h3>
-              <div className="testimonial-content">
-                <p>
-                  G E W E L D I G! De documentatie, het traject, de tips en
-                  community spirit zorgen ervoor dat het gemakkelijk is en je
-                  een nieuwe levenswijze kan installeren.
-                </p>
-              </div>
-              <div className="testimonial-author">
-                <span>Bertha / Suikerstop!</span>
-              </div>
-            </div>
+            <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin-large-top" />
           </div>
         </div>
       </div>

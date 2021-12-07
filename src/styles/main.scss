@@ -25,6 +25,19 @@ $border-rounded-border-radius: 0;
   background: #151515;
 }
 
+.uk-slideshow-items,
+.uk-slider-items {
+  * {
+    user-select: none;
+  }
+}
+
+[data-overlay] .uk-dotnav {
+  position: relative;
+  z-index: 20;
+}
+
 [data-overlay] {
   background-color: #151515;
+  z-index: 0;
 }
