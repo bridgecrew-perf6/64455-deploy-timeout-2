@@ -6,6 +6,7 @@ const AboutPage = ({ page, children }) => {
   return (
     <>
       <h1>About</h1>
+      <h2>{page.title}</h2>
       <Regions page={page} renderAll />
       {children}
     </>

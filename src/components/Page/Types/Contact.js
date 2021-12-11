@@ -6,6 +6,7 @@ const ContactPage = ({ page, children }) => {
   return (
     <>
       <h1>Contact</h1>
+      <h2>{page.title}</h2>
       <Regions page={page} renderAll />
       {children}
     </>

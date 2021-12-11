@@ -6,6 +6,7 @@ const TipsPage = ({ page, children }) => {
   return (
     <>
       <h1>Tips</h1>
+      <h2>{page.title}</h2>
       <Regions page={page} renderAll />
       {children}
     </>
