@@ -17,7 +17,8 @@ $border-rounded-border-radius: 0;
   margin-right: $margin-margin;
 }
 
-.uk-navbar-container [class^='ion-'] {
+.uk-navbar-container [class^='ion-'],
+.tw-hover .tw-hover-inner i {
   font-size: 1.5em;
 }
 
@@ -40,4 +41,26 @@ $border-rounded-border-radius: 0;
 [data-overlay] {
   background-color: #151515;
   z-index: 0;
+}
+
+.entry-post .more-link {
+  margin-top: 0;
+}
+
+.tw-main-menu {
+  .uk-navbar-dropdown {
+    background-color: #151515;
+    padding: 14px 18px;
+  }
+  .uk-navbar-dropdown-nav {
+    font-size: 12px;
+
+    a {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+  }
 }
