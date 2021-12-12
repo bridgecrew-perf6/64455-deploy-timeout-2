@@ -1,6 +1,15 @@
+import { useMemo } from 'react';
+
 import { withPageWithLayout } from '@shop/hooks';
 
+import { PortableText } from '@shop/components/Sanity';
+
 import SitePageSectionSlideshow from '@shop/components/Site/Page/Section/Slideshow';
+
+import { Link } from '@foundation/next';
+
+import { useLink } from '@app/hooks';
+import { urlFor } from '@app/hooks/image';
 
 const Item = ({ title, subtitle, meta, href, image }) => (
   <div className="post-item">
@@ -30,63 +39,92 @@ const Item = ({ title, subtitle, meta, href, image }) => (
   </div>
 );
 
-const HomePage = () => (
+const BlockImage = ({ image }) => {
+  const imageUrl = useMemo(
+    () =>
+      image ? urlFor(image).width(600).height(500).auto('format').url() : null,
+    [image]
+  );
+
+  return (
+    <div
+      className="uk-padding-xlarge uk-light uk-background-cover"
+      style={{
+        backgroundImage: imageUrl ? `url('${imageUrl}')` : null,
+        minHeight: '400px',
+      }}
+    />
+  );
+};
+
+const BlockContent = ({ title, subtitle, body, button }) => {
+  const link = useLink(button ?? {});
+
+  return (
+    <div className="uk-padding-xlarge" style={{ backgroundColor: '#f7f7f7' }}>
+      <div className="tw-element tw-box">
+        {subtitle && <h4 className="tw-sub-title">{subtitle}</h4>}
+        {title && <h2 className="uk-text-uppercase">{title}</h2>}
+        <PortableText blocks={body} />
+
+        {link.valid && (
+          <Link
+            href={link.href}
+            className="
+          uk-button
+          uk-button-default
+          uk-button-small
+          uk-button-silver
+          uk-button-radius
+          tw-hover
+        "
+          >
+            <span className="tw-hover-inner">
+              <span>{link.label}</span>
+              <i className="ion-ios-arrow-thin-right" />
+            </span>
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const BlockRegion = ({ media = 'left', ...props }) => {
+  return (
+    <div
+      className="uk-child-width-1-2@s uk-grid-match uk-grid-collapse"
+      data-uk-grid
+      data-uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 400;"
+    >
+      {media === 'left' && (
+        <>
+          <BlockImage {...props} />
+          <BlockContent {...props} />
+        </>
+      )}
+      {media === 'right' && (
+        <>
+          <BlockContent {...props} />
+          <BlockImage {...props} />
+        </>
+      )}
+    </div>
+  );
+};
+
+const HomePage = ({ page }) => (
   <div className="main-container">
     <SitePageSectionSlideshow />
 
     <section className="uk-section uk-padding-remove-top uk-margin-top-minus">
       <div className="uk-container">
-        <div
-          className="uk-child-width-1-2@s uk-grid-match uk-grid-collapse"
-          data-uk-grid
-          data-uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 400;"
-        >
-          <div
-            className="uk-padding-xlarge uk-light uk-background-cover"
-            style={{
-              backgroundImage:
-                'url(/dev/assets/images/images-p/home-over-petra-meta.jpg)',
-              minHeight: '400px',
-            }}
-          />
+        {page.regions.block1 && <BlockRegion {...page.regions.block1} />}
+        {page.regions.block2 && (
+          <BlockRegion {...page.regions.block2} media="right" />
+        )}
 
-          <div
-            className="uk-padding-xlarge"
-            style={{ backgroundColor: '#f7f7f7' }}
-          >
-            <div className="tw-element tw-box">
-              <h4 className="tw-sub-title">Over Petra</h4>
-              <h2 className="uk-text-uppercase">
-                Gezonder eten met raad en daad!
-              </h2>
-              <p>
-                Voeding in balans is er voor iedereen die een optimaal gewicht
-                wenst te bereiken en te behouden. Dankzij jouw voeding in balans
-                blijf je energiek en fit en ben je gezondheidsklachten een
-                stapje voor!
-              </p>
-
-              <a
-                href="#"
-                className="
-                  uk-button
-                  uk-button-default
-                  uk-button-small
-                  uk-button-silver
-                  uk-button-radius
-                  tw-hover
-                "
-              >
-                <span className="tw-hover-inner">
-                  <span>Lees verder</span>
-                  <i className="ion-ios-arrow-thin-right" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div
+        {/* <div
           className="
             uk-child-width-1-2@s
             uk-margin-remove-top
@@ -138,7 +176,7 @@ const HomePage = () => (
               minHeight: '400px',
             }}
           />
-        </div>
+        </div> */}
       </div>
     </section>
 

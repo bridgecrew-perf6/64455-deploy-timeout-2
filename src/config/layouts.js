@@ -4,6 +4,12 @@ import { layoutResolvers } from '@base/config/layouts';
 
 import { nodeCoreProjection } from '@base/sanity/queries';
 
+layoutResolvers.set('home', async (client, page, options) => {
+  const { node, locale, defaultLocale } = options;
+
+  // console.log(JSON.stringify(page.regions, null, 4));
+});
+
 layoutResolvers.set('activities', async (client, page, options) => {
   const { node, locale, defaultLocale } = options;
 

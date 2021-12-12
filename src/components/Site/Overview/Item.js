@@ -9,7 +9,8 @@ const className =
 
 const SiteOverviewItem = ({ title, subtitle, intro, href, image }) => {
   const imageUrl = useMemo(
-    () => urlFor(image).width(370).height(215).auto('format').url(),
+    () =>
+      image ? urlFor(image).width(370).height(215).auto('format').url() : null,
     [image]
   );
 
@@ -19,7 +20,7 @@ const SiteOverviewItem = ({ title, subtitle, intro, href, image }) => {
         <div className="entry-media">
           <div className="tw-thumbnail">
             <Link href={href} className="tw-image-hover" title={title}>
-              <img src={imageUrl} alt={subtitle} />
+              {imageUrl && <img src={imageUrl} alt={subtitle} />}
             </Link>
           </div>
         </div>
