@@ -1,40 +1,49 @@
-import { Link } from '@foundation/next';
+import { useMemo } from 'react';
+
+import { Link, useCurrency } from '@foundation/next';
 
 import { PortableText } from '@shop/components/Sanity';
 
-import { withPageWithLayout } from '@shop/hooks';
+import { withPageWithLayout, useProductUrl } from '@shop/hooks';
+import { urlFor } from '@app/hooks/image';
 
 import SitePageSectionSlideshow from '@shop/components/Site/Page/Section/Slideshow';
 
 import { Region } from '@shop/components/Page/Regions';
 
-const Item = ({ title, subtitle, meta, href, image }) => (
-  <div className="post-item">
-    <div className="entry-media">
-      <a
-        href={href}
-        className="tw-image-hover uk-cover-container"
-        title={title}
-        uk-ratio="3/2"
-      >
-        <img
-          src={`/dev/assets/images/images-p/${image}`}
-          uk-cover="true"
-          alt=""
-        />
-      </a>
-    </div>
-    <div className="post-content">
-      <div className="tw-meta">{subtitle}</div>
-      <h3 className="post-title uk-text-truncate">
-        <a href={href}>{title}</a>
-      </h3>
-      <div className="tw-meta">
-        <a href={href}>{meta}</a>
+const Item = product => {
+  const { name, category, image, pricing } = product;
+  const c = useCurrency();
+  const href = useProductUrl(product);
+  const imageUrl = useMemo(
+    () =>
+      image ? urlFor(image).width(420).height(280).auto('format').url() : null,
+    [image]
+  );
+  return (
+    <div className="post-item">
+      <div className="entry-media">
+        <Link
+          href={href}
+          className="tw-image-hover uk-cover-container"
+          title={name}
+          uk-ratio="3/2"
+        >
+          <img src={imageUrl} uk-cover="true" />
+        </Link>
+      </div>
+      <div className="post-content">
+        <div className="tw-meta">{category || '\u00A0'}</div>
+        <h3 className="post-title uk-text-truncate">
+          <Link href={href}>{name}</Link>
+        </h3>
+        <div className="tw-meta">
+          <Link href={href}>{c.format(pricing?.price)}</Link>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const TextBlock = ({ title, subtitle, body = [] }) => (
   <>
@@ -44,7 +53,7 @@ const TextBlock = ({ title, subtitle, body = [] }) => (
   </>
 );
 
-const ProductsSlider = () => (
+const ProductsSlider = ({ products = [] }) => (
   <div
     uk-slider="true"
     className="uk-slider tw-element tw-carousel-post tw-posts"
@@ -56,45 +65,9 @@ const ProductsSlider = () => (
           data-uk-scrollspy="target:.post-item; cls:uk-animation-slide-bottom-medium; delay: 350;"
           uk-grid="true"
         >
-          <Item
-            title="Suikerstop!"
-            subtitle="Groepssessies"
-            meta="Startdag 10 december 2021"
-            href="#"
-            image="home-new-suikerstop.jpg"
-          />
-
-          <Item
-            title="Suikerstop 2.0!"
-            subtitle="Groepssessies"
-            meta="Startdag 5 januari 2022"
-            href="#"
-            image="home-new-suikerstop2.jpg"
-          />
-
-          <Item
-            title="Vegetarische burgers"
-            subtitle="Kookworkshop"
-            meta="7 december 2021"
-            href="#"
-            image="home-new-burgers.jpg"
-          />
-
-          <Item
-            title="Thermomix-demo"
-            subtitle="Demonstratie"
-            meta="11 december 2021"
-            href="#"
-            image="home-new-thermomix.jpg"
-          />
-
-          <Item
-            title="Winterse soepen"
-            subtitle="Kookworkshop"
-            meta="29 december 2021"
-            href="#"
-            image="home-new-soepen2.jpg"
-          />
+          {products.map(product => (
+            <Item key={product._id} {...product} />
+          ))}
         </div>
       </div>
       <div className="uk-visible@s">
@@ -164,11 +137,18 @@ const TestimonialsSlider = ({ title, entries = [] }) => {
 
 const HomePage = ({ page }) => (
   <div className="main-container">
-    <SitePageSectionSlideshow />
+    <Region
+      region={page.regions.slideshow}
+      Component={SitePageSectionSlideshow}
+    />
     <section className="uk-section uk-padding-remove-top uk-margin-top-minus">
       <div className="uk-container">
         <Region region={page.regions.block1} />
-        <Region region={page.regions.block2} media="right" />
+        <Region
+          region={page.regions.block2}
+          media="right"
+          className="tw-tablet-margin"
+        />
       </div>
     </section>
     <section className="uk-section uk-background-muted">
@@ -178,7 +158,7 @@ const HomePage = ({ page }) => (
           Component={TextBlock}
           className="tw-element tw-heading uk-text-center"
         />
-        <ProductsSlider />
+        <ProductsSlider products={page.products} />
         <div className="uk-margin-large-top uk-text-center">
           <Link
             href="/shop"
