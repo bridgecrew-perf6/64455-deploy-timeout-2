@@ -11,6 +11,14 @@ import { Region } from '@shop/components/Page/Regions';
 
 import SitePageSectionSlideshow from '@shop/components/Site/Page/Section/Slideshow';
 
+const TextBlock = ({ title, subtitle, body = [] }) => (
+  <>
+    {title && <h3>{title}</h3>}
+    {subtitle && <h4>{subtitle}</h4>}
+    <PortableText blocks={body} />
+  </>
+);
+
 const Item = product => {
   const { name, category, image, pricing } = product;
   const c = useCurrency();
@@ -44,14 +52,6 @@ const Item = product => {
     </div>
   );
 };
-
-const TextBlock = ({ title, subtitle, body = [] }) => (
-  <>
-    {title && <h3>{title}</h3>}
-    {subtitle && <h4>{subtitle}</h4>}
-    <PortableText blocks={body} />
-  </>
-);
 
 const ProductsSlider = ({ products = [] }) => (
   <div

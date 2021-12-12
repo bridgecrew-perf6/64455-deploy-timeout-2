@@ -1,3 +1,5 @@
+import { Link } from '@foundation/next';
+
 import { withPageWithLayout } from '@shop/hooks';
 
 import { Region } from '@shop/components/Page/Regions';
@@ -14,6 +16,73 @@ const TextBlock = ({ title, subtitle, body = [] }) => (
     {subtitle && <h4>{subtitle}</h4>}
     <PortableText blocks={body} />
   </>
+);
+
+const Item = node => {
+  const { path, item } = node;
+  const { title, subtitle, intro } = item.content ?? {};
+
+  return (
+    <div className="post-item">
+      <div className="post-content">
+        <div className="tw-meta">
+          <Link href={path}>{subtitle ?? '\u00A0'}</Link>
+        </div>
+        <h3 className="post-title">
+          <Link href={path}>{title}</Link>
+        </h3>
+        <div className="post-intro uk-margin-medium-bottom">
+          <p>{intro}</p>
+        </div>
+        <Link
+          href={path}
+          className="uk-button uk-button-default uk-button-small uk-button-radius tw-hover"
+        >
+          <span className="tw-hover-inner">
+            <span>Meer info</span>
+            <i className="ion-ios-arrow-thin-right" />
+          </span>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+const ActivitiesSlider = ({ items = [] }) => (
+  <div
+    uk-slider="true"
+    className="uk-slider tw-element tw-carousel-post tw-posts style-2"
+  >
+    <div className="uk-position-relative">
+      <div className="uk-slider-container">
+        <div
+          className="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-grid uk-text-center"
+          data-uk-scrollspy="target:.post-item; cls:uk-animation-slide-bottom-medium; delay: 350;"
+          data-uk-height-match=".post-intro"
+          uk-grid="true"
+        >
+          {items.map(item => (
+            <Item key={item._id} {...item} />
+          ))}
+        </div>
+      </div>
+      <div className="uk-visible@s">
+        <a
+          className="uk-position-center-left-out uk-position-small"
+          href="#"
+          uk-slidenav-previous="true"
+          uk-slider-item="previous"
+        />
+        <a
+          className="uk-position-center-right-out uk-position-small"
+          href="#"
+          uk-slidenav-next="true"
+          uk-slider-item="next"
+        />
+      </div>
+    </div>
+    <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin" />
+  </div>
 );
 
 const AboutPage = ({ page }) => (
@@ -36,163 +105,7 @@ const AboutPage = ({ page }) => (
         <div className="tw-element tw-heading uk-text-center uk-light">
           <Region region={page.regions.activities} Component={TextBlock} />
         </div>
-
-        <div className="tw-element tw-carousel-post uk-text-center style-2 tw-posts">
-          <div
-            className="owl-carousel owl-theme"
-            data-uk-scrollspy="target:.post-item; cls:uk-animation-slide-bottom-medium"
-          >
-            <div className="post-item">
-              <div className="post-content">
-                <div className="tw-meta">
-                  <a href="#">Privé-raadpleging</a>
-                </div>
-                <h3 className="post-title">
-                  <a href="#">Afspraak</a>
-                </h3>
-                <p>
-                  Individuele begeleiding werkt het best en garandeert het
-                  grootste succes op lange termijn.
-                </p>
-                <a
-                  href="afspraak.html"
-                  className="
-                      uk-button
-                      uk-button-default
-                      uk-button-small
-                      uk-button-radius
-                      tw-hover
-                    "
-                >
-                  <span className="tw-hover-inner">
-                    <span>Meer info</span>
-                    <i className="ion-ios-arrow-thin-right" />
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <div className="post-item">
-              <div className="post-content">
-                <div className="tw-meta">
-                  <a href="#">Groepssessies</a>
-                </div>
-                <h3 className="post-title">
-                  <a href="#">Kookworkshops</a>
-                </h3>
-                <p>
-                  De ideale gelegenheid om kennis te maken met de gezonde keuken
-                  waar puur en seizoensgebonden primeert.
-                </p>
-                <a
-                  href="kookworkshop.html"
-                  className="
-                      uk-button
-                      uk-button-default
-                      uk-button-small
-                      uk-button-radius
-                      tw-hover
-                    "
-                >
-                  <span className="tw-hover-inner">
-                    <span>Meer info</span>
-                    <i className="ion-ios-arrow-thin-right" />
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <div className="post-item">
-              <div className="post-content">
-                <div className="tw-meta">
-                  <a href="#">Vervangmaaltijden</a>
-                </div>
-                <h3 className="post-title">
-                  <a href="#">Equilibre3-mentor</a>
-                </h3>
-                <p>
-                  Equilibre3 biedt je een dieet op maat aan met verantwoord
-                  lekkere vervangmaaltijden.
-                </p>
-                <a
-                  href="equilibre3.html"
-                  className="
-                      uk-button
-                      uk-button-default
-                      uk-button-small
-                      uk-button-radius
-                      tw-hover
-                    "
-                >
-                  <span className="tw-hover-inner">
-                    <span>Meer info</span>
-                    <i className="ion-ios-arrow-thin-right" />
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <div className="post-item">
-              <div className="post-content">
-                <div className="tw-meta">
-                  <a href="#">Groepssessies</a>
-                </div>
-                <h3 className="post-title">
-                  <a href="#">Suikerstop!</a>
-                </h3>
-                <p>
-                  Tijdens informatieve groepssessies informeer ik je over de
-                  effecten van gezonde voeding op je lichaam.
-                </p>
-                <a
-                  href="suikerstop.html"
-                  className="
-                      uk-button
-                      uk-button-default
-                      uk-button-small
-                      uk-button-radius
-                      tw-hover
-                    "
-                >
-                  <span className="tw-hover-inner">
-                    <span>Meer info</span>
-                    <i className="ion-ios-arrow-thin-right" />
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <div className="post-item">
-              <div className="post-content">
-                <div className="tw-meta">
-                  <a href="#">Demonstratie</a>
-                </div>
-                <h3 className="post-title">
-                  <a href="#">Thermomix-demo</a>
-                </h3>
-                <p>
-                  Beleef de Thermomix ervaring bij u thuis, bij vrienden of in
-                  de kookstudio van 'Voeding in balans'.
-                </p>
-                <a
-                  href="thermomix.html"
-                  className="
-                      uk-button
-                      uk-button-default
-                      uk-button-small
-                      uk-button-radius
-                      tw-hover
-                    "
-                >
-                  <span className="tw-hover-inner">
-                    <span>Lees meer</span>
-                    <i className="ion-ios-arrow-thin-right" />
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ActivitiesSlider items={page.nodes} />
       </div>
     </section>
   </div>

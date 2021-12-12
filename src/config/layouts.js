@@ -10,6 +10,18 @@ import {
   baseProductProjection,
 } from '@base/sanity/queries';
 
+const nodesProjection = groq`
+'nodes': nodes[]->{ 
+  ${nodeCoreProjection},
+  'item': item->{
+    _id, _type, alias,
+    'content': { ...i18n[$defaultLocale].content, ...i18n[$locale].content }{
+      title, subtitle, intro
+    },
+    'image': images[0]
+  }
+}`;
+
 layoutResolvers.set('home', async (client, page, options) => {
   const { locale, defaultLocale } = options;
 
@@ -23,11 +35,14 @@ layoutResolvers.set('home', async (client, page, options) => {
     return memo;
   }, []);
 
+  const predicate =
+    ids.length > 0 ? `${productPredicate} && _id in $ids` : productPredicate;
+
   const products = await client.fetch(
-    groq`*[${productPredicate} && _id in $ids]{
+    groq`*[${predicate}]{
       ${baseProductProjection}, 
       'image': images[0]
-    }`,
+    }|order(order)`,
     {
       ids,
       locale,
@@ -45,23 +60,25 @@ layoutResolvers.set('home', async (client, page, options) => {
   page.products = sortObjectsByIds('_id', ids, page.products);
 });
 
+layoutResolvers.set('about', async (client, page, options) => {
+  const { locale, defaultLocale } = options;
+  page.nodes = await client.fetch(
+    groq`*[_type == 'navigation.node' && i18n.nl.path.current == '/aanbod']{
+      ${nodesProjection}
+    }.nodes[]`,
+    {
+      locale,
+      defaultLocale,
+    }
+  );
+});
+
 layoutResolvers.set('activities', async (client, page, options) => {
   const { node, locale, defaultLocale } = options;
 
   if (node) {
     page.nodes = await client.fetch(
-      groq`*[_type == 'navigation.node' && _id == $id]{
-      'nodes': nodes[]->{ 
-        ${nodeCoreProjection},
-        'item': item->{
-          _id, _type, alias,
-          'content': { ...i18n[$defaultLocale].content, ...i18n[$locale].content }{
-            title, subtitle, intro
-          },
-          'image': images[0]
-        }
-      }
-    }.nodes[]`,
+      groq`*[_type == 'navigation.node' && _id == $id]{ ${nodesProjection} }.nodes[]`,
       {
         id: node._id,
         locale,
