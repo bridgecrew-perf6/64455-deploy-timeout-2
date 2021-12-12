@@ -2,9 +2,9 @@ import { withPageWithLayout } from '@shop/hooks';
 
 import SiteHeader from '@shop/components/Site/Header';
 
-const ContactPage = () => (
+const ContactPage = ({ page }) => (
   <div className="main-container">
-    <SiteHeader title="Contact" image="contact2-multi.jpg" />
+    <SiteHeader page={page} />
 
     <section className="uk-section uk-background-cover">
       <div className="uk-container">

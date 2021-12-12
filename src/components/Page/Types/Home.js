@@ -7,9 +7,9 @@ import { PortableText } from '@shop/components/Sanity';
 import { withPageWithLayout, useProductUrl } from '@shop/hooks';
 import { urlFor } from '@app/hooks/image';
 
-import SitePageSectionSlideshow from '@shop/components/Site/Page/Section/Slideshow';
-
 import { Region } from '@shop/components/Page/Regions';
+
+import SitePageSectionSlideshow from '@shop/components/Site/Page/Section/Slideshow';
 
 const Item = product => {
   const { name, category, image, pricing } = product;

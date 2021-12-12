@@ -1,103 +1,26 @@
 import { withPageWithLayout } from '@shop/hooks';
 
+import { Region } from '@shop/components/Page/Regions';
+
+import { PortableText } from '@shop/components/Sanity';
+
 import SiteHeader from '@shop/components/Site/Header';
+import SitePageSectionIntro from '@shop/components/Site/Page/Section/Intro';
+import SitePageSectionColumns from '@shop/components/Site/Page/Section/Columns';
 
-const AboutPage = () => (
+const TextBlock = ({ title, subtitle, body = [] }) => (
+  <>
+    {title && <h3>{title}</h3>}
+    {subtitle && <h4>{subtitle}</h4>}
+    <PortableText blocks={body} />
+  </>
+);
+
+const AboutPage = ({ page }) => (
   <div className="main-container">
-    <SiteHeader title="Over Petra" image="over-petra-multi3.jpg" />
-
-    <section
-      className="
-          uk-section
-          uk-section-large
-          uk-padding-remove-top
-          uk-margin-large-top
-          uk-padding-remove-vertical
-          uk-margin-bottom
-        "
-    >
-      <div className="uk-container">
-        <div className="tw-element uk-text-center tw-heading">
-          <h4>Petra begeleidt je naar een gezonder leven</h4>
-          <p>
-            Voeding in balans is er voor iedereen die een optimaal gewicht wenst
-            te bereiken en te behouden. Dankzij jouw voeding in balans blijf je
-            energiek en fit en ben je gezondheidsklachten een stapje voor!
-          </p>
-        </div>
-
-        <div
-          className="
-              tw-element
-              uk-text-center uk-margin-remove-top uk-padding-remove-bottom
-            "
-        >
-          <img src="/dev/assets/images/images-p/over-petra-meta.jpg" alt="" />
-        </div>
-      </div>
-    </section>
-
-    <section className="uk-section uk-padding-remove-bottom uk-padding-remove-top">
-      <div
-        className="uk-child-width-1-2@m uk-grid-match uk-grid-collapse"
-        data-uk-grid
-        data-uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 400;"
-      >
-        <div
-          className="uk-padding-xlarge"
-          style={{ backgroundColor: '#f7f7f7' }}
-        >
-          <div className="uk-padding tw-element tw-box">
-            <h4 className="uk-text-uppercase">
-              Gezonder eten met raad en daad!
-            </h4>
-            <p className="description">
-              Wil je gezondheidsklachten een stapje voor blijven, je gelukkiger
-              en energieker voelen en je vlotter kunnen kleden? Ben je bereid om
-              hieraan te werken en daadwerkelijk stappen te zetten?
-            </p>
-            <p>
-              Samen zoeken we uit welke aanpak het beste bij jou past, eventueel
-              met de steun en expertise van partners als EQ3 en BiometrIQ.
-            </p>
-            <p>
-              Je kan kiezen voor individuele begeleiding en coaching of je kan
-              deelnemen aan de Suikerstop!-groepssessies. Hierbij daag ik je uit
-              om gedurende 1 maand alle (toegevoegde) suikers te vermijden.
-              Dankzij de steun van de groep en receptjes voor de hele maand is
-              succes gegarandeerd!
-            </p>
-          </div>
-        </div>
-
-        <div
-          className="uk-padding-xlarge"
-          style={{ backgroundColor: '#f7f7f7' }}
-        >
-          <div className="uk-padding tw-element tw-box">
-            <h4 className="uk-text-uppercase">Mijn visie</h4>
-            <p className="description">
-              Dankzij de positieve reacties van mensen als ‘Jij maakte van mijn
-              eerste vermageringsdag een feest’, geniet ik nog steeds van elke
-              werkdag!.
-            </p>
-            <p>
-              In de ‘voeding in balans’ kookstudio ontdek je gezonde en lekkere
-              gerechten met veel aandacht voor plantaardige ingrediënten. Niet
-              alleen nuttig tijdens het vermageringsproces, maar heel belangrijk
-              om ook nadien je gewicht te behouden. Een verandering van eet- en
-              leefstijl en ervan genieten is immers voor de rest van je leven!
-            </p>
-            <p>
-              In mijn kookstudio kan je ook kennismaken met dé keukenhulp bij
-              uitstek, de Thermomix TM6. Ben je nieuwsgierig en enthousiast om
-              in dit avontuur te stappen, contacteer me dan voor meer info of
-              maak hier een eerste afspraak.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <SiteHeader page={page} />
+    <SitePageSectionIntro page={page} />
+    <SitePageSectionColumns page={page} />
 
     <section
       className="uk-section uk-background-cover"
@@ -111,13 +34,7 @@ const AboutPage = () => (
     >
       <div className="uk-container">
         <div className="tw-element tw-heading uk-text-center uk-light">
-          <h3>Waarvoor kan je bij Petra terecht?</h3>
-          <p>
-            Samen gaan we op zoek naar een methode die voor jou werkt en
-            vertrekt vanuit je huidige eetgewoonten en leefstijl. Samen zoeken
-            we naar een haalbaar doel waarbij een verbetering van jouw
-            gezondheid en meer fysiek en psychisch welzijn centraal staan.
-          </p>
+          <Region region={page.regions.activities} Component={TextBlock} />
         </div>
 
         <div className="tw-element tw-carousel-post uk-text-center style-2 tw-posts">

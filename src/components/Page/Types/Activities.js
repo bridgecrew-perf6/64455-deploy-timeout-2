@@ -5,8 +5,7 @@ import SiteOverviewItem from '@shop/components/Site/Overview/Item';
 
 const ActivitiesPage = ({ page }) => (
   <div className="main-container">
-    <SiteHeader image="aanbod-multi2.jpg" />
-
+    <SiteHeader page={page} />
     <section className="uk-section uk-section-blog">
       <div className="uk-container">
         <div data-uk-grid>

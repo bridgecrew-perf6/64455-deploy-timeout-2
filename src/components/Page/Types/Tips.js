@@ -2,9 +2,9 @@ import { withPageWithLayout } from '@shop/hooks';
 
 import SiteHeader from '@shop/components/Site/Header';
 
-const TipsPage = () => (
+const TipsPage = ({ page }) => (
   <div className="main-container">
-    <SiteHeader title="Voedingstips" image="over-petra-multi.jpg" />
+    <SiteHeader page={page} />
 
     <section
       className="

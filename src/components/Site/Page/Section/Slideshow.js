@@ -58,7 +58,7 @@ const SitePageSectionSlideshow = ({ images = [] }) => (
       tabIndex="-1"
       uk-slideshow="animation: slide; ratio: 7:3; min-height: 480;"
     >
-      <ul className="uk-slideshow-items" style={{ height: '480px' }}>
+      <ul className="uk-slideshow-items" style={{ minHeight: '480px' }}>
         {images.map(image => (
           <li key={image._key}>
             <Item {...image} />

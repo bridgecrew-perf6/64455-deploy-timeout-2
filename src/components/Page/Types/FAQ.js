@@ -2,9 +2,9 @@ import { withPageWithLayout } from '@shop/hooks';
 
 import SiteHeader from '@shop/components/Site/Header';
 
-const FAQPage = () => (
+const FAQPage = ({ page }) => (
   <div className="main-container">
-    <SiteHeader title="Veelgestelde vragen" image="faq-multi.jpg" />
+    <SiteHeader page={page} />
 
     <section className="uk-section">
       <div className="uk-container uk-container-xsmall">
