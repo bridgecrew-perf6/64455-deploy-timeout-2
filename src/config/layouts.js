@@ -6,11 +6,15 @@ import { layoutResolvers } from '@base/config/layouts';
 
 import { resolveReferences } from '@shop/components/Page/Regions';
 
+import { getClient } from '@atelierfabien/next-sanity/lib/server';
+
 import {
   nodeCoreProjection,
   productPredicate,
   baseProductProjection,
 } from '@base/sanity/queries';
+
+const privateClient = getClient(true);
 
 const nodesProjection = groq`
 'nodes': nodes[]->{ 
@@ -93,7 +97,7 @@ layoutResolvers.set('activities', async (client, page, options) => {
 });
 
 layoutResolvers.set('tips', (client, page, options) => {
-  return resolveReferences(client, page, {
+  return resolveReferences(privateClient, page, {
     ...options,
     predicate: groq`_type == 'recipe'`,
     projection: groq`_id, title, alias, 'image': images[0]`,

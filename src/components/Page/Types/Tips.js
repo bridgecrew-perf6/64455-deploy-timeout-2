@@ -19,15 +19,21 @@ const TipsPage = ({ page }) => (
       Component={SitePageSectionSlideshow}
     />
     <Region
+      id="breakfast"
       region={page.regions.breakfast}
       Component={SitePageSectionRecipes}
     />
     <Region
+      id="lunch"
       region={page.regions.lunch}
       Component={SitePageSectionRecipes}
-      backgroundImage="background-stone-yellow.jpg"
+      background="background-stone-yellow.jpg"
     />
-    <Region region={page.regions.dinner} Component={SitePageSectionRecipes} />
+    <Region
+      id="dinner"
+      region={page.regions.dinner}
+      Component={SitePageSectionRecipes}
+    />
     <Region
       region={page.regions.callToAction}
       Component={SitePageSectionCallToAction}
