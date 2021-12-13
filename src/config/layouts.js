@@ -4,6 +4,8 @@ import { pick, sortObjectsByIds } from '@foundation/lib/util';
 
 import { layoutResolvers } from '@base/config/layouts';
 
+import { resolveReferences } from '@shop/components/Page/Regions';
+
 import {
   nodeCoreProjection,
   productPredicate,
@@ -88,6 +90,14 @@ layoutResolvers.set('activities', async (client, page, options) => {
   } else {
     page.nodes = [];
   }
+});
+
+layoutResolvers.set('tips', (client, page, options) => {
+  return resolveReferences(client, page, {
+    ...options,
+    predicate: groq`_type == 'recipe'`,
+    projection: groq`_id, title, alias, 'image': images[0]`,
+  });
 });
 
 export { layoutResolvers };
