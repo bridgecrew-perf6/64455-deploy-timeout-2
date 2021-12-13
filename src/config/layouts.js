@@ -99,8 +99,22 @@ layoutResolvers.set('activities', async (client, page, options) => {
 layoutResolvers.set('tips', (client, page, options) => {
   return resolveReferences(privateClient, page, {
     ...options,
-    predicate: groq`_type == 'recipe'`,
-    projection: groq`_id, title, alias, 'image': images[0]`,
+    predicate: `_type == 'recipe'`,
+    projection: `_id, title, alias, 'image': images[0]`,
+  });
+});
+
+layoutResolvers.set('presentation', (client, page, options) => {
+  return resolveReferences(client, page, {
+    ...options,
+    predicate: productPredicate,
+    projection: `${baseProductProjection}, 'image': images[0]`,
+    map: product => {
+      const data = pick(product, '_id', '_type', 'name', 'pricing', 'image');
+      data.alias = product.alias?.current;
+      data.category = product.category?.name;
+      return data;
+    },
   });
 });
 
