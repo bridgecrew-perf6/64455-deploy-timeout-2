@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 
+import { isEmpty } from '@foundation/next';
+
 import { urlFor } from '@app/hooks/image';
 
 import { PortableText } from '@shop/components/Sanity';
@@ -29,6 +31,8 @@ const Image = ({ image }) => {
 
 const SitePageSectionIntro = ({ page }) => {
   const { subtitle, content } = page;
+
+  if (isEmpty(subtitle) && isEmpty(content)) return null;
 
   return (
     <section
