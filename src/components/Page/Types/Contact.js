@@ -8,6 +8,8 @@ import { Region } from '@shop/components/Page/Regions';
 
 import CommonMap from '@shop/components/Common/Map';
 
+import OpeningHours from '@app/components/Common/OpeningHours';
+
 import SiteHeader from '@shop/components/Site/Header';
 
 const TextElement = ({ title, subtitle, body = [] }) => (
@@ -37,7 +39,7 @@ const ContactPage = ({ page }) => {
           >
             <div>
               <div className="tw-element tw-box custom-typography uk-margin-bottom">
-                <i className="et-map-pin uk-border-circle layout-2" />
+                <i className="et-profile-female uk-border-circle layout-2" />
                 <h4>{t('common:address.contact')}</h4>
                 <p className="description">
                   {address('name')}
@@ -89,7 +91,7 @@ const ContactPage = ({ page }) => {
       </section>
 
       <section
-        className="uk-section uk-background-cover uk-text-center"
+        className="uk-section uk-background-cover"
         data-uk-parallax="bgy: -200"
         style={{
           backgroundColor: '#f7f7f7',
@@ -103,48 +105,27 @@ const ContactPage = ({ page }) => {
               <h4>{page.subtitle}</h4>
             </div>
           )}
-
-          <div
-            className="
-        tw-element tw-carousel-post
-        uk-text-center
-        style-2
-        tw-posts
-        uk-text-center
-      "
-          >
+          <div className="tw-element tw-carousel-post style-2 tw-posts">
             <div
               className="uk-child-width-1-2@m"
               data-uk-scrollspy="target:.post-item; cls:uk-animation-slide-bottom-medium"
-              data-uk-height-match=".post-item"
+              data-uk-height-match=".post-content"
               data-uk-grid
             >
               <div className="post-item">
                 <div className="post-content">
-                  <div className="tw-meta">
-                    <a href="#">Praktijk</a>
+                  <div className="uk-text-center uk-margin-bottom">
+                    <div className="tw-meta">Praktijk</div>
+                    <h3 className="post-title">Consultaties</h3>
                   </div>
-                  <h3 className="post-title">
-                    <a href="#">Consultaties</a>
-                  </h3>
-                  <p>
-                    dinsdag: 9u – 13u
-                    <br />
-                    woensdag: 8.30u – 13u en 14u – 16u <br />
-                    donderdag: 16.30u – 20u <br />
-                    vrijdag: 9u – 12.30u en 13.30u – 16u
-                  </p>
+                  <OpeningHours />
                 </div>
               </div>
 
               <div className="post-item">
-                <div className="post-content">
-                  <div className="tw-meta">
-                    <a href="#">Online</a>
-                  </div>
-                  <h3 className="post-title">
-                    <a href="#">Afspraak maken</a>
-                  </h3>
+                <div className="post-content uk-text-center">
+                  <div className="tw-meta">Online</div>
+                  <h3 className="post-title">Afspraak maken</h3>
                   <p>
                     Een afspraak maken <br />
                     kan eenvoudig en snel via:
