@@ -165,8 +165,9 @@ layoutResolvers.set('shopOverview', async (client, page, options) => {
 
 export { layoutResolvers };
 
-function mapProduct(product) {
+export function mapProduct(product) {
   const data = pick(product, '_id', '_type', 'name', 'pricing', 'image');
+  data.image = data.image ?? product.images[0];
   data.alias = product.alias?.current;
   data.intro = isBlank(product.content?.intro)
     ? product.description
