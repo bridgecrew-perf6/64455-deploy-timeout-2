@@ -7,6 +7,7 @@ import Activities from '@app/components/Page/Types/Activities';
 import Contact from '@app/components/Page/Types/Contact';
 import FAQ from '@app/components/Page/Types/FAQ';
 import Home from '@app/components/Page/Types/Home';
+import ShopOverview from '@app/components/Page/Types/ShopOverview';
 import Tips from '@app/components/Page/Types/Tips';
 
 types.set('default', Default);
@@ -19,5 +20,7 @@ types.set('presentation', Default);
 types.set('tips', Tips);
 types.set('faq', FAQ);
 types.set('contact', Contact);
+
+types.set('shopOverview', ShopOverview);
 
 export default types;

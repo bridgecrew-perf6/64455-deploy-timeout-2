@@ -32,7 +32,7 @@ const Image = ({ image }) => {
 const IntroSection = ({ page }) => {
   const { subtitle, content } = page;
 
-  if (isEmpty(subtitle) && isEmpty(content)) return null;
+  if (isEmpty(subtitle) && isEmpty(content?.body)) return null;
 
   return (
     <section
@@ -50,7 +50,6 @@ const IntroSection = ({ page }) => {
           {subtitle && <h4>{subtitle}</h4>}
           <PortableText blocks={content.body} />
         </div>
-
         <Region region={page.regions.image} Component={Image} />
       </div>
     </section>

@@ -63,10 +63,14 @@ const ColumnsAlt = ({ page }) => {
 };
 
 const ColumnsSection = ({ type, page }) => {
-  if (type === 'alt') {
-    return <ColumnsAlt page={page} />;
+  if (page.regions.column1 && page.regions.column2) {
+    if (type === 'alt') {
+      return <ColumnsAlt page={page} />;
+    } else {
+      return <ColumnsDefault page={page} />;
+    }
   } else {
-    return <ColumnsDefault page={page} />;
+    return null;
   }
 };
 

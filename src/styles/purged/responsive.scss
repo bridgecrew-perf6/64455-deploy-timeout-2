@@ -4,124 +4,128 @@ ThemeWaves Responsive CSS
 /* Affects device widths of 959px and smaller. */
 
 @media (max-width: 1199px) {
-    .tw-box.uk-padding:not(.layout-2){
-        padding: 10px;
-    }
-    .tw-box.uk-padding.layout-2:not(.right){
-        padding-right: 0;
-    }
-    .tw-call-action{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .call-content + .call-btn{
-        margin-top: 20px;
-    }
-    .sidebar-area .sidebar-inner{
-         padding-left: 10px;
-    }
-    .sidebar-area .widget{
-        margin-bottom: 36px;
-    }
+  .tw-box.uk-padding:not(.layout-2) {
+    padding: 10px;
+  }
+  .tw-box.uk-padding.layout-2:not(.right) {
+    padding-right: 0;
+  }
+  .tw-call-action {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .call-content + .call-btn {
+    margin-top: 20px;
+  }
+  .sidebar-area .sidebar-inner {
+    padding-left: 10px;
+  }
+  .sidebar-area .widget {
+    margin-bottom: 36px;
+  }
 }
 
 /* Affects device widths of 959px and smaller. */
 @media (max-width: 959px) {
-    .big-images.owl-carousel.owl-theme .owl-stage-outer, .big-images.owl-carousel.owl-theme .owl-item{
-        width: auto !important;
-    }
-    .isotope-container .portfolio-media img,
-    .isotope-container .portfolio-media,
-    .owl-carousel .shop-image-container,
-    .owl-carousel .portfolio-media{
-        width: 100%;
-    }
-    .tw-slider .slider-item{
-        height: 600px;
-    }
-    .tw-heading .tw-sub-title{
-        font-size: 10px;
-    }
-    .tw-heading h1{
-        font-size: 42px;
-    }
-    .tw-heading h2{
-        font-size: 36px;
-    }
-    .tw-carousel .owl-theme .owl-dots{
-        bottom: 50px;
-    }
-    .footer-area .copyright{
-        text-align: center;
-    }
-    .tw-tablet-margin{
-        margin-top: 20px;
-    }
-    .sidebar-area{
-        width: 100%;
-    }
-    .sidebar-area .sidebar-inner{
-        padding-left: 0;
-        padding-right: 0;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    .content-area + .sidebar-area,
-    .sidebar-area + .content-area{
-        margin-top: 60px;
-    }
-    .tw-header .uk-container .uk-navbar-left {
-        left: 30px;
-    }
-    .tw-header .uk-container .uk-navbar-right {
-        right: 30px;
-    }
+  .big-images.owl-carousel.owl-theme .owl-stage-outer,
+  .big-images.owl-carousel.owl-theme .owl-item {
+    width: auto !important;
+  }
+  .isotope-container .portfolio-media img,
+  .isotope-container .portfolio-media,
+  .owl-carousel .shop-image-container,
+  .owl-carousel .portfolio-media {
+    width: 100%;
+  }
+  .tw-slider .slider-item {
+    height: 600px;
+  }
+  .tw-heading .tw-sub-title {
+    font-size: 10px;
+  }
+  .tw-heading h1 {
+    font-size: 42px;
+  }
+  .tw-heading h2 {
+    font-size: 36px;
+  }
+  .tw-carousel .owl-theme .owl-dots {
+    bottom: 50px;
+  }
+  .footer-area .copyright {
+    text-align: center;
+  }
+  .tw-tablet-margin {
+    margin-top: 20px;
+  }
+  .sidebar-area {
+    width: 100%;
+  }
+  .sidebar-area .sidebar-inner {
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .content-area + .sidebar-area,
+  .sidebar-area + .content-area {
+    margin-top: 60px;
+  }
+  .tw-header .uk-container .uk-navbar-left {
+    left: 30px;
+  }
+  .tw-header .uk-container .uk-navbar-right {
+    right: 30px;
+  }
 }
 @media (max-width: 767px) {
-    html, body{
-        overflow: auto;
-    }
+  html,
+  body {
+    overflow: auto;
+  }
 }
 @media (max-width: 639px) {
-    .tw-element + .uk-grid, .tw-element + .tw-element {
-        margin-top: 20px;
-    }
-    .uk-container{
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-    .tw-slider .slider-item{
-        height: 400px;
-    }
-    
-    .tw-heading h1{
-        font-size: 36px;
-    }
-    .tw-heading h2{
-        font-size: 30px;
-    }
-    .tw-carousel-testimonial .testimonial-title{
-        font-size: 20px;
-    }
-    .tw-page-title-container .tw-page-title{
-        font-size: 36px;
-    }
+  .tw-element + .uk-grid,
+  .tw-element + .tw-element {
+    margin-top: 20px;
+  }
+  .uk-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .tw-slider .slider-item {
+    height: 400px;
+  }
+
+  .tw-heading h1 {
+    font-size: 36px;
+  }
+  .tw-heading h2 {
+    font-size: 30px;
+  }
+  .tw-carousel-testimonial .testimonial-title {
+    font-size: 20px;
+  }
+  .tw-page-title-container .tw-page-title {
+    font-size: 36px;
+  }
 }
 /* Affects device widths of 639px and smaller. */
 @media (max-width: 480px) {
-    .uk-container{
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+  .uk-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 @media (max-width: 639px) {
-    .tw-call-action{
-        padding: 40px 60px;
-    }
+  .tw-call-action {
+    padding: 40px 60px;
+  }
 }
 @media (max-width: 360px) {
-    .tw-heading h1, .tw-heading h2{
-        font-size: 24px;
-    }
+  .tw-heading h1,
+  .tw-heading h2 {
+    font-size: 24px;
+  }
 }

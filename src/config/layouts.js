@@ -12,6 +12,8 @@ import {
   nodeCoreProjection,
   productPredicate,
   baseProductProjection,
+  categoryPredicate,
+  categoryProjection,
 } from '@base/sanity/queries';
 
 const privateClient = getClient(true);
@@ -109,16 +111,49 @@ layoutResolvers.set('presentation', (client, page, options) => {
     ...options,
     predicate: productPredicate,
     projection: `${baseProductProjection}, 'image': images[0]`,
-    map: product => {
-      const data = pick(product, '_id', '_type', 'name', 'pricing', 'image');
-      data.alias = product.alias?.current;
-      data.intro = isBlank(product.content?.intro)
-        ? product.description
-        : product.content?.intro;
-      data.category = product.category?.name;
-      return data;
-    },
+    map: mapProduct,
   });
 });
 
+layoutResolvers.set('shopOverview', async (client, page, options) => {
+  const { locale, defaultLocale } = options;
+
+  await resolveReferences(client, page, {
+    ...options,
+    predicate: `${categoryPredicate} && count(*[_type == 'product' && references(^._id)]) > 0`,
+    projection: `${categoryProjection}, 'productCount': count(*[_type == 'product' && references(^._id)])`,
+    filter: region => region.id === 'categories',
+  });
+
+  await resolveReferences(client, page, {
+    ...options,
+    predicate: productPredicate,
+    projection: `${baseProductProjection}, 'image': images[0]`,
+    filter: region => region.id === 'featured',
+    map: mapProduct,
+  });
+
+  const products = await client.fetch(
+    groq`*[${productPredicate}]{
+      ${baseProductProjection}, 'image': images[0]
+    }|order(name)`,
+    {
+      locale,
+      defaultLocale,
+    }
+  );
+
+  return { products: products.map(mapProduct) };
+});
+
 export { layoutResolvers };
+
+function mapProduct(product) {
+  const data = pick(product, '_id', '_type', 'name', 'pricing', 'image');
+  data.alias = product.alias?.current;
+  data.intro = isBlank(product.content?.intro)
+    ? product.description
+    : product.content?.intro;
+  data.category = product.category?.name;
+  return data;
+}
