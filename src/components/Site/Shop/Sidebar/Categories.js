@@ -1,8 +1,11 @@
 import { isBlank } from '@atelierfabien/next-foundation/lib/util';
 
-import { Link } from '@foundation/next';
+import { Link, usePageOptions } from '@foundation/next';
 
 const ShopSidebarCategories = ({ categories = [] }) => {
+  const options = usePageOptions();
+  const categoryId = options?.category?._id;
+
   if (isBlank(categories)) return null;
 
   return (
@@ -13,7 +16,12 @@ const ShopSidebarCategories = ({ categories = [] }) => {
         </h3>
         <ul>
           {categories.map(({ _id, name, path, productCount }) => (
-            <li key={_id} className="cat-item cat-item-2 current-cat">
+            <li
+              key={_id}
+              className={`cat-item cat-item-2 current-cat ${
+                _id === categoryId ? 'uk-active' : ''
+              }`}
+            >
               <Link href={`/shop/categories${path.current}`}>{name}</Link> (
               {productCount})
             </li>

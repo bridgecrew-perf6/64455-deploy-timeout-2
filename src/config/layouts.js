@@ -116,7 +116,8 @@ layoutResolvers.set('presentation', (client, page, options) => {
 });
 
 layoutResolvers.set('shopOverview', async (client, page, options) => {
-  const { locale, defaultLocale } = options;
+  const { locale, defaultLocale, params = {} } = options;
+  const { categoryPath = [] } = params;
 
   await resolveReferences(client, page, {
     ...options,
@@ -133,17 +134,33 @@ layoutResolvers.set('shopOverview', async (client, page, options) => {
     map: mapProduct,
   });
 
+  const category = isBlank(categoryPath)
+    ? null
+    : await client.fetch(
+        groq`*[${categoryPredicate} && path.current == $path][0]{ ${categoryProjection} }`,
+        {
+          locale,
+          defaultLocale,
+          path: `/${categoryPath.join('/')}`,
+        }
+      );
+
+  const predicate = category
+    ? `${productPredicate} && references($categoryId)`
+    : productPredicate;
+
   const products = await client.fetch(
-    groq`*[${productPredicate}]{
+    groq`*[${predicate}]{
       ${baseProductProjection}, 'image': images[0]
     }|order(name)`,
     {
       locale,
       defaultLocale,
+      categoryId: category?._id ?? null,
     }
   );
 
-  return { products: products.map(mapProduct) };
+  return { category, products: products.map(mapProduct) };
 });
 
 export { layoutResolvers };

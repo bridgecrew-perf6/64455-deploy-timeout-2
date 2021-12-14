@@ -5,7 +5,7 @@ import ProductListEmpty from '@shop/components/Site/Shop/ProductList/Empty';
 
 const ShopProductList = ({ products = [] }) => {
   if (isBlank(products) || !Array.isArray(products)) {
-    <ProductListEmpty />;
+    return <ProductListEmpty />;
   } else {
     return (
       <div
