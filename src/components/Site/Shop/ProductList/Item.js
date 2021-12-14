@@ -20,8 +20,13 @@ const ProductListItem = product => {
     <div className="shop-item">
       <div className="shop-content">
         <div className="shop-image-container">
-          <Link href={href}>
-            <img alt={name} src={imageUrl} className="uk-responsive-width" />
+          <Link
+            href={href}
+            className="tw-image-hover uk-cover-container"
+            title={name}
+            uk-ratio="3/2"
+          >
+            {imageUrl && <img src={imageUrl} uk-cover="true" />}
           </Link>
         </div>
         <h4 className="uk-text-truncate">
