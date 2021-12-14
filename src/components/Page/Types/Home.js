@@ -28,16 +28,22 @@ const Item = product => {
       image ? urlFor(image).width(420).height(280).auto('format').url() : null,
     [image]
   );
+
   return (
     <div className="post-item">
-      <div className="entry-media">
+      <div
+        className="entry-media"
+        style={{
+          backgroundColor: '#151515',
+        }}
+      >
         <Link
           href={href}
           className="tw-image-hover uk-cover-container"
           title={name}
           uk-ratio="3/2"
         >
-          <img src={imageUrl} uk-cover="true" />
+          {imageUrl && <img src={imageUrl} uk-cover="true" />}
         </Link>
       </div>
       <div className="post-content">

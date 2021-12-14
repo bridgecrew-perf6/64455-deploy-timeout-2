@@ -8,6 +8,7 @@ import ColumnsSection from '@shop/components/Site/Page/Section/Columns';
 import CallToActionSection from '@shop/components/Site/Page/Section/CallToAction';
 import RecipesSection from '@shop/components/Site/Page/Section/Recipes';
 import SlideshowSection from '@shop/components/Site/Page/Section/Slideshow';
+import VideoSection from '@shop/components/Site/Page/Section/Video';
 
 const TipsPage = ({ page }) => (
   <div className="main-container">
@@ -15,6 +16,7 @@ const TipsPage = ({ page }) => (
     <IntroSection page={page} />
     <ColumnsSection page={page} type="plain" />
     <Region region={page.regions.slideshow} Component={SlideshowSection} />
+    <Region region={page.regions.video} Component={VideoSection} />
     <Region
       id="breakfast"
       region={page.regions.breakfast}
