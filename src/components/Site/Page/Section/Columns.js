@@ -62,7 +62,7 @@ const ColumnsAlt = ({ page }) => {
   );
 };
 
-const SitePageSectionColumns = ({ type, page }) => {
+const ColumnsSection = ({ type, page }) => {
   if (type === 'alt') {
     return <ColumnsAlt page={page} />;
   } else {
@@ -70,4 +70,4 @@ const SitePageSectionColumns = ({ type, page }) => {
   }
 };
 
-export default SitePageSectionColumns;
+export default ColumnsSection;

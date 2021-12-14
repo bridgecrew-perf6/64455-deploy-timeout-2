@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 
 import { Link } from '@foundation/next';
 
+import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+
 import { useLink } from '@app/hooks';
 import { urlFor } from '@app/hooks/image';
 
@@ -51,33 +53,38 @@ const Item = image => {
   );
 };
 
-const SitePageSectionSlideshow = ({ images = [] }) => (
-  <section className="tw-slider uk-light">
-    <div
-      className="uk-position-relative uk-visible-toggle uk-light"
-      tabIndex="-1"
-      uk-slideshow="animation: slide; ratio: 7:3; min-height: 480;"
-    >
-      <ul className="uk-slideshow-items" style={{ minHeight: '480px' }}>
-        {images.map(image => (
-          <li key={image._key}>
-            <Item {...image} />
-          </li>
-        ))}
-      </ul>
-      <a
-        className="uk-position-center-left uk-position-small uk-hidden-hover"
-        href="#"
-        uk-slidenav-previous="true"
-        uk-slideshow-item="previous"
-      />
-      <a
-        className="uk-position-center-right uk-position-small uk-hidden-hover"
-        href="#"
-        uk-slidenav-next="true"
-        uk-slideshow-item="next"
-      />
-    </div>
-  </section>
-);
-export default SitePageSectionSlideshow;
+const SlideshowSection = ({ images = [] }) => {
+  if (isBlank(images)) return null;
+
+  return (
+    <section className="tw-slider uk-light">
+      <div
+        className="uk-position-relative uk-visible-toggle uk-light"
+        tabIndex="-1"
+        uk-slideshow="animation: slide; ratio: 7:3; min-height: 480;"
+      >
+        <ul className="uk-slideshow-items" style={{ minHeight: '480px' }}>
+          {images.map(image => (
+            <li key={image._key}>
+              <Item {...image} />
+            </li>
+          ))}
+        </ul>
+        <a
+          className="uk-position-center-left uk-position-small uk-hidden-hover"
+          href="#"
+          uk-slidenav-previous="true"
+          uk-slideshow-item="previous"
+        />
+        <a
+          className="uk-position-center-right uk-position-small uk-hidden-hover"
+          href="#"
+          uk-slidenav-next="true"
+          uk-slideshow-item="next"
+        />
+      </div>
+    </section>
+  );
+};
+
+export default SlideshowSection;

@@ -20,7 +20,7 @@ const Item = ({ label, value, icon, prefix, postfix }) => {
   );
 };
 
-const SitePageSectionStats = ({ entries = [] }) => {
+const StatsSection = ({ entries = [] }) => {
   if (isBlank(entries)) return null;
 
   return (
@@ -43,4 +43,4 @@ const SitePageSectionStats = ({ entries = [] }) => {
   );
 };
 
-export default SitePageSectionStats;
+export default StatsSection;

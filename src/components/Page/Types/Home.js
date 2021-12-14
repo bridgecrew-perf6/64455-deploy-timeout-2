@@ -9,7 +9,7 @@ import { urlFor } from '@app/hooks/image';
 
 import { Region } from '@shop/components/Page/Regions';
 
-import SitePageSectionSlideshow from '@shop/components/Site/Page/Section/Slideshow';
+import SlideshowSection from '@shop/components/Site/Page/Section/Slideshow';
 
 const TextBlock = ({ title, subtitle, body = [] }) => (
   <>
@@ -137,10 +137,7 @@ const TestimonialsSlider = ({ title, entries = [] }) => {
 
 const HomePage = ({ page }) => (
   <div className="main-container">
-    <Region
-      region={page.regions.slideshow}
-      Component={SitePageSectionSlideshow}
-    />
+    <Region region={page.regions.slideshow} Component={SlideshowSection} />
     <section className="uk-section uk-padding-remove-top uk-margin-top-minus">
       <div className="uk-container">
         <Region region={page.regions.block1} />

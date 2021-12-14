@@ -3,7 +3,7 @@ import { withPageWithLayout } from '@shop/hooks';
 import { PortableText } from '@shop/components/Sanity';
 
 import SiteHeader from '@shop/components/Site/Header';
-import SitePageSectionIntro from '@shop/components/Site/Page/Section/Intro';
+import IntroSection from '@shop/components/Site/Page/Section/Intro';
 
 const Item = ({ title, body }) => (
   <>
@@ -19,7 +19,7 @@ const Item = ({ title, body }) => (
 const FAQPage = ({ page }) => (
   <div className="main-container">
     <SiteHeader page={page} />
-    <SitePageSectionIntro page={page} />
+    <IntroSection page={page} />
 
     <section className="uk-section">
       <div className="uk-container uk-container-xsmall">

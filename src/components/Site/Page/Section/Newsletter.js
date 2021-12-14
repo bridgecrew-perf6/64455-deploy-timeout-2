@@ -1,4 +1,4 @@
-const SitePageSectionNewsletter = () => (
+const NewsletterSection = () => (
   <section
     className="uk-section uk-section-normal uk-light"
     style={{ backgroundColor: '#151515' }}
@@ -26,4 +26,4 @@ const SitePageSectionNewsletter = () => (
   </section>
 );
 
-export default SitePageSectionNewsletter;
+export default NewsletterSection;

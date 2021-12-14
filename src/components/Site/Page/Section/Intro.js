@@ -29,7 +29,7 @@ const Image = ({ image }) => {
   ) : null;
 };
 
-const SitePageSectionIntro = ({ page }) => {
+const IntroSection = ({ page }) => {
   const { subtitle, content } = page;
 
   if (isEmpty(subtitle) && isEmpty(content)) return null;
@@ -57,4 +57,4 @@ const SitePageSectionIntro = ({ page }) => {
   );
 };
 
-export default SitePageSectionIntro;
+export default IntroSection;

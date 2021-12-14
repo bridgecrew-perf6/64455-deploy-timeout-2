@@ -7,8 +7,8 @@ import { Region } from '@shop/components/Page/Regions';
 import { PortableText } from '@shop/components/Sanity';
 
 import SiteHeader from '@shop/components/Site/Header';
-import SitePageSectionIntro from '@shop/components/Site/Page/Section/Intro';
-import SitePageSectionColumns from '@shop/components/Site/Page/Section/Columns';
+import IntroSection from '@shop/components/Site/Page/Section/Intro';
+import ColumnsSection from '@shop/components/Site/Page/Section/Columns';
 
 const TextBlock = ({ title, subtitle, body = [] }) => (
   <>
@@ -88,8 +88,8 @@ const ActivitiesSlider = ({ items = [] }) => (
 const AboutPage = ({ page }) => (
   <div className="main-container">
     <SiteHeader page={page} />
-    <SitePageSectionIntro page={page} />
-    <SitePageSectionColumns page={page} />
+    <IntroSection page={page} />
+    <ColumnsSection page={page} />
 
     <section
       className="uk-section uk-background-cover"

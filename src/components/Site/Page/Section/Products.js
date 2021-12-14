@@ -10,8 +10,9 @@ import { urlFor } from '@app/hooks/image';
 import { PortableText } from '@shop/components/Sanity';
 
 const ProductItem = product => {
-  const { name, category, image } = product;
+  const { name, intro, category, image } = product;
   const href = useProductUrl(product);
+
   const imageUrl = useMemo(
     () =>
       image ? urlFor(image).width(420).height(280).auto('format').url() : null,
@@ -37,10 +38,7 @@ const ProductItem = product => {
             <h3 className="event-title uk-text-uppercase uk-text-truncate">
               <Link href={href}>{name}</Link>
             </h3>
-            <p>
-              TODO Vier heerlijke en eenvoudige hapjes boordevol smaak om mee
-              uit te pakken op elke feesttafel.
-            </p>
+            <PortableText blocks={intro} />
             <Link
               href={href}
               className="uk-button uk-button-default uk-button-small uk-button-radius uk-margin-small-top tw-hover"
@@ -57,14 +55,7 @@ const ProductItem = product => {
   );
 };
 
-const SitePageSectionProducts = ({
-  title,
-  subtitle,
-  body,
-  references = [],
-}) => {
-  references = [].concat(references, references); // TODO
-
+const ProductsSection = ({ title, subtitle, body, references = [] }) => {
   if (isBlank(references)) return null;
 
   const containerClass =
@@ -99,4 +90,4 @@ const SitePageSectionProducts = ({
   );
 };
 
-export default SitePageSectionProducts;
+export default ProductsSection;

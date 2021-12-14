@@ -44,13 +44,7 @@ const Recipe = ({ _id, alias, title, image, showRecipe }) => {
   );
 };
 
-const SitePageSectionRecipes = ({
-  id,
-  title,
-  body,
-  background,
-  references = [],
-}) => {
+const RecipesSection = ({ id, title, body, background, references = [] }) => {
   const offcanvas = `${id}-offcanvas`;
 
   const ref = useRef();
@@ -115,4 +109,4 @@ const SitePageSectionRecipes = ({
   );
 };
 
-export default SitePageSectionRecipes;
+export default RecipesSection;

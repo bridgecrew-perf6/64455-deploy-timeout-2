@@ -1,4 +1,4 @@
-import SitePageSectionSlideshow from '@shop/components/Site/Page/Section/Slideshow';
+import SlideshowSection from '@shop/components/Site/Page/Section/Slideshow';
 
 const Item = ({ title, subtitle, meta, href, image }) => (
   <div className="post-item">
@@ -30,7 +30,7 @@ const Item = ({ title, subtitle, meta, href, image }) => (
 
 const Page = () => (
   <div className="main-container">
-    <SitePageSectionSlideshow />
+    <SlideshowSection />
 
     <section className="uk-section uk-padding-remove-top uk-margin-top-minus">
       <div className="uk-container">

@@ -1,6 +1,6 @@
 import groq from 'groq';
 
-import { pick, sortObjectsByIds } from '@foundation/lib/util';
+import { pick, sortObjectsByIds, isBlank } from '@foundation/lib/util';
 
 import { layoutResolvers } from '@base/config/layouts';
 
@@ -112,6 +112,9 @@ layoutResolvers.set('presentation', (client, page, options) => {
     map: product => {
       const data = pick(product, '_id', '_type', 'name', 'pricing', 'image');
       data.alias = product.alias?.current;
+      data.intro = isBlank(product.content?.intro)
+        ? product.description
+        : product.content?.intro;
       data.category = product.category?.name;
       return data;
     },

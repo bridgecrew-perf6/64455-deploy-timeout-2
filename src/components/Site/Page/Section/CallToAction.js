@@ -4,7 +4,7 @@ import { PortableText } from '@shop/components/Sanity';
 
 import { useLink } from '@app/hooks';
 
-const SitePageSectionCallToAction = ({ title, body, button }) => {
+const CallToActionSection = ({ title, body, button }) => {
   const link = useLink(button ?? {});
 
   return (
@@ -40,4 +40,4 @@ const SitePageSectionCallToAction = ({ title, body, button }) => {
   );
 };
 
-export default SitePageSectionCallToAction;
+export default CallToActionSection;

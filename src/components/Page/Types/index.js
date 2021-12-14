@@ -1,19 +1,21 @@
 import types from '@base/components/Page/Types';
 
-import Home from '@app/components/Page/Types/Home';
+import Default from '@app/components/Page/Types/Default';
+
 import About from '@app/components/Page/Types/About';
 import Activities from '@app/components/Page/Types/Activities';
-import Activity from '@app/components/Page/Types/Activity';
-import Presentation from '@app/components/Page/Types/Presentation';
-import Tips from '@app/components/Page/Types/Tips';
-import FAQ from '@app/components/Page/Types/FAQ';
 import Contact from '@app/components/Page/Types/Contact';
+import FAQ from '@app/components/Page/Types/FAQ';
+import Home from '@app/components/Page/Types/Home';
+import Tips from '@app/components/Page/Types/Tips';
+
+types.set('default', Default);
 
 types.set('home', Home);
 types.set('about', About);
 types.set('activities', Activities);
-types.set('activity', Activity);
-types.set('presentation', Presentation);
+types.set('activity', Default);
+types.set('presentation', Default);
 types.set('tips', Tips);
 types.set('faq', FAQ);
 types.set('contact', Contact);

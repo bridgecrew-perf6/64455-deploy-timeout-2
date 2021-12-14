@@ -56,13 +56,7 @@ const ContactPage = ({ page }) => {
               </div>
             </div>
             <div>
-              <div
-                className="
-            tw-element tw-box
-            custom-typography
-            uk-margin-remove-top uk-margin-bottom
-          "
-              >
+              <div className="tw-element tw-box custom-typography uk-margin-remove-top uk-margin-bottom">
                 <i className="et-phone uk-border-circle layout-2" />
                 <h4>{t('common:address.phoneNumber')}</h4>
                 <p className="description">
