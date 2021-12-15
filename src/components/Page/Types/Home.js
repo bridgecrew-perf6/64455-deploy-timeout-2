@@ -188,8 +188,7 @@ const HomePage = ({ page }) => (
       data-overlay="0.4"
       style={{
         backgroundColor: '#151515',
-        backgroundImage:
-          'url(/dev/assets/images/images-p/background-stone-yellow.jpg)',
+        backgroundImage: 'url(/assets/images/background-stone-yellow.jpg)',
       }}
     >
       <Region
