@@ -1,6 +1,6 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank, uniqueId } from '@atelierfabien/next-foundation/lib/util';
 
 import { PortableText } from '@shop/components/Sanity';
 
@@ -10,6 +10,8 @@ const REGEX =
   /(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)&?/;
 
 const VideoSection = ({ title, subtitle, body, link, image }) => {
+  const [id] = useState(() => uniqueId('video-'));
+
   const imageUrl = useMemo(
     () =>
       image ? urlFor(image).width(1200).height(400).auto('format').url() : null,
@@ -45,15 +47,11 @@ const VideoSection = ({ title, subtitle, body, link, image }) => {
             <a
               href="#"
               className="uk-margin-top tw-video-icon"
-              data-uk-toggle="target: #video-media"
+              data-uk-toggle={`target: #${id}`}
             >
               <i className="ion-play" />
             </a>
-            <div
-              id="video-media"
-              className="uk-flex-top"
-              data-uk-modal="center: true"
-            >
+            <div id={id} className="uk-flex-top" data-uk-modal="center: true">
               <div className="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
                 <button
                   className="uk-modal-close-outside"

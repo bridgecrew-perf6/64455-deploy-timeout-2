@@ -89,8 +89,7 @@ const ContactPage = ({ page }) => {
         data-uk-parallax="bgy: -200"
         style={{
           backgroundColor: '#f7f7f7',
-          backgroundImage:
-            'url(/dev/assets/images/images-p/background-tea.jpg)',
+          backgroundImage: 'url(/assets/images/background-tea.jpg)',
         }}
       >
         <div className="uk-container">

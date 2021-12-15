@@ -832,7 +832,6 @@ div.entry-cats a:hover {
   right: -7px;
   margin-top: -6px;
   opacity: 0;
-  -ms-filter: 'alpha(opacity=0)';
   transition: right 0.2s ease-out;
 }
 .tw-hover .tw-hover-inner.uk-button-small i {
@@ -848,7 +847,6 @@ div.entry-cats a:hover {
 }
 .tw-hover:hover .tw-hover-inner i {
   opacity: 1 !important;
-  -ms-filter: 'alpha(opacity=100)';
   right: -15px;
 }
 
@@ -2070,7 +2068,7 @@ footer.uk-light a {
   -webkit-animation: twAnimHide 0.7s ease both;
   animation: twAnimHide 0.7s ease both;
 }
-@-webkit-keyframes twAnimHide {
+@keyframes twAnimHide {
   from {
   }
   to {

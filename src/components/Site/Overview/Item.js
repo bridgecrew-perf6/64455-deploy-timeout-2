@@ -25,7 +25,7 @@ const SiteOverviewItem = ({ title, subtitle, intro, href, image }) => {
           </div>
         </div>
         <div className="entry-cats tw-meta">
-          <a href={href} title="TODO">
+          <a href={href} title={title}>
             {subtitle ?? '\u00A0'}
           </a>
         </div>

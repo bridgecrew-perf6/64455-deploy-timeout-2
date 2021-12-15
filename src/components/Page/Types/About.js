@@ -9,6 +9,8 @@ import { PortableText } from '@shop/components/Sanity';
 import SiteHeader from '@shop/components/Site/Header';
 import IntroSection from '@shop/components/Site/Page/Section/Intro';
 import ColumnsSection from '@shop/components/Site/Page/Section/Columns';
+import SlideshowSection from '@shop/components/Site/Page/Section/Slideshow';
+import VideoSection from '@shop/components/Site/Page/Section/Video';
 
 const TextBlock = ({ title, subtitle, body = [] }) => (
   <>
@@ -90,15 +92,15 @@ const AboutPage = ({ page }) => (
     <SiteHeader page={page} />
     <IntroSection page={page} />
     <ColumnsSection page={page} />
-
+    <Region region={page.regions.slideshow} Component={SlideshowSection} />
+    <Region region={page.regions.video} Component={VideoSection} />
     <section
       className="uk-section uk-background-cover"
       data-uk-parallax="bgy: -200"
       data-overlay="0.4"
       style={{
         backgroundColor: '#151515',
-        backgroundImage:
-          'url(/dev/assets/images/images-p/over-petra2-multi.jpg)',
+        backgroundImage: 'url(/assets/images/background-berries.jpg)',
       }}
     >
       <div className="uk-container">

@@ -24,7 +24,7 @@ export default function Application(props) {
       <SnipcartHead />
       <Head>
         <link
-          href="/dev/assets/core/ionicons.min.css"
+          href="/assets/css/ionicons.min.css"
           rel="stylesheet"
           type="text/css"
           media="all"

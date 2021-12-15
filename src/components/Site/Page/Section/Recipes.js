@@ -80,7 +80,7 @@ const RecipesSection = ({ id, title, body, background, references = [] }) => {
         style={{
           backgroundColor: background ? '#151515' : '#ffffff',
           backgroundImage: background
-            ? `url('/dev/assets/images/images-p/${background}')`
+            ? `url('/assets/images/${background}')`
             : null,
         }}
       >

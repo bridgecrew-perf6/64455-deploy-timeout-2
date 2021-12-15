@@ -119,10 +119,7 @@ const Page = () => (
                   uk-text-center uk-margin-remove-top uk-padding-remove-vertical
                 "
             >
-              <img
-                src="/dev/assets/images/images-p/recept-omelet-champignons.jpg"
-                alt=""
-              />
+              <img src="/assets/images/recept-omelet-champignons.jpg" alt="" />
             </div>
           </div>
         </div>
