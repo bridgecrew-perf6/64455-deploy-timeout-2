@@ -81,7 +81,7 @@ const ProductsSection = ({ title, subtitle, body, references = [] }) => {
             data-uk-grid
           >
             {references.map(item => (
-              <ProductItem key={item._key} {...item} />
+              <ProductItem key={item._id} {...item} />
             ))}
           </div>
         </div>

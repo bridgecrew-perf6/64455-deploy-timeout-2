@@ -30,6 +30,77 @@ const nodesProjection = groq`
   }
 }`;
 
+// [
+//   {
+//     _id: 'root',
+//     _type: 'navigation.node',
+//     name: 'Shop',
+//     path: '/shop',
+//     isRoot: true,
+//     order: -1,
+//     parents: [],
+//     children: []
+//   },
+//   {
+//     _id: '980760ec-8933-4506-88c3-e04a72ed78d4',
+//     _type: 'product.category',
+//     name: 'Kookworkshop',
+//     parents: [],
+//     path: '/kookworkshop'
+//   },
+//   { label: 'Product A', href: '/shop/products/product-a' }
+// ]
+
+function buildBreadcrumbs(node) {
+  const nodes = buildNodes(node);
+  return nodes
+    .reverse()
+    .map(({ label, path }) => ({ label, href: path.current }));
+
+  function buildNodes(node, nodes = []) {
+    nodes.push(node);
+    if (node.parent) {
+      buildNodes(node.parent, nodes);
+    }
+    return nodes;
+  }
+}
+
+layoutResolvers.set('default', async (client, page, options) => {
+  const { node, locale, defaultLocale } = options;
+
+  if (node) {
+    const currentNode = await client.fetch(
+      groq`*[_type == 'navigation.node' && _id == $id][0]{
+        ...i18n[$defaultLocale], ...i18n[$locale],
+        'parent': *[_type == 'navigation.node' && references(^._id)][0]{
+          ...i18n[$defaultLocale], ...i18n[$locale],
+          'parent': *[_type == 'navigation.node' && references(^._id)][0]{
+            ...i18n[$defaultLocale], ...i18n[$locale],
+            'parent': *[_type == 'navigation.node' && references(^._id)][0]{
+              ...i18n[$defaultLocale], ...i18n[$locale],
+              'parent': *[_type == 'navigation.node' && references(^._id)][0]{
+                ...i18n[$defaultLocale], ...i18n[$locale]
+              }
+            }
+          }
+        }
+      }`,
+      {
+        id: node._id,
+        locale,
+        defaultLocale,
+      }
+    );
+
+    return {
+      heading: {
+        breadcrumbs: buildBreadcrumbs(currentNode),
+      },
+    };
+  }
+});
+
 layoutResolvers.set('home', async (client, page, options) => {
   const { locale, defaultLocale } = options;
 

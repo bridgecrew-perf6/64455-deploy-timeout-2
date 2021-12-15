@@ -7,11 +7,18 @@ $base-body-background: #ffffff;
 $navbar-background: #151515;
 $navbar-border: none;
 $border-rounded-border-radius: 0;
+$global-primary-background: #589463;
+$inverse-global-color: rgba(#fff, 0.85);
+$inverse-breadcrumb-item-color: $inverse-global-color;
 
 @import '@atelierfabien/next-base/src/styles/main.scss';
 
 @import './purged/theme.scss';
 @import './purged/responsive.scss';
+
+.tm-product-info {
+  border-left: 0 !important;
+}
 
 .uk-navbar-right {
   margin-right: $margin-margin;

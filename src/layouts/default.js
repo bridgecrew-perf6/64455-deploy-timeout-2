@@ -1,4 +1,4 @@
-const DefaultLayout = ({ children, heading }) => {
+const DefaultLayout = ({ children }) => {
   return <div uk-height-viewport="expand: true">{children}</div>;
 };
 

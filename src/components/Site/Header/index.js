@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 
 import { urlFor } from '@app/hooks/image';
 
+import SiteBreadcrumbs from '@shop/components/Site/Header/Breadcrumbs';
+
 const SiteHeader = ({ page = {} }) => {
   const { title, images = [] } = page;
 
@@ -15,17 +17,8 @@ const SiteHeader = ({ page = {} }) => {
 
   return (
     <section
-      className="
-  uk-section
-  uk-text-center
-  uk-flex
-  uk-flex-middle
-  uk-flex-center
-  uk-light
-  uk-background-cover
-  uk-background-bottom-right
-"
-      data-overlay="0.3"
+      className="uk-section uk-text-center uk-flex uk-flex-middle uk-flex-center uk-light uk-background-cover uk-background-bottom-right"
+      data-overlay="0.4"
       style={{
         backgroundColor: '#151515',
         backgroundImage: images[0] ? `url('${imageUrl}')` : 'none',
@@ -35,25 +28,8 @@ const SiteHeader = ({ page = {} }) => {
       <div className="tw-page-title-container tw-element">
         <h1 className="tw-page-title uk-text-uppercase">{title}</h1>
       </div>
-      <div
-        className="
-    tw-breadcrumb-container
-    uk-position-absolute uk-position-bottom-center
-    tw-element
-  "
-      >
-        <a href="/tmp" className="tw-breadrumb-child home">
-          {/* TODO */}
-          Home
-        </a>
-        <a href="/tmp/aanbod" className="tw-breadrumb-child">
-          {/* TODO */}
-          Aanbod
-        </a>
-        <a href="aanbod.html" className="tw-breadrumb-child">
-          {/* TODO */}
-          {title ?? 'TODO'}
-        </a>
+      <div className="tw-breadcrumb-container uk-position-absolute uk-position-bottom-center tw-element">
+        <SiteBreadcrumbs />
       </div>
     </section>
   );
