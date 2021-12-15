@@ -1,18 +1,20 @@
+import { useRef } from 'react';
+
 import { isBlank } from '@atelierfabien/next-foundation/lib/util';
 
+import { useCountUp } from '@app/hooks/site';
+
 const Item = ({ label, value, icon, prefix, postfix }) => {
+  const ref = useRef();
+
+  useCountUp(ref, { value });
+
   return (
     <div>
-      <div
-        className="tw-element tw-counterup uk-text-center"
-        data-slctr="> h1 > span"
-        data-txt=""
-        data-sep=","
-        data-dur="1000"
-      >
+      <div className="tw-element tw-counterup uk-text-center">
         <i className={icon} />
         <h1>
-          {prefix} <span>{value}</span> {postfix}
+          {prefix} <span ref={ref}>{value}</span> {postfix}
         </h1>
         <span className="tw-meta">{label}</span>
       </div>

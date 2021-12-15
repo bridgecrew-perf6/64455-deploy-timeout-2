@@ -29,16 +29,6 @@ export default function Application(props) {
           type="text/css"
           media="all"
         />
-        <link
-          href="/dev/assets/purged/owl.carousel.min.css"
-          rel="stylesheet"
-          type="text/css"
-          media="all"
-        />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" />
-        <script src="/dev/assets/js/isotope.pkgd.min.js" />
-        <script src="/dev/assets/js/owl.carousel.min.js" />
-        <script src="/dev/assets/js/theme.js" />
       </Head>
       <App {...props} />
     </>
