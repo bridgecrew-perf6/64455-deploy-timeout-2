@@ -40,6 +40,18 @@ $inverse-breadcrumb-item-color: $inverse-global-color;
   }
 }
 
+.uk-height-small-min {
+  min-height: $height-small-height;
+}
+
+.uk-height-medium-min {
+  min-height: $height-medium-height;
+}
+
+.uk-height-large-min {
+  min-height: $height-large-height;
+}
+
 [data-overlay] .uk-dotnav {
   position: relative;
   z-index: 20;

@@ -112,7 +112,7 @@ const TestimonialsSlider = ({ title, entries = [] }) => {
               {entries.map(({ _key, name, comment }) => (
                 <li
                   key={_key}
-                  className="uk-height-small uk-flex uk-flex-center uk-flex-middle"
+                  className="uk-height-small-min uk-flex uk-flex-center uk-flex-middle"
                 >
                   <div className="testimonial-item">
                     {title && <h3 className="testimonial-title">{title}</h3>}

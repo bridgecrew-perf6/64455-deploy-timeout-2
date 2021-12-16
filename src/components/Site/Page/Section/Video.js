@@ -36,7 +36,7 @@ const VideoSection = ({ title, subtitle, body, link, image }) => {
     >
       <div className="uk-container">
         <div data-uk-scrollspy="target: > .tw-heading; cls:uk-animation-slide-bottom-small; delay: 300">
-          <div className="tw-element uk-height-medium tw-heading uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
+          <div className="tw-element uk-height-medium-min tw-heading uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
             {subtitle && (
               <h5 className="tw-sub-title" style={{ opacity: 0.8 }}>
                 {subtitle}
