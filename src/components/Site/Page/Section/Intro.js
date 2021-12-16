@@ -29,7 +29,10 @@ const Image = ({ image }) => {
   ) : null;
 };
 
-const IntroSection = ({ page }) => {
+const IntroSection = ({
+  page,
+  className = 'tw-element tw-heading uk-text-center',
+}) => {
   const { subtitle, content } = page;
 
   if (isEmpty(subtitle) && isEmpty(content?.body)) return null;
@@ -46,8 +49,8 @@ const IntroSection = ({ page }) => {
     "
     >
       <div className="uk-container">
-        <div className="tw-element uk-text-center tw-heading">
-          {subtitle && <h4>{subtitle}</h4>}
+        <div className={className}>
+          {subtitle && <h4 className="uk-margin-bottom">{subtitle}</h4>}
           <PortableText blocks={content.body} />
         </div>
         <Region region={page.regions.image} Component={Image} />

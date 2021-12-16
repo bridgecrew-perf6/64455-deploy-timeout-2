@@ -1,4 +1,4 @@
-import { useConfig } from '@foundation/next';
+import { useConfig, Link } from '@foundation/next';
 import { useContact, useAddress } from '@app/hooks';
 
 import Social from '@shop/components/Common/Social';
@@ -56,7 +56,10 @@ const CommonFooter = () => {
               className="uk-flex-middle uk-child-width-1-1 uk-child-width-expand@m"
               uk-grid="true"
             >
-              <div className="copyright">© {config('name')}</div>
+              <div>
+                © {config('name')} -{' '}
+                <Link href="/algemene-voorwaarden">Algemene Voorwaarden</Link>
+              </div>
               <div className="uk-text-center">
                 <Social className="uk-flex-center" />
               </div>
