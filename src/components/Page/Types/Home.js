@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 
 import { Link, useCurrency } from '@foundation/next';
+import { isBlank } from '@atelierfabien/next-foundation/lib/util';
 
 import { PortableText } from '@shop/components/Sanity';
 
@@ -59,41 +60,47 @@ const Item = product => {
   );
 };
 
-const ProductsSlider = ({ products = [] }) => (
-  <div
-    uk-slider="true"
-    className="uk-slider tw-element tw-carousel-post tw-posts"
-  >
-    <div className="uk-position-relative">
-      <div className="uk-slider-container">
-        <div
-          className="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-grid"
-          data-uk-scrollspy="target:.post-item; cls:uk-animation-slide-bottom-medium; delay: 350;"
-          uk-grid="true"
-        >
-          {products.map(product => (
-            <Item key={product._id} {...product} />
-          ))}
+const ProductsSlider = ({ products = [] }) => {
+  if (isBlank(products)) return null;
+
+  const containerClass = products.length < 3 ? 'uk-flex uk-flex-center' : '';
+
+  return (
+    <div
+      uk-slider="true"
+      className="uk-slider tw-element tw-carousel-post tw-posts"
+    >
+      <div className="uk-position-relative">
+        <div className="uk-slider-container">
+          <div
+            className={`uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-grid ${containerClass}`}
+            data-uk-scrollspy="target:.post-item; cls:uk-animation-slide-bottom-medium; delay: 350;"
+            uk-grid="true"
+          >
+            {products.map(product => (
+              <Item key={product._id} {...product} />
+            ))}
+          </div>
+        </div>
+        <div className="uk-visible@s">
+          <a
+            className="uk-position-center-left-out uk-position-small"
+            href="#"
+            uk-slidenav-previous="true"
+            uk-slider-item="previous"
+          />
+          <a
+            className="uk-position-center-right-out uk-position-small"
+            href="#"
+            uk-slidenav-next="true"
+            uk-slider-item="next"
+          />
         </div>
       </div>
-      <div className="uk-visible@s">
-        <a
-          className="uk-position-center-left-out uk-position-small"
-          href="#"
-          uk-slidenav-previous="true"
-          uk-slider-item="previous"
-        />
-        <a
-          className="uk-position-center-right-out uk-position-small"
-          href="#"
-          uk-slidenav-next="true"
-          uk-slider-item="next"
-        />
-      </div>
+      <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin" />
     </div>
-    <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin" />
-  </div>
-);
+  );
+};
 
 const TestimonialsSlider = ({ title, entries = [] }) => {
   return (
@@ -165,14 +172,7 @@ const HomePage = ({ page }) => (
         <div className="uk-margin-large-top uk-text-center">
           <Link
             href="/shop"
-            className="
-              uk-button
-              uk-button-radius
-              uk-button-silver
-              uk-button-default
-              uk-button-small
-              tw-hover
-            "
+            className="uk-button uk-button-radius uk-button-silver uk-button-default uk-button-small tw-hover"
           >
             <span className="tw-hover-inner">
               <span>Bezoek de shop</span>

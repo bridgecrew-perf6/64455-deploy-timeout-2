@@ -22,7 +22,10 @@ const View = ({ title, body, tip, ingredients = [], images = [] }) => {
           className="uk-container"
           data-uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 600;"
         >
-          <div className="uk-child-width-expand uk-grid-medium" data-uk-grid>
+          <div
+            className="uk-child-width-expand uk-grid-medium uk-margin-top"
+            data-uk-grid
+          >
             {imageUrl && (
               <div className="tw-element uk-text-center uk-margin-remove-top uk-padding-remove-vertical uk-flex-last@s">
                 <img src={imageUrl} alt={title} />

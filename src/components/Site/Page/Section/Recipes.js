@@ -26,7 +26,7 @@ const Recipe = ({ _id, alias, title, image, showRecipe }) => {
   return (
     <div className="portfolio-item" data-id={`#${_id}`}>
       <div className="portfolio-media tw-image-hover">
-        <img src={imageUrl} alt="TODO" />
+        <img src={imageUrl} alt={title} />
         <a
           href={`#${alias?.current}`}
           className="portfolio-content uk-light"
@@ -91,7 +91,7 @@ const RecipesSection = ({ id, title, body, background, references = [] }) => {
               <PortableText blocks={body} />
             </div>
             <div
-              className={`uk-grid-collapse with-bg uk-child-width-1-1 ${columns}`}
+              className={`uk-grid-collapse uk-child-width-1-1 ${columns}`}
               data-uk-scrollspy="target: > .portfolio-item; cls:uk-animation-slide-top-small; delay: 300;"
               data-uk-grid
             >
