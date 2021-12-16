@@ -1700,6 +1700,7 @@ footer.uk-light a {
 .tw-element + .tw-element {
   margin-top: 70px;
 }
+/*
 .uk-section {
   position: relative;
   padding-top: 70px;
@@ -1726,9 +1727,6 @@ footer.uk-light a {
   padding-top: 60px;
   padding-bottom: 60px;
 }
-.uk-padding-xlarge {
-  padding: 60px;
-}
 @media (min-width: 960px) {
   .uk-section {
     padding-top: 110px;
@@ -1754,6 +1752,11 @@ footer.uk-light a {
     padding-top: 80px;
     padding-bottom: 80px;
   }
+}
+*/
+
+.uk-padding-xlarge {
+  padding: 60px;
 }
 @media (min-width: 1200px) {
   .uk-padding-xlarge {

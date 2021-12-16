@@ -238,7 +238,8 @@ export { layoutResolvers };
 
 export function mapProduct(product) {
   const data = pick(product, '_id', '_type', 'name', 'pricing', 'image');
-  data.image = data.image ?? product.images[0];
+  data.image =
+    data.image ?? (Array.isArray(product.images) ? product.images[0] : null);
   data.alias = product.alias?.current;
   data.intro = isBlank(product.content?.intro)
     ? product.description

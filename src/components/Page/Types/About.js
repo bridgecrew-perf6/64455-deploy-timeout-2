@@ -60,7 +60,7 @@ const ActivitiesSlider = ({ items = [] }) => (
         <div
           className="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-grid uk-text-center"
           data-uk-scrollspy="target:.post-item; cls:uk-animation-slide-bottom-medium; delay: 350;"
-          data-uk-height-match=".post-intro"
+          data-uk-height-match=".post-content"
           uk-grid="true"
         >
           {items.map(item => (
@@ -68,7 +68,7 @@ const ActivitiesSlider = ({ items = [] }) => (
           ))}
         </div>
       </div>
-      <div className="uk-visible@s">
+      <div className="uk-visible@s uk-light">
         <a
           className="uk-position-center-left-out uk-position-small"
           href="#"
