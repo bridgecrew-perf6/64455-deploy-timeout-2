@@ -1,12 +1,10 @@
 import CommonNavbarMenuCartItem from '@shop/components/Common/Navbar/Menu/Cart/Item';
-import CommonNavbarMenuUserItem from '@shop/components/Common/Navbar/Menu/User/Item';
-import CommonNavbarMenuUserDropdown from '@shop/components/Common/Navbar/Menu/User/Dropdown';
+import CommonNavbarMenuUser from '@shop/components/Common/Navbar/Menu/User';
 
 const CommonNavbarRight = () => {
   return (
-    <nav className="uk-navbar-right">
-      <CommonNavbarMenuUserItem />
-      <CommonNavbarMenuUserDropdown />
+    <nav className="uk-navbar-right tw-secondary-menu">
+      <CommonNavbarMenuUser />
       <CommonNavbarMenuCartItem />
     </nav>
   );

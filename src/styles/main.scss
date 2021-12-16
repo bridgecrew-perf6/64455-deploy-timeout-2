@@ -6,6 +6,8 @@ $global-font-family: 'Droid Sans', 'Roboto', 'Helvetica Neue', Arial, sans-serif
 $base-body-background: #ffffff;
 $navbar-background: #151515;
 $navbar-border: none;
+$navbar-nav-item-active-color: #ffffff;
+$navbar-dropdown-nav-item-active-color: #ffffff;
 $border-rounded-border-radius: 0;
 $global-primary-background: #589463;
 $inverse-global-color: rgba(#fff, 0.85);
@@ -66,11 +68,27 @@ $inverse-breadcrumb-item-color: $inverse-global-color;
   margin-top: 0;
 }
 
-.tw-main-menu {
+.tw-background {
+  background-color: #151515;
+}
+
+.tw-main-menu,
+.tw-secondary-menu {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+
   .uk-navbar-dropdown {
     background-color: #151515;
     padding: 14px 18px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
   }
+
+  a {
+    font-size: 12px;
+  }
+
   .uk-navbar-dropdown-nav {
     font-size: 12px;
 

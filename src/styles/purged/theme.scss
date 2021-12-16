@@ -67,8 +67,6 @@ textarea,
   margin: 0;
   border-radius: 0;
   font: inherit;
-  font-size: 10px;
-  text-transform: uppercase;
   letter-spacing: 0.2em;
 }
 input:focus,
@@ -100,14 +98,14 @@ input[type='submit'] {
   height: 30px;
   line-height: 28px;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 50%;
   width: auto;
   padding: 0 35px;
-  background-color: #ccc;
+  background-color: #151515;
   color: #fff;
 }
 input[type='submit']:hover {
-  background-color: #151515;
+  background-color: #ccc;
   color: #fff;
 }
 h1 {
@@ -299,7 +297,7 @@ ul.uk-nav-sub {
 .tw-main-menu > li > a {
   display: flex;
   align-items: center;
-  height: 70px;
+  height: 60px;
   color: #999;
   padding: 0 15px;
 }
@@ -852,15 +850,16 @@ div.entry-cats a:hover {
 
 /* Other Helpful */
 
-.uk-form-icon {
-  width: 50px;
-}
-.uk-form-icon-flip + .uk-input {
-  padding-right: 50px;
-}
-.uk-form-icon:not(.uk-form-icon-flip) + .uk-input {
-  padding-left: 50px;
-}
+// .uk-form-icon {
+//   width: 50px;
+// }
+// .uk-form-icon-flip + .uk-input {
+//   padding-right: 50px;
+// }
+// .uk-form-icon:not(.uk-form-icon-flip) + .uk-input {
+//   padding-left: 50px;
+// }
+
 .tw-meta {
   display: block;
   overflow: hidden;
@@ -1899,6 +1898,7 @@ footer.uk-light a {
 .uk-light .uk-button-default:not(.tw-hover-btn):hover {
   background-color: #fff !important;
   color: #151515;
+  border-color: #151515;
 }
 .uk-light .uk-input {
   background-color: #f0f0f0;

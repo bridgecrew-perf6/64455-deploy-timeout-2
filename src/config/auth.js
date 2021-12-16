@@ -1,8 +1,8 @@
-import { configure } from '@atelierfabien/next-auth';
+import { configure } from '@atelierfabien/next-auth/server';
 
 export default configure({
   signUp: {
-    disabled: false,
+    disabled: true,
     managed: true,
   },
 });

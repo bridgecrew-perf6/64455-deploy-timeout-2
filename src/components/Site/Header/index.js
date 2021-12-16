@@ -17,7 +17,7 @@ const SiteHeader = ({ page = {} }) => {
 
   return (
     <section
-      className="uk-section uk-text-center uk-flex uk-flex-middle uk-flex-center uk-light uk-background-cover uk-background-bottom-right"
+      className="uk-section uk-text-center uk-flex uk-flex-middle uk-flex-center uk-light uk-background-cover"
       data-overlay="0.4"
       style={{
         backgroundColor: '#151515',
