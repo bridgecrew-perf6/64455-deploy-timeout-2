@@ -15,6 +15,11 @@ $base-em-color: #666;
 $inverse-global-color: rgba(#fff, 0.85);
 $inverse-breadcrumb-item-color: $inverse-global-color;
 
+$dotnav-item-background: rgba(#fff, 0.4);
+$dotnav-item-hover-background: rgba(#fff, 0.8);
+$dotnav-item-onclick-background: rgba(#fff, 0.4);
+$dotnav-item-active-background: rgba(#fff, 0.8);
+
 @import '@atelierfabien/next-base/src/styles/main.scss';
 
 @import './purged/theme.scss';

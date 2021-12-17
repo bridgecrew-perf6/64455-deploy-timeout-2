@@ -50,7 +50,7 @@ const Item = image => {
   );
 };
 
-const SlideshowSection = ({ images = [], height = '480px' }) => {
+const SlideshowSection = ({ images = [], height = '500px' }) => {
   if (isBlank(images)) return null;
 
   return (
