@@ -4,7 +4,7 @@ import { PortableText } from '@shop/components/Sanity';
 const Item = ({ name, date, comment }) => (
   <div className="comment">
     <div className="comment-text comment-plain">
-      <h3 className="author">{name}</h3>
+      {name && <h3 className="author">{name}</h3>}
       {date && <span className="tw-meta">{formatDate(date)}</span>}
       <p>{comment}</p>
     </div>
