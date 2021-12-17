@@ -5,13 +5,12 @@ import { urlFor } from '@app/hooks/image';
 import SiteBreadcrumbs from '@shop/components/Site/Header/Breadcrumbs';
 
 const SiteHeader = ({ page = {} }) => {
-  const { title, images = [] } = page;
+  const { title, cover, images = [] } = page;
 
-  const imageUrl = useMemo(
-    () =>
-      images[0] ? urlFor(images[0]).width(1600).auto('format').url() : null,
-    [images]
-  );
+  const imageUrl = useMemo(() => {
+    const image = images[0] ?? cover;
+    return image ? urlFor(image).width(1600).auto('format').url() : null;
+  }, [cover, images]);
 
   return (
     <section
