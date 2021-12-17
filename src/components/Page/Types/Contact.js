@@ -8,8 +8,6 @@ import { Region } from '@shop/components/Page/Regions';
 
 import CommonMap from '@shop/components/Common/Map';
 
-import OpeningHours from '@app/components/Common/OpeningHours';
-
 import SiteHeader from '@shop/components/Site/Header';
 
 const TextElement = ({ title, subtitle, body = [] }) => (
@@ -98,7 +96,7 @@ const ContactPage = ({ page }) => {
               <h4>{page.subtitle}</h4>
             </div>
           )}
-          <div className="tw-element tw-carousel-post style-2 tw-posts">
+          <div className="tw-element tw-carousel-post style-2 tw-posts tm-consults">
             <div
               className="uk-child-width-1-2@m"
               data-uk-scrollspy="target:.post-item; cls:uk-animation-slide-bottom-medium"
@@ -111,10 +109,45 @@ const ContactPage = ({ page }) => {
                     <div className="tw-meta">Praktijk</div>
                     <h3 className="post-title">Consultaties</h3>
                   </div>
-                  <OpeningHours />
+                  <ul className="uk-list uk-text-muted uk-text-small">
+                    <li>
+                      <div className="uk-grid-small uk-grid" uk-grid="true">
+                        <div
+                          className="uk-width-expand uk-leader uk-hidden@s"
+                          uk-leader="true"
+                        >
+                          Di t/m Vr
+                        </div>
+
+                        <div
+                          className="uk-width-expand uk-leader uk-visible@s"
+                          uk-leader="true"
+                        >
+                          Dinsdag t/m Vrijdag
+                        </div>
+                        <div>09:00 - 18:00u</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="uk-grid-small uk-grid" uk-grid="true">
+                        <div
+                          className="uk-width-expand uk-leader uk-hidden@s"
+                          uk-leader="true"
+                        >
+                          Za (om de 2 wk.)
+                        </div>
+                        <div
+                          className="uk-width-expand uk-leader uk-visible@s"
+                          uk-leader="true"
+                        >
+                          Zaterdag (om de 2 weken)
+                        </div>
+                        <div>10:00 - 13:00u</div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
-
               <div className="post-item">
                 <div className="post-content uk-text-center">
                   <div className="tw-meta">Online</div>

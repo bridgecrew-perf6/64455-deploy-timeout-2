@@ -28,6 +28,12 @@ $inverse-breadcrumb-item-color: $inverse-global-color;
   border-left: 0 !important;
 }
 
+@media (max-width: $breakpoint-small) {
+  .tm-consults.tw-carousel-post.style-2 .post-content {
+    padding: 30px;
+  }
+}
+
 .uk-navbar-right {
   margin-right: $margin-margin;
 }
