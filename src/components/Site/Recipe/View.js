@@ -6,6 +6,16 @@ import { urlFor } from '@app/hooks/image';
 
 import { PortableText } from '@shop/components/Sanity';
 
+const Image = ({ imageUrl, title, small }) => (
+  <div
+    className={`tw-element uk-text-center uk-margin-remove-top uk-padding-remove-vertical uk-${
+      small ? 'hidden' : 'visible'
+    }@s`}
+  >
+    <img src={imageUrl} alt={title} />
+  </div>
+);
+
 const View = ({ title, body, tip, ingredients = [], images = [] }) => {
   const imageUrl = useMemo(
     () =>
@@ -17,7 +27,7 @@ const View = ({ title, body, tip, ingredients = [], images = [] }) => {
 
   return (
     <div className="main-container">
-      <section className="uk-section uk-padding-remove-vertical uk-margin-large-top">
+      <section className="uk-section">
         <div
           className="uk-container"
           data-uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 600;"
@@ -26,11 +36,7 @@ const View = ({ title, body, tip, ingredients = [], images = [] }) => {
             className="uk-child-width-expand uk-grid-medium uk-margin-top"
             data-uk-grid
           >
-            {imageUrl && (
-              <div className="tw-element uk-text-center uk-margin-remove-top uk-padding-remove-vertical uk-flex-last@s">
-                <img src={imageUrl} alt={title} />
-              </div>
-            )}
+            {imageUrl && <Image imageUrl={imageUrl} title={title} small />}
             <div className="uk-width-1-4@s">
               <h2 className="entry-title uk-text-left">{title}</h2>
               {!isBlank(ingredients) && (
@@ -53,29 +59,22 @@ const View = ({ title, body, tip, ingredients = [], images = [] }) => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-      <section className="uk-section uk-padding-remove-vertical uk-margin-remove-top uk-margin-large-bottom">
-        <div
-          className="uk-container"
-          data-uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 600;"
-        >
-          <div className="uk-child-width-expand uk-grid-medium" data-uk-grid>
-            <div className="uk-width-1-4@s" />
-            <div className="uk-grid-medium" data-uk-grid>
-              <div>
-                <div className="entry-cats tw-meta uk-text-left uk-margin-large-top">
-                  Bereiding
-                </div>
-                <PortableText blocks={body} />
-              </div>
-              {!isBlank(tip) && (
+            <div>
+              {imageUrl && <Image imageUrl={imageUrl} title={title} />}
+              <div className="uk-child-width-1-1 uk-grid-medium" data-uk-grid>
                 <div>
-                  <div className="entry-cats tw-meta uk-text-left">Tip</div>
-                  <PortableText blocks={tip} />
+                  <div className="entry-cats tw-meta uk-text-left">
+                    Bereiding
+                  </div>
+                  <PortableText blocks={body} />
                 </div>
-              )}
+                {!isBlank(tip) && (
+                  <div>
+                    <div className="entry-cats tw-meta uk-text-left">Tip</div>
+                    <PortableText blocks={tip} />
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

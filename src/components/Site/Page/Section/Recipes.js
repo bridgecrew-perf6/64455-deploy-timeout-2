@@ -26,7 +26,6 @@ const Recipe = ({ _id, alias, title, image, showRecipe }) => {
   return (
     <div className="portfolio-item" data-id={`#${_id}`}>
       <div className="portfolio-media tw-image-hover">
-        {/* <img src={imageUrl} alt={title} /> */}
         <a
           href={`#${alias?.current}`}
           className="tw-image-hover uk-cover-container"
@@ -77,6 +76,8 @@ const RecipesSection = ({ id, title, body, background, references = [] }) => {
     }
   }, [references]);
 
+  const onHide = useMemo(() => () => setRecipeId(), [setRecipeId]);
+
   return (
     <>
       <section
@@ -110,7 +111,7 @@ const RecipesSection = ({ id, title, body, background, references = [] }) => {
           </div>
         </div>
       </section>
-      <SiteOffcanvasFullscreen id={offcanvas} offcanvas={ref}>
+      <SiteOffcanvasFullscreen id={offcanvas} offcanvas={ref} onHide={onHide}>
         <RecipeView id={recipeId} />
       </SiteOffcanvasFullscreen>
     </>

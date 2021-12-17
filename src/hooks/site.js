@@ -47,3 +47,31 @@ export const useCountUp = (
     };
   }, [duration, initial, ready, ref, value]);
 };
+
+export const useModalEvents = (modal, { onShow, onHide }) => {
+  const ready = useUIkit();
+
+  useEffect(() => {
+    if (!modal?.current || !ready) return;
+
+    const el = modal.current;
+
+    const { util } = UIkit;
+
+    function show(e) {
+      if (typeof onShow === 'function') onShow(e);
+    }
+
+    function hide(e) {
+      if (typeof onHide === 'function') onHide(e);
+    }
+
+    util.on(el, 'show', show);
+    util.on(el, 'hide', hide);
+
+    return () => {
+      util.off(el, 'show', show);
+      util.off(el, 'hide', hide);
+    };
+  }, [ready, modal, onShow, onHide]);
+};
