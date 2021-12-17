@@ -8,7 +8,7 @@ const CallToActionSection = ({ title, body, button }) => {
   const link = useLink(button ?? {});
 
   return (
-    <section className="uk-section uk-padding-remove uk-background-muted">
+    <section className="uk-section uk-padding-remove uk-background-muted tm-section-cta">
       <div
         className="uk-container"
         data-uk-scrollspy="target: > div div; cls:uk-animation-slide-bottom-small; delay: 300;"

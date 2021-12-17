@@ -18,7 +18,7 @@ const ColumnDefault = ({ title, subtitle, body }) => (
 
 const ColumnsDefault = ({ page }) => {
   return (
-    <section className="uk-section">
+    <section className="uk-section tm-section-columns">
       <div className="uk-container uk-container-small">
         <div
           className="uk-child-width-1-1 uk-child-width-1-2@m"
@@ -49,7 +49,7 @@ const ColumnAlt = ({ title, subtitle, body }) => (
 
 const ColumnsAlt = ({ page }) => {
   return (
-    <section className="uk-section">
+    <section className="uk-section tm-section-columns">
       <div
         className="uk-child-width-1-2@m uk-grid-match uk-grid-collapse"
         data-uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 400;"

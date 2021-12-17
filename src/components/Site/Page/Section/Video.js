@@ -26,7 +26,7 @@ const VideoSection = ({ title, subtitle, body, link, image }) => {
 
   return (
     <section
-      className="uk-section uk-section-large uk-light uk-background-cover"
+      className="uk-section uk-section-large uk-light uk-background-cover tm-section-video"
       data-overlay="0.4"
       style={{
         backgroundColor: '#151515',

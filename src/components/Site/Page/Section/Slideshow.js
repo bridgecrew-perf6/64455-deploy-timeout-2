@@ -54,7 +54,7 @@ const SlideshowSection = ({ images = [], height = '480px' }) => {
   if (isBlank(images)) return null;
 
   return (
-    <section className="tw-slider uk-light">
+    <section className="tw-slider uk-light tm-section-slideshow">
       <div
         className="uk-position-relative uk-light"
         tabIndex="-1"

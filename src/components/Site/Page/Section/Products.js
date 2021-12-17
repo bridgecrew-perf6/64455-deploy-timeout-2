@@ -65,7 +65,7 @@ const ProductsSection = ({ title, subtitle, body, references = [] }) => {
     references.length === 1 ? 'uk-width-auto' : 'uk-child-width-1-2@m';
 
   return (
-    <section className="uk-section uk-section-muted">
+    <section className="uk-section uk-section-muted tm-section-products">
       <div className="uk-container">
         <div className="tw-element tw-heading uk-text-center">
           <h4>{title}</h4>

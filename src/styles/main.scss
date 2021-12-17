@@ -10,6 +10,8 @@ $navbar-nav-item-active-color: #ffffff;
 $navbar-dropdown-nav-item-active-color: #ffffff;
 $border-rounded-border-radius: 0;
 $global-primary-background: #589463;
+$global-danger-background: #8a1c1c;
+$base-em-color: #666;
 $inverse-global-color: rgba(#fff, 0.85);
 $inverse-breadcrumb-item-color: $inverse-global-color;
 
@@ -17,6 +19,10 @@ $inverse-breadcrumb-item-color: $inverse-global-color;
 
 @import './purged/theme.scss';
 @import './purged/responsive.scss';
+
+.tm-section-intro + .tm-section-columns {
+  padding-top: 20px;
+}
 
 .tm-product-info {
   border-left: 0 !important;
@@ -31,7 +37,7 @@ $inverse-breadcrumb-item-color: $inverse-global-color;
   font-size: 1.5em;
 }
 
-.uk-slideshow-items {
+[data-region-type] .uk-slideshow-items {
   background: #151515;
 }
 
@@ -70,6 +76,10 @@ $inverse-breadcrumb-item-color: $inverse-global-color;
 
 .tw-background {
   background-color: #151515;
+}
+
+.tw-carousel-post .post-intro {
+  min-height: 100px;
 }
 
 .tw-main-menu,

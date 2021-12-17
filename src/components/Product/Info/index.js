@@ -8,9 +8,9 @@ const ProductInfo = props => {
   return (
     <div className="uk-width-1-1 uk-width-2-5@m tm-product-info">
       <ProductInfoHeader {...props} />
+      <ProductVariants {...props} />
       <ProductPurchase {...props} />
       <ProductInfoAvailability {...props} />
-      <ProductVariants {...props} />
       <ProductInfoAccordion {...props} />
     </div>
   );

@@ -166,7 +166,7 @@ layoutResolvers.set('presentation', (client, page, options) => {
 });
 
 layoutResolvers.set('shopOverview', async (client, page, options) => {
-  const { locale, defaultLocale, params = {} } = options;
+  const { locale, defaultLocale, resolvedProps, params = {} } = options;
   const { categoryPath = [] } = params;
 
   await resolveReferences(client, page, {
@@ -209,6 +209,11 @@ layoutResolvers.set('shopOverview', async (client, page, options) => {
       categoryId: category?._id ?? null,
     }
   );
+
+  const breadcrumbs = resolvedProps.heading?.breadcrumbs ?? [];
+  if (category && !isBlank(breadcrumbs)) {
+    breadcrumbs.push({ label: category.name, href: category.path.current });
+  }
 
   return { category, products: products.map(mapProduct) };
 });

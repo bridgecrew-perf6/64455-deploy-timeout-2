@@ -10,7 +10,7 @@ import { Region } from '@shop/components/Page/Regions';
 
 const Image = ({ image }) => {
   const imageUrl = useMemo(
-    () => (image ? urlFor(image).width(1024).auto('format').url() : null),
+    () => (image ? urlFor(image).width(800).auto('format').url() : null),
     [image]
   );
 
@@ -46,6 +46,7 @@ const IntroSection = ({
       uk-margin-large-top
       uk-padding-remove-vertical
       uk-margin-bottom
+      tm-section-intro
     "
     >
       <div className="uk-container">

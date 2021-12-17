@@ -81,7 +81,7 @@ const RecipesSection = ({ id, title, body, background, references = [] }) => {
   return (
     <>
       <section
-        className={`uk-section uk-position-relative uk-background-cover ${
+        className={`uk-section uk-position-relative uk-background-cover tm-section-recipes ${
           background ? 'uk-light' : 'uk-dark'
         }`}
         data-uk-parallax="bgy: -200"

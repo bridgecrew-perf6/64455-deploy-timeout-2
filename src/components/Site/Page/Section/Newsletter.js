@@ -7,7 +7,7 @@ const NewsletterSection = () => {
 
   return (
     <section
-      className="uk-section uk-section-normal uk-light"
+      className="uk-section uk-section-normal uk-light tm-section-newsletter"
       style={{ backgroundColor: '#151515' }}
     >
       <div className="uk-container uk-container-small">

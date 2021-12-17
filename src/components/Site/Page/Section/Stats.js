@@ -27,7 +27,7 @@ const StatsSection = ({ entries = [] }) => {
 
   return (
     <section
-      className="uk-section uk-light"
+      className="uk-section uk-light tm-section-stats"
       style={{ backgroundColor: '#151515' }}
     >
       <div className="uk-container">

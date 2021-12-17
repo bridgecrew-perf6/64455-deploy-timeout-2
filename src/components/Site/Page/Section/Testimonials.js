@@ -15,7 +15,7 @@ const TestimonialsSection = ({ title, subtitle, body, entries = [] }) => {
   if (isBlank(entries)) return null;
 
   return (
-    <section className="uk-section">
+    <section className="uk-section tm-section-testimonials">
       <div className="uk-container uk-container-small">
         {(title || subtitle) && (
           <div className="tw-element tw-heading uk-text-left">

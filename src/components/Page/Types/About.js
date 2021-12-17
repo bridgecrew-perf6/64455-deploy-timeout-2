@@ -22,13 +22,13 @@ const TextBlock = ({ title, subtitle, body = [] }) => (
 
 const Item = node => {
   const { path, item } = node;
-  const { title, subtitle, intro } = item.content ?? {};
+  const { title, subtitle, tagline, intro } = item.content ?? {};
 
   return (
     <div className="post-item">
       <div className="post-content">
         <div className="tw-meta">
-          <Link href={path}>{subtitle ?? '\u00A0'}</Link>
+          <Link href={path}>{tagline ?? subtitle ?? '\u00A0'}</Link>
         </div>
         <h3 className="post-title">
           <Link href={path}>{title}</Link>
