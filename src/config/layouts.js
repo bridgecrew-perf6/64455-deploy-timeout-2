@@ -24,32 +24,11 @@ const nodesProjection = groq`
   'item': item->{
     _id, _type, alias,
     'content': { ...i18n[$defaultLocale].content, ...i18n[$locale].content }{
-      title, subtitle, intro
+      title, subtitle, intro, tagline
     },
-    'image': images[0]
+    'image': coalesce(cover, images[0])
   }
 }`;
-
-// [
-//   {
-//     _id: 'root',
-//     _type: 'navigation.node',
-//     name: 'Shop',
-//     path: '/shop',
-//     isRoot: true,
-//     order: -1,
-//     parents: [],
-//     children: []
-//   },
-//   {
-//     _id: '980760ec-8933-4506-88c3-e04a72ed78d4',
-//     _type: 'product.category',
-//     name: 'Kookworkshop',
-//     parents: [],
-//     path: '/kookworkshop'
-//   },
-//   { label: 'Product A', href: '/shop/products/product-a' }
-// ]
 
 function buildBreadcrumbs(node) {
   const nodes = buildNodes(node);

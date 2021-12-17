@@ -7,7 +7,7 @@ import { urlFor } from '@app/hooks/image';
 const className =
   'uk-button uk-button-default uk-button-small uk-button-radius';
 
-const SiteOverviewItem = ({ title, subtitle, intro, href, image }) => {
+const SiteOverviewItem = ({ title, subtitle, intro, tagline, href, image }) => {
   const imageUrl = useMemo(
     () =>
       image ? urlFor(image).width(370).height(215).auto('format').url() : null,
@@ -26,7 +26,7 @@ const SiteOverviewItem = ({ title, subtitle, intro, href, image }) => {
         </div>
         <div className="entry-cats tw-meta">
           <a href={href} title={title}>
-            {subtitle ?? '\u00A0'}
+            {tagline ?? subtitle ?? '\u00A0'}
           </a>
         </div>
         <h2 className="entry-title">
