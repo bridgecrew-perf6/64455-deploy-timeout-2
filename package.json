@@ -13,11 +13,11 @@
     "start": "next start"
   },
   "dependencies": {
-    "@atelierfabien/next-auth": "^0.0.12",
-    "@atelierfabien/next-base": "^0.0.12",
-    "@atelierfabien/next-foundation": "^0.0.12",
-    "@atelierfabien/next-sanity": "^0.0.12",
-    "@atelierfabien/next-shop": "^0.0.12",
+    "@atelierfabien/next-auth": "^0.0.13",
+    "@atelierfabien/next-base": "^0.0.13",
+    "@atelierfabien/next-foundation": "^0.0.13",
+    "@atelierfabien/next-sanity": "^0.0.13",
+    "@atelierfabien/next-shop": "^0.0.13",
     "@atelierfabien/uikit": "^3.9.4",
     "@carbon/icons-react": "^10.44.0",
     "dotenv-flow": "^3.2.0",
