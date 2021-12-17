@@ -1,12 +1,10 @@
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
-
 import { Link, usePageOptions } from '@foundation/next';
 
 const ShopSidebarCategories = ({ categories = [] }) => {
   const options = usePageOptions();
   const categoryId = options?.category?._id;
 
-  if (isBlank(categories)) return null;
+  if (categories.length < 2) return null;
 
   return (
     <div className="widget-item">

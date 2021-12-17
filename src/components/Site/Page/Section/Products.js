@@ -60,8 +60,9 @@ const ProductsSection = ({ title, subtitle, body, references = [] }) => {
 
   const containerClass =
     references.length === 1 ? 'uk-flex uk-flex-center' : '';
+
   const gridClass =
-    references.length === 1 ? 'uk-width-auto' : 'uk-child-width-1-2';
+    references.length === 1 ? 'uk-width-auto' : 'uk-child-width-1-2@m';
 
   return (
     <section className="uk-section uk-section-muted">

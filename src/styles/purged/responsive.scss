@@ -27,16 +27,6 @@ ThemeWaves Responsive CSS
 
 /* Affects device widths of 959px and smaller. */
 @media (max-width: 959px) {
-  .big-images.owl-carousel.owl-theme .owl-stage-outer,
-  .big-images.owl-carousel.owl-theme .owl-item {
-    width: auto !important;
-  }
-  .isotope-container .portfolio-media img,
-  .isotope-container .portfolio-media,
-  .owl-carousel .shop-image-container,
-  .owl-carousel .portfolio-media {
-    width: 100%;
-  }
   .tw-slider .slider-item {
     height: 600px;
   }
@@ -48,9 +38,6 @@ ThemeWaves Responsive CSS
   }
   .tw-heading h2 {
     font-size: 36px;
-  }
-  .tw-carousel .owl-theme .owl-dots {
-    bottom: 50px;
   }
   .footer-area .copyright {
     text-align: center;

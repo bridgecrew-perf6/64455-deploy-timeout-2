@@ -36,8 +36,8 @@ const Item = product => {
   );
 };
 
-const ShopSidebarFeatured = ({ products = [] }) => {
-  if (isBlank(products)) return null;
+const ShopSidebarFeatured = ({ products = [], hidden = false }) => {
+  if (isBlank(products) || hidden) return null;
 
   return (
     <div className="widget-item">

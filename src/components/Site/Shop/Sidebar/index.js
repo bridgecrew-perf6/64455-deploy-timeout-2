@@ -11,7 +11,10 @@ const ShopSidebar = ({ page }) => {
         <ShopSidebarCategories
           categories={page.regions.categories?.references}
         />
-        <ShopSidebarFeatured products={page.regions.featured?.references} />
+        <ShopSidebarFeatured
+          products={page.regions.featured?.references}
+          hidden={page.regions.featured?.hidden}
+        />
       </div>
     </div>
   );

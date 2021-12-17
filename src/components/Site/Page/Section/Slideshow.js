@@ -30,7 +30,7 @@ const Item = image => {
             className="tw-element uk-text-center tw-heading full"
             data-uk-scrollspy="target: > *; cls:uk-animation-slide-bottom-medium; delay: 400;"
           >
-            {subtitle && <h4 className="tw-sub-title">{subtitle}</h4>}
+            {subtitle && <h4>{subtitle}</h4>}
             {title && <h1>{title}</h1>}
             {link.valid && (
               <Link
@@ -50,19 +50,23 @@ const Item = image => {
   );
 };
 
-const SlideshowSection = ({ images = [] }) => {
+const SlideshowSection = ({ images = [], height = '480px' }) => {
   if (isBlank(images)) return null;
 
   return (
     <section className="tw-slider uk-light">
       <div
-        className="uk-position-relative uk-visible-toggle uk-light"
+        className="uk-position-relative uk-light"
         tabIndex="-1"
-        uk-slideshow="animation: slide; ratio: 7:3; min-height: 480;"
+        uk-slideshow="animation: slide; ratio: false;"
+        style={{ minHeight: height }}
       >
-        <ul className="uk-slideshow-items" style={{ minHeight: '480px' }}>
+        <ul
+          className="uk-slideshow-items"
+          style={{ width: '100%', minHeight: height, overflow: 'visible' }}
+        >
           {images.map(image => (
-            <li key={image._key}>
+            <li key={image._key} style={{ minHeight: height }}>
               <Item {...image} />
             </li>
           ))}

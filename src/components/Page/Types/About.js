@@ -58,7 +58,7 @@ const ActivitiesSlider = ({ items = [] }) => (
     <div className="uk-position-relative">
       <div className="uk-slider-container">
         <div
-          className="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-grid uk-text-center"
+          className="uk-slider-items uk-child-width-1-2@s uk-child-width-1-3@m uk-grid uk-text-center"
           data-uk-scrollspy="target:.post-item; cls:uk-animation-slide-bottom-medium; delay: 350;"
           data-uk-height-match=".post-content"
           uk-grid="true"

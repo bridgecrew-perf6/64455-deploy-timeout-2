@@ -26,7 +26,15 @@ const Recipe = ({ _id, alias, title, image, showRecipe }) => {
   return (
     <div className="portfolio-item" data-id={`#${_id}`}>
       <div className="portfolio-media tw-image-hover">
-        <img src={imageUrl} alt={title} />
+        {/* <img src={imageUrl} alt={title} /> */}
+        <a
+          href={`#${alias?.current}`}
+          className="tw-image-hover uk-cover-container"
+          onClick={onClick}
+          uk-ratio="3/2"
+        >
+          {imageUrl && <img src={imageUrl} alt={title} uk-cover="true" />}
+        </a>
         <a
           href={`#${alias?.current}`}
           className="portfolio-content uk-light"
