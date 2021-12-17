@@ -12,10 +12,7 @@ const Item = image => {
   const link = useLink(button ?? {});
 
   const imageUrl = useMemo(
-    () =>
-      image
-        ? urlFor(image).width(1600).height(1024).auto('format').url()
-        : null,
+    () => (image ? urlFor(image).width(1600).auto('format').url() : null),
     [image]
   );
 

@@ -13,8 +13,7 @@ const VideoSection = ({ title, subtitle, body, link, image }) => {
   const [id] = useState(() => uniqueId('video-'));
 
   const imageUrl = useMemo(
-    () =>
-      image ? urlFor(image).width(1200).height(400).auto('format').url() : null,
+    () => (image ? urlFor(image).width(1600).auto('format').url() : null),
     [image]
   );
 

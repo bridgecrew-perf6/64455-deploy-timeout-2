@@ -9,9 +9,7 @@ const SiteHeader = ({ page = {} }) => {
 
   const imageUrl = useMemo(
     () =>
-      images[0]
-        ? urlFor(images[0]).width(1600).height(1024).auto('format').url()
-        : null,
+      images[0] ? urlFor(images[0]).width(1600).auto('format').url() : null,
     [images]
   );
 
