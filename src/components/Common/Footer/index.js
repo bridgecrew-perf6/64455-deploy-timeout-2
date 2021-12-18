@@ -56,9 +56,17 @@ const CommonFooter = () => {
               className="uk-flex-middle uk-child-width-1-1 uk-child-width-expand@m"
               uk-grid="true"
             >
-              <div>
+              <div className="uk-visible@s">
                 © {config('name')} -{' '}
+                <Link href="/algemene-voorwaarden">Algemene Voorwaarden</Link> -{' '}
+                <Link href="/privacy">Privacy Verklaring</Link>
+              </div>
+              <div className="uk-text-center uk-hidden@s">
+                © {config('name')}
+                <br />
                 <Link href="/algemene-voorwaarden">Algemene Voorwaarden</Link>
+                <br />
+                <Link href="/privacy">Privacy Verklaring</Link>
               </div>
               <div className="uk-text-center">
                 <Social className="uk-flex-center" />
