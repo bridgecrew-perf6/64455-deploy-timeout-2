@@ -26,7 +26,7 @@ $dotnav-item-active-background: rgba(#fff, 0.8);
 @import './purged/responsive.scss';
 
 .uk-button.uk-button-primary {
-  border: none;
+  border-color: $global-primary-background;
 }
 
 .tm-section-intro + .tm-section-columns {
