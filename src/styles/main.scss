@@ -25,6 +25,14 @@ $dotnav-item-active-background: rgba(#fff, 0.8);
 @import './purged/theme.scss';
 @import './purged/responsive.scss';
 
+.uk-navbar-item.uk-logo .tm-logo {
+  margin-left: 15px;
+
+  @media (max-width: $breakpoint-small) {
+    width: 160px;
+  }
+}
+
 .uk-button.uk-button-primary {
   border-color: $global-primary-background;
 }
