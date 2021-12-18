@@ -50,7 +50,7 @@ const AuthLogin = props => {
 
   const { t } = useTranslation();
 
-  if (loading) return <p>{t('auth:loading')}</p>;
+  if (loading) return <div className="uk-light" data-uk-spinner />;
 
   return (
     <div className="uk-padding-large">

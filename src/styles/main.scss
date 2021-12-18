@@ -9,7 +9,7 @@ $navbar-border: none;
 $navbar-nav-item-active-color: #ffffff;
 $navbar-dropdown-nav-item-active-color: #ffffff;
 $border-rounded-border-radius: 0;
-$global-primary-background: #589463;
+$global-primary-background: #69a228;
 $global-danger-background: #8a1c1c;
 $base-em-color: #666;
 $inverse-global-color: rgba(#fff, 0.85);
@@ -24,6 +24,10 @@ $dotnav-item-active-background: rgba(#fff, 0.8);
 
 @import './purged/theme.scss';
 @import './purged/responsive.scss';
+
+.uk-button.uk-button-primary {
+  border: none;
+}
 
 .tm-section-intro + .tm-section-columns {
   padding-top: 20px;

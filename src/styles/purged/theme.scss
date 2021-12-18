@@ -129,27 +129,6 @@ p:last-child {
 /* Top Bar */
 
 /* Logo & Header Styling */
-.tw-logo .site-name {
-  margin-bottom: 0;
-  font-size: 32px;
-  text-transform: uppercase;
-  /* font-family: 'Shadows Into Light'; */
-  color: rgba(255, 255, 255, 0.2);
-  letter-spacing: 0.1em;
-  line-height: 1;
-}
-.tw-logo .site-name a {
-  color: inherit;
-}
-.tw-logo .site-name a:hover {
-  text-decoration: none;
-}
-.tw-logo .site-name a.uk-dark {
-  color: #fff;
-}
-.tw-logo .site-name a.uk-dark {
-  color: #151515;
-}
 .tw-header-meta {
   display: flex;
   padding: 0;
@@ -170,9 +149,6 @@ p:last-child {
   left: 12px;
   top: 18px;
 }
-/*.mobile-menu-responsive{
-    display: none;
-}*/
 .tw-header-meta .mobile-menu .uk-close {
   opacity: 0;
 }
@@ -1646,10 +1622,6 @@ ul.portfolio-single-meta + .portfolio-btn {
 .bottom-area {
   padding-top: 80px;
   padding-bottom: 80px;
-}
-.bottom-area .tw-logo {
-  padding-left: 0;
-  padding-right: 0;
 }
 .bottom-area h3.widget-title {
   font-size: 12px;
