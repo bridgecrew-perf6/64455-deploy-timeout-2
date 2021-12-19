@@ -9,7 +9,7 @@ const ShopProductList = ({ products = [] }) => {
   } else {
     return (
       <div
-        className="shop-container uk-child-width-1-2@xs uk-child-width-1-3@s uk-child-width-1-2@m uk-child-width-1-3@l"
+        className="shop-container uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m"
         data-uk-scrollspy="target: > .shop-item; cls:uk-animation-slide-bottom-medium; delay: 300;"
         data-uk-grid
       >

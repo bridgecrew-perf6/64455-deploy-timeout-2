@@ -1,4 +1,4 @@
-const Page = () => <h1>Bundle</h1>;
+const Page = () => <h1>Recipe</h1>;
 
 // TODO <title>
 

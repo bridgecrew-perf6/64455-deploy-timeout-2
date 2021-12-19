@@ -1,17 +1,11 @@
 import { withPageWithLayout } from '@shop/hooks';
 
-import SiteHeader from '@shop/components/Site/Header';
-import IntroSection from '@shop/components/Site/Page/Section/Intro';
+import SiteAccountOverview from '@shop/components/Site/Account/Overview';
 
-const AccountPage = ({ page, documents }) => {
-  console.log(documents);
+const AccountPage = props => {
   return (
     <div className="main-container">
-      <SiteHeader page={page} />
-      <IntroSection page={page} />
-      <section className="uk-section">
-        <h1 className="uk-text-center">Account!</h1>
-      </section>
+      <SiteAccountOverview {...props} />
     </div>
   );
 };
