@@ -50,7 +50,7 @@ export const View = ({
             data-uk-grid
           >
             {imageUrl && <Image imageUrl={imageUrl} title={title} small />}
-            <div className="uk-width-1-4@s">
+            <div className="uk-width-1-4@m">
               <h2 className="entry-title uk-text-left">{title}</h2>
               {!isBlank(ingredients) && (
                 <div className="entry-cats tw-meta uk-text-left uk-margin-large-top uk-margin-bottom">
