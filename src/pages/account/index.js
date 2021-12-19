@@ -18,8 +18,6 @@ export const getServerSideProps = async context => {
   if (serversideProps?.props?.currentPageProps?._type === 'page') {
     const session = await getSession(context);
     if (String(session?.user?.id).startsWith('user.')) {
-      console.log(serversideProps);
-
       serversideProps.props.session = session;
       serversideProps.props.documents = await account.getDocumentsList({
         types: authConfig.referencedTypes,
