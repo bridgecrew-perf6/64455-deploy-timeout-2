@@ -96,12 +96,16 @@ export const View = ({
   );
 };
 
-const RecipeView = ({ id, scrollspy = false }) => {
+const RecipeView = ({ id, bundle, scrollspy = false }) => {
   const result = useQuery(
-    ['recipes', id],
+    ['recipes', id, bundle],
     async () => {
       if (isBlank(id)) return { error: 'invalid id' };
-      const response = await fetch(`/api/recipes/${id}`);
+      const response = await fetch(
+        isBlank(bundle)
+          ? `/api/recipes/${id}`
+          : `/api/recipes/${id}?bundle=${bundle}`
+      );
       if (response.ok) {
         return response.json();
       } else {

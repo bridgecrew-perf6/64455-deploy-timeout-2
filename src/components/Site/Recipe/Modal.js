@@ -6,7 +6,7 @@ import SiteOffcanvasFullscreen from '@shop/components/Site/Offcanvas/Fullscreen'
 
 import RecipeView from '@shop/components/Site/Recipe/View';
 
-const RecipeModal = ({ Main, ...props }) => {
+const RecipeModal = ({ Main, bundle, ...props }) => {
   const [id] = useState(() => uniqueId('recipe-'));
   const offcanvas = `${id}-offcanvas`;
 
@@ -35,7 +35,7 @@ const RecipeModal = ({ Main, ...props }) => {
     <>
       <Main {...props} showRecipe={showRecipe} hideRecipe={hideRecipe} />
       <SiteOffcanvasFullscreen id={offcanvas} offcanvas={ref} onHide={onHide}>
-        <RecipeView id={recipeId} scrollspy />
+        <RecipeView id={recipeId} bundle={bundle} scrollspy />
       </SiteOffcanvasFullscreen>
     </>
   );
