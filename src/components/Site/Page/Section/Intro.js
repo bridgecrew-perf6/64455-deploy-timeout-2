@@ -31,26 +31,19 @@ const Image = ({ image }) => {
 
 const IntroSection = ({
   page,
+  showTitle = false,
+  sectionClassName = 'uk-section uk-section-large uk-padding-remove-top uk-margin-large-top uk-padding-remove-vertical uk-margin-bottom tm-section-intro',
   className = 'tw-element tw-heading uk-text-center',
 }) => {
-  const { subtitle, content } = page;
+  const { title, subtitle, content } = page;
 
-  if (isEmpty(subtitle) && isEmpty(content?.body)) return null;
+  if (isEmpty(subtitle) && isEmpty(content?.body) && !showTitle) return null;
 
   return (
-    <section
-      className="
-      uk-section
-      uk-section-large
-      uk-padding-remove-top
-      uk-margin-large-top
-      uk-padding-remove-vertical
-      uk-margin-bottom
-      tm-section-intro
-    "
-    >
+    <section className={sectionClassName}>
       <div className="uk-container">
         <div className={className}>
+          {showTitle && <h2 className="uk-text-uppercase">{title}</h2>}
           {subtitle && <h4 className="uk-margin-bottom">{subtitle}</h4>}
           <PortableText blocks={content.body} />
         </div>

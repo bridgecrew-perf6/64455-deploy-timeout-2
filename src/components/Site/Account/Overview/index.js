@@ -7,6 +7,8 @@ import IntroSection from '@shop/components/Site/Page/Section/Intro';
 import SiteAccountOverviewEmpty from '@shop/components/Site/Account/Overview/Empty';
 import SiteAccountOverviewSection from '@shop/components/Site/Account/Overview/Section';
 
+const sectionClassName = 'uk-padding-remove-vertical uk-margin-bottom';
+
 const groups = [
   { type: 'recipe.bundle', title: 'Receptenbundels' },
   { type: 'recipe', title: 'Recepten' },
@@ -20,12 +22,12 @@ const SiteAccountOverview = ({ page, documents = [] }) => {
   return (
     <section className="uk-section">
       <div className="uk-container">
-        <div>
-          <h2 className="uk-margin-medium-bottom uk-text-uppercase">
-            {page.title}
-          </h2>
-          <IntroSection page={page} />
-        </div>
+        <IntroSection
+          page={page}
+          className="tw-element tw-heading"
+          sectionClassName={sectionClassName}
+          showTitle
+        />
         {empty && <SiteAccountOverviewEmpty page={page} />}
         {!empty &&
           groups.map(group => {
