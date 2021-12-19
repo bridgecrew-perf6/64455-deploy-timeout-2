@@ -1,12 +1,10 @@
-import { useRef, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 import { urlFor } from '@app/hooks/image';
 
 import { PortableText } from '@shop/components/Sanity';
 
-import SiteOffcanvasFullscreen from '@shop/components/Site/Offcanvas/Fullscreen';
-
-import RecipeView from '@shop/components/Site/Recipe/View';
+import RecipeModal from '@shop/components/Site/Recipe/Modal';
 
 const Recipe = ({ _id, alias, title, image, showRecipe }) => {
   const imageUrl = useMemo(
@@ -51,21 +49,13 @@ const Recipe = ({ _id, alias, title, image, showRecipe }) => {
   );
 };
 
-const RecipesSection = ({ id, title, body, background, references = [] }) => {
-  const offcanvas = `${id}-offcanvas`;
-
-  const ref = useRef();
-
-  const [recipeId, setRecipeId] = useState();
-
-  const showRecipe = useMemo(
-    () => id => {
-      setRecipeId(id);
-      UIkit.offcanvas(ref.current).show();
-    },
-    [setRecipeId]
-  );
-
+const RecipesBlock = ({
+  title,
+  body,
+  background,
+  showRecipe,
+  references = [],
+}) => {
   const columns = useMemo(() => {
     if (references.length % 3 === 0) {
       return 'uk-child-width-1-2@s uk-child-width-1-3@m';
@@ -76,46 +66,43 @@ const RecipesSection = ({ id, title, body, background, references = [] }) => {
     }
   }, [references]);
 
-  const onHide = useMemo(() => () => setRecipeId(), [setRecipeId]);
-
   return (
-    <>
-      <section
-        className={`uk-section uk-position-relative uk-background-cover tm-section-recipes ${
-          background ? 'uk-light' : 'uk-dark'
-        }`}
-        data-uk-parallax="bgy: -200"
-        data-overlay="0.4"
-        style={{
-          backgroundColor: background ? '#151515' : '#ffffff',
-          backgroundImage: background
-            ? `url('/assets/images/${background}')`
-            : null,
-        }}
-      >
-        <div className="uk-container uk-container-small uk-text-center">
-          <div className="tw-element tw-portfolio">
-            <div className="tw-element tw-heading uk-text-center">
-              <h3>{title}</h3>
-              <PortableText blocks={body} />
-            </div>
-            <div
-              className={`uk-grid-collapse uk-child-width-1-1 ${columns}`}
-              data-uk-scrollspy="target: > .portfolio-item; cls:uk-animation-slide-top-small; delay: 300;"
-              data-uk-grid
-            >
-              {references.map(entry => (
-                <Recipe key={entry._id} {...entry} showRecipe={showRecipe} />
-              ))}
-            </div>
+    <section
+      className={`uk-section uk-position-relative uk-background-cover tm-section-recipes ${
+        background ? 'uk-light' : 'uk-dark'
+      }`}
+      data-uk-parallax="bgy: -200"
+      data-overlay="0.4"
+      style={{
+        backgroundColor: background ? '#151515' : '#ffffff',
+        backgroundImage: background
+          ? `url('/assets/images/${background}')`
+          : null,
+      }}
+    >
+      <div className="uk-container uk-container-small uk-text-center">
+        <div className="tw-element tw-portfolio">
+          <div className="tw-element tw-heading uk-text-center">
+            <h3>{title}</h3>
+            <PortableText blocks={body} />
+          </div>
+          <div
+            className={`uk-grid-collapse uk-child-width-1-1 ${columns}`}
+            data-uk-scrollspy="target: > .portfolio-item; cls:uk-animation-slide-top-small; delay: 300;"
+            data-uk-grid
+          >
+            {references.map(entry => (
+              <Recipe key={entry._id} {...entry} showRecipe={showRecipe} />
+            ))}
           </div>
         </div>
-      </section>
-      <SiteOffcanvasFullscreen id={offcanvas} offcanvas={ref} onHide={onHide}>
-        <RecipeView id={recipeId} scrollspy />
-      </SiteOffcanvasFullscreen>
-    </>
+      </div>
+    </section>
   );
+};
+
+const RecipesSection = props => {
+  return <RecipeModal Main={RecipesBlock} {...props} />;
 };
 
 export default RecipesSection;
