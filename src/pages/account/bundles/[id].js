@@ -1,7 +1,8 @@
-const Page = () => <h1>Recipe</h1>;
+const Page = () => <h1>Bundle</h1>;
 
 // TODO <title>
+// TODO link back to overview
 
-// Page.authentication = { redirect: true };
+// TODO Page.authentication = { redirect: true };
 
 export default Page;

@@ -112,7 +112,7 @@ const RecipesSection = ({ id, title, body, background, references = [] }) => {
         </div>
       </section>
       <SiteOffcanvasFullscreen id={offcanvas} offcanvas={ref} onHide={onHide}>
-        <RecipeView id={recipeId} />
+        <RecipeView id={recipeId} scrollspy />
       </SiteOffcanvasFullscreen>
     </>
   );

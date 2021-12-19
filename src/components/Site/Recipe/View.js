@@ -16,7 +16,15 @@ const Image = ({ imageUrl, title, small }) => (
   </div>
 );
 
-const View = ({ title, body, tip, ingredients = [], images = [] }) => {
+export const View = ({
+  title,
+  body,
+  tip,
+  ingredients = [],
+  images = [],
+  scrollspy = false,
+  children,
+}) => {
   const imageUrl = useMemo(
     () =>
       images[0]
@@ -28,9 +36,14 @@ const View = ({ title, body, tip, ingredients = [], images = [] }) => {
   return (
     <div className="main-container">
       <section className="uk-section">
+        {children}
         <div
           className="uk-container"
-          data-uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 600;"
+          data-uk-scrollspy={
+            scrollspy
+              ? 'target: > div; cls:uk-animation-slide-bottom-medium; delay: 600;'
+              : null
+          }
         >
           <div
             className="uk-child-width-expand uk-grid-medium uk-margin-top"
@@ -83,7 +96,7 @@ const View = ({ title, body, tip, ingredients = [], images = [] }) => {
   );
 };
 
-const RecipeView = ({ id }) => {
+const RecipeView = ({ id, scrollspy = false }) => {
   const result = useQuery(
     ['recipes', id],
     async () => {
@@ -110,7 +123,7 @@ const RecipeView = ({ id }) => {
       </div>
     );
   } else {
-    return <View key={id} {...result.data} />;
+    return <View key={id} {...result.data} scrollspy={scrollspy} />;
   }
 };
 
