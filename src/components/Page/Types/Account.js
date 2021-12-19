@@ -3,7 +3,8 @@ import { withPageWithLayout } from '@shop/hooks';
 import SiteHeader from '@shop/components/Site/Header';
 import IntroSection from '@shop/components/Site/Page/Section/Intro';
 
-const AccountPage = ({ page }) => {
+const AccountPage = ({ page, documents }) => {
+  console.log(documents);
   return (
     <div className="main-container">
       <SiteHeader page={page} />
