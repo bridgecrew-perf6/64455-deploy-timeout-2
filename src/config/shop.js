@@ -1,7 +1,6 @@
 import config from '@base/config/shop';
 
 config.minVariants = 0;
-
 config.hiddenVariantOptions = ['date'];
 
 config.image = {
