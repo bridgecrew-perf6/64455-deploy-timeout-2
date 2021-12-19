@@ -17,7 +17,7 @@ const generateLink = item => {
 };
 
 const SiteAccountOverviewItem = item => {
-  const { name, image } = item;
+  const { _id, name, image, section } = item;
   const link = buildLink(item, generateLink);
 
   const imageUrl = useMemo(
@@ -25,6 +25,15 @@ const SiteAccountOverviewItem = item => {
       image ? urlFor(image).width(360).height(270).auto('format').url() : null,
     [image]
   );
+
+  const onClick = useMemo(() => {
+    if (section.type === 'recipe' && typeof section.showRecipe === 'function') {
+      return e => {
+        e.preventDefault();
+        section.showRecipe(_id);
+      };
+    }
+  }, [_id, section]);
 
   return (
     <div className="shop-item">
@@ -35,12 +44,13 @@ const SiteAccountOverviewItem = item => {
             className="tw-image-hover uk-cover-container"
             title={name}
             uk-ratio="3/2"
+            onClick={onClick}
           >
             {imageUrl && <img src={imageUrl} uk-cover="true" />}
           </Link>
         </div>
         <h4 className="uk-text-truncate">
-          <Link href={link.href} className="shop-title">
+          <Link href={link.href} className="shop-title" onClick={onClick}>
             {name}
           </Link>
         </h4>
