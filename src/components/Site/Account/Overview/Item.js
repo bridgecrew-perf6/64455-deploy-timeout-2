@@ -17,7 +17,7 @@ const generateLink = item => {
 };
 
 const SiteAccountOverviewItem = item => {
-  const { _id, name, image, section } = item;
+  const { _id, name, image, onItemClick } = item;
   const link = buildLink(item, generateLink);
 
   const imageUrl = useMemo(
@@ -27,13 +27,13 @@ const SiteAccountOverviewItem = item => {
   );
 
   const onClick = useMemo(() => {
-    if (section.type === 'recipe' && typeof section.showRecipe === 'function') {
+    if (typeof onItemClick === 'function') {
       return e => {
         e.preventDefault();
-        section.showRecipe(_id);
+        onItemClick(_id);
       };
     }
-  }, [_id, section]);
+  }, [_id, onItemClick]);
 
   return (
     <div className="shop-item">

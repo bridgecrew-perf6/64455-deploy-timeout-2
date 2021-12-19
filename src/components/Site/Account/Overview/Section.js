@@ -15,7 +15,11 @@ const Section = section => {
         data-uk-grid
       >
         {items.map(item => (
-          <SiteAccountOverviewItem key={item._id} {...item} section={section} />
+          <SiteAccountOverviewItem
+            key={item._id}
+            {...item}
+            onItemClick={section.showRecipe}
+          />
         ))}
       </div>
     </div>

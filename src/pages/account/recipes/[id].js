@@ -32,6 +32,8 @@ export const getServerSideProps = async context => {
       defaultLocale,
     });
 
+    if (!recipe) return { notFound: true };
+
     const props = await getPageProps(context, {
       page: recipe,
     });
