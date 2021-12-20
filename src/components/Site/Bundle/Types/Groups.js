@@ -1,6 +1,6 @@
-import SiteBundleRecipes from '@shop/components/Site/Bundle/Recipes';
+import BundleRecipes from '@shop/components/Site/Bundle/Recipes';
 
-import SiteBundleSection from '@shop/components/Site/Bundle/Section';
+import BundleSection from '@shop/components/Site/Bundle/Section';
 
 const Bundle = ({ bundle, onItemClick }) => {
   const { groups = [] } = bundle;
@@ -8,13 +8,13 @@ const Bundle = ({ bundle, onItemClick }) => {
   return (
     <>
       {groups.map(group => (
-        <SiteBundleSection
+        <BundleSection
           key={group._key}
           section={group}
           onItemClick={onItemClick}
         >
-          <SiteBundleRecipes items={group.items} onItemClick={onItemClick} />
-        </SiteBundleSection>
+          <BundleRecipes items={group.items} onItemClick={onItemClick} />
+        </BundleSection>
       ))}
     </>
   );

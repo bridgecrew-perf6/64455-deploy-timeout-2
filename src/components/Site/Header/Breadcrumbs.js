@@ -2,7 +2,7 @@ import { usePagePart, useGlobalContext } from '@foundation/next';
 
 import CommonBreadcrumbs from '@shop/components/Common/Breadcrumbs';
 
-const SiteBreadcrumbs = props => {
+const Breadcrumbs = props => {
   const heading = usePagePart('heading', props);
   const global = useGlobalContext();
 
@@ -20,4 +20,4 @@ const SiteBreadcrumbs = props => {
   }
 };
 
-export default SiteBreadcrumbs;
+export default Breadcrumbs;

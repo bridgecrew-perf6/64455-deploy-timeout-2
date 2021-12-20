@@ -1,7 +1,7 @@
 import { withPortal } from '@foundation/next';
 import { useModalEvents } from '@app/hooks/site';
 
-const SiteOffcanvasFullscreen = withPortal(
+const OffcanvasFullscreen = withPortal(
   ({ id, type, children, offcanvas, onShow, onHide }) => {
     useModalEvents(offcanvas, { onShow, onHide });
 
@@ -34,4 +34,4 @@ const SiteOffcanvasFullscreen = withPortal(
   }
 );
 
-export default SiteOffcanvasFullscreen;
+export default OffcanvasFullscreen;

@@ -7,11 +7,11 @@ import { getSession } from '@atelierfabien/next-auth';
 
 import { buildLink } from '@shop/hooks/navigation';
 
-import SiteHeader from '@shop/components/Site/Header';
+import Header from '@shop/components/Site/Header';
 
 import { resolveReferences } from '@shop/lib/server';
 
-import SiteBundleOverview from '@shop/components/Site/Bundle/Overview';
+import BundleOverview from '@shop/components/Site/Bundle/Overview';
 
 import init from '@shop/sanity/types/bundle';
 
@@ -81,8 +81,8 @@ const Page = () => {
   const page = usePage();
   return (
     <>
-      <SiteHeader page={page} />
-      <SiteBundleOverview page={page} />
+      <Header page={page} />
+      <BundleOverview page={page} />
     </>
   );
 };

@@ -2,7 +2,7 @@ import { withPageWithLayout } from '@shop/hooks';
 
 import { Region } from '@shop/components/Page/Regions';
 
-import SiteHeader from '@shop/components/Site/Header';
+import Header from '@shop/components/Site/Header';
 import IntroSection from '@shop/components/Site/Page/Section/Intro';
 import ColumnsSection from '@shop/components/Site/Page/Section/Columns';
 import NewsletterSection from '@shop/components/Site/Page/Section/Newsletter';
@@ -16,7 +16,7 @@ import ProductsSection from '@shop/components/Site/Page/Section/Products';
 const DefaultPage = ({ page }) => {
   return (
     <div className="main-container">
-      <SiteHeader page={page} />
+      <Header page={page} />
       <IntroSection page={page} />
       <ColumnsSection page={page} type="plain" />
       <Region region={page.regions?.slideshow} Component={SlideshowSection} />

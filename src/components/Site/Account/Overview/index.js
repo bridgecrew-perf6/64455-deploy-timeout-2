@@ -6,8 +6,8 @@ import { useHash } from '@shop/hooks/site';
 
 import IntroSection from '@shop/components/Site/Page/Section/Intro';
 
-import SiteAccountOverviewEmpty from '@shop/components/Site/Account/Overview/Empty';
-import SiteAccountOverviewSection from '@shop/components/Site/Account/Overview/Section';
+import AccountOverviewEmpty from '@shop/components/Site/Account/Overview/Empty';
+import AccountOverviewSection from '@shop/components/Site/Account/Overview/Section';
 
 import RecipeModal from '@shop/components/Site/Recipe/Modal';
 
@@ -34,13 +34,13 @@ const Overview = ({ page, showRecipe, documents = [] }) => {
           sectionClassName={sectionClassName}
           showTitle
         />
-        {empty && <SiteAccountOverviewEmpty page={page} />}
+        {empty && <AccountOverviewEmpty page={page} />}
         {!empty &&
           groups.map(group => {
             const items = types[group.type];
             if (Array.isArray(items)) {
               return (
-                <SiteAccountOverviewSection
+                <AccountOverviewSection
                   key={group.type}
                   {...group}
                   items={items}
@@ -56,8 +56,8 @@ const Overview = ({ page, showRecipe, documents = [] }) => {
   );
 };
 
-const SiteAccountOverview = props => {
+const AccountOverview = props => {
   return <RecipeModal Main={Overview} {...props} />;
 };
 
-export default SiteAccountOverview;
+export default AccountOverview;

@@ -1,4 +1,4 @@
-const SiteAccountOverviewEmpty = () => {
+const AccountOverviewEmpty = () => {
   return (
     <div>
       <p>Er zijn momenteel geen items beschikbaar.</p>
@@ -6,4 +6,4 @@ const SiteAccountOverviewEmpty = () => {
   );
 };
 
-export default SiteAccountOverviewEmpty;
+export default AccountOverviewEmpty;

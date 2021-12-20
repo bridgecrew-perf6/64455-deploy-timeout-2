@@ -7,7 +7,7 @@ import { useHash } from '@shop/hooks/site';
 import RecipeModal from '@shop/components/Site/Recipe/Modal';
 
 import IntroSection from '@shop/components/Site/Page/Section/Intro';
-import SiteAccountOverviewEmpty from '@shop/components/Site/Account/Overview/Empty';
+import AccountOverviewEmpty from '@shop/components/Site/Account/Overview/Empty';
 
 import types from '@shop/components/Site/Bundle/Types';
 
@@ -60,15 +60,15 @@ const Main = props => {
     return (
       <section className="uk-section">
         <div className="tm-account-section uk-margin-large-bottom uk-text-center">
-          <SiteAccountOverviewEmpty />
+          <AccountOverviewEmpty />
         </div>
       </section>
     );
   }
 };
 
-const SiteBundleOverview = ({ page }) => {
+const BundleOverview = ({ page }) => {
   return <RecipeModal Main={Main} {...page} />;
 };
 
-export default SiteBundleOverview;
+export default BundleOverview;

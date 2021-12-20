@@ -1,6 +1,6 @@
-import SiteAccountOverviewItem from '@shop/components/Site/Account/Overview/Item';
+import AccountOverviewItem from '@shop/components/Site/Account/Overview/Item';
 
-const SiteBundleRecipes = ({ items = [], onItemClick }) => {
+const BundleRecipes = ({ items = [], onItemClick }) => {
   return (
     <div
       className="uk-position-relative"
@@ -11,7 +11,7 @@ const SiteBundleRecipes = ({ items = [], onItemClick }) => {
         <ul className="uk-slider-items uk-child-width-1-2@s uk-child-width-1-3@m uk-grid">
           {items.map(item => (
             <li key={item._id}>
-              <SiteAccountOverviewItem {...item} onItemClick={onItemClick} />
+              <AccountOverviewItem {...item} onItemClick={onItemClick} />
             </li>
           ))}
         </ul>
@@ -51,4 +51,4 @@ const SiteBundleRecipes = ({ items = [], onItemClick }) => {
   );
 };
 
-export default SiteBundleRecipes;
+export default BundleRecipes;

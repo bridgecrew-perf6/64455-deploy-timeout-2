@@ -1,8 +1,8 @@
-import SiteBundleRecipes from '@shop/components/Site/Bundle/Recipes';
+import BundleRecipes from '@shop/components/Site/Bundle/Recipes';
 
 const Bundle = ({ bundle, onItemClick }) => {
   return (
-    <SiteBundleRecipes items={bundle.recipes ?? []} onItemClick={onItemClick} />
+    <BundleRecipes items={bundle.recipes ?? []} onItemClick={onItemClick} />
   );
 };
 

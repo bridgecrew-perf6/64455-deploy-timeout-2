@@ -4,7 +4,7 @@ import { useUIkit, useMounted } from '@foundation/next';
 
 import { isBlank, uniqueId } from '@foundation/lib/util';
 
-import SiteOffcanvasFullscreen from '@shop/components/Site/Offcanvas/Fullscreen';
+import OffcanvasFullscreen from '@shop/components/Site/Offcanvas/Fullscreen';
 
 import RecipeView from '@shop/components/Site/Recipe/View';
 
@@ -56,14 +56,14 @@ const RecipeModal = ({ Main, prefix = 'recipe-', ...props }) => {
   return (
     <>
       <Main {...props} showRecipe={showRecipe} hideRecipe={hideRecipe} />
-      <SiteOffcanvasFullscreen
+      <OffcanvasFullscreen
         id={offcanvas}
         type="recipe"
         offcanvas={ref}
         onHide={onHide}
       >
         <RecipeView id={recipeId} scrollspy />
-      </SiteOffcanvasFullscreen>
+      </OffcanvasFullscreen>
     </>
   );
 };

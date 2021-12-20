@@ -2,9 +2,9 @@ import { useMemo } from 'react';
 
 import { urlFor } from '@app/hooks/image';
 
-import SiteBreadcrumbs from '@shop/components/Site/Header/Breadcrumbs';
+import Breadcrumbs from '@shop/components/Site/Header/Breadcrumbs';
 
-const SiteHeader = ({ page = {} }) => {
+const Header = ({ page = {} }) => {
   const { title, cover, images = [] } = page;
 
   const imageUrl = useMemo(() => {
@@ -26,10 +26,10 @@ const SiteHeader = ({ page = {} }) => {
         <h1 className="tw-page-title uk-text-uppercase">{title}</h1>
       </div>
       <div className="tw-breadcrumb-container uk-position-absolute uk-position-bottom-center tw-element">
-        <SiteBreadcrumbs />
+        <Breadcrumbs />
       </div>
     </section>
   );
 };
 
-export default SiteHeader;
+export default Header;

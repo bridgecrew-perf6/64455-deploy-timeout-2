@@ -16,7 +16,7 @@ const generateLink = item => {
   }
 };
 
-const SiteAccountOverviewItem = item => {
+const AccountOverviewItem = item => {
   const { alias, name, category, image, onItemClick } = item;
   const link = buildLink(item, generateLink);
 
@@ -71,4 +71,4 @@ const SiteAccountOverviewItem = item => {
   );
 };
 
-export default SiteAccountOverviewItem;
+export default AccountOverviewItem;

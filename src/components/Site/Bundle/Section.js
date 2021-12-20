@@ -1,7 +1,7 @@
 import { isBlank } from '@foundation/lib/util';
 
-const SiteBundleSection = ({ section, children }) => {
-  const { type, title, description, items = [] } = section;
+const BundleSection = ({ section, children }) => {
+  const { type, title, description } = section;
   return (
     <div
       className="tm-account-section uk-margin-large-bottom"
@@ -18,4 +18,4 @@ const SiteBundleSection = ({ section, children }) => {
   );
 };
 
-export default SiteBundleSection;
+export default BundleSection;

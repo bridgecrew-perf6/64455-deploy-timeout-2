@@ -8,7 +8,7 @@ import { fetchRecipe } from '@shop/sanity/types/recipe';
 import { buildLink } from '@shop/hooks/navigation';
 
 import { View } from '@shop/components/Site/Recipe/View';
-import SiteAccountBreadcrumbs from '@shop/components/Site/Account/Breadcrumbs';
+import AccountBreadcrumbs from '@shop/components/Site/Account/Breadcrumbs';
 
 export const getServerSideProps = async context => {
   const { locale, defaultLocale } = context;
@@ -48,7 +48,7 @@ const Page = props => {
   return (
     <View {...page}>
       <div className="uk-container">
-        <SiteAccountBreadcrumbs {...props} />
+        <AccountBreadcrumbs {...props} />
       </div>
     </View>
   );

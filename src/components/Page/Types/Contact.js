@@ -8,7 +8,7 @@ import { Region } from '@shop/components/Page/Regions';
 
 import CommonMap from '@shop/components/Common/Map';
 
-import SiteHeader from '@shop/components/Site/Header';
+import Header from '@shop/components/Site/Header';
 
 const TextElement = ({ title, subtitle, body = [] }) => (
   <div className="tw-element uk-text-center tw-heading uk-margin-large-bottom">
@@ -26,7 +26,7 @@ const ContactPage = ({ page }) => {
 
   return (
     <div className="main-container">
-      <SiteHeader page={page} />
+      <Header page={page} />
 
       <section className="uk-section uk-background-cover">
         <div className="uk-container">

@@ -1,11 +1,11 @@
 import { withPageWithLayout } from '@shop/hooks';
 
-import SiteHeader from '@shop/components/Site/Header';
-import SiteOverviewItem from '@shop/components/Site/Overview/Item';
+import Header from '@shop/components/Site/Header';
+import OverviewItem from '@shop/components/Site/Overview/Item';
 
 const ActivitiesPage = ({ page }) => (
   <div className="main-container">
-    <SiteHeader page={page} />
+    <Header page={page} />
     <section className="uk-section uk-section-blog">
       <div className="uk-container">
         <div data-uk-grid>
@@ -21,7 +21,7 @@ const ActivitiesPage = ({ page }) => (
               data-uk-scrollspy="target: > article; cls:uk-animation-slide-bottom-small; delay: 300;"
             >
               {page.nodes.map(node => (
-                <SiteOverviewItem
+                <OverviewItem
                   key={node._id}
                   {...node.item?.content}
                   image={node.item.image}

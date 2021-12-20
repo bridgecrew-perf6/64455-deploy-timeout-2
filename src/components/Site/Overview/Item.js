@@ -7,7 +7,7 @@ import { urlFor } from '@app/hooks/image';
 const className =
   'uk-button uk-button-default uk-button-small uk-button-radius';
 
-const SiteOverviewItem = ({ title, subtitle, intro, tagline, href, image }) => {
+const OverviewItem = ({ title, subtitle, intro, tagline, href, image }) => {
   const imageUrl = useMemo(
     () =>
       image ? urlFor(image).width(370).height(215).auto('format').url() : null,
@@ -48,4 +48,4 @@ const SiteOverviewItem = ({ title, subtitle, intro, tagline, href, image }) => {
   );
 };
 
-export default SiteOverviewItem;
+export default OverviewItem;

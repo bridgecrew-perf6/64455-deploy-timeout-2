@@ -6,7 +6,7 @@ import { Region } from '@shop/components/Page/Regions';
 
 import { PortableText } from '@shop/components/Sanity';
 
-import SiteHeader from '@shop/components/Site/Header';
+import Header from '@shop/components/Site/Header';
 import IntroSection from '@shop/components/Site/Page/Section/Intro';
 import ColumnsSection from '@shop/components/Site/Page/Section/Columns';
 import SlideshowSection from '@shop/components/Site/Page/Section/Slideshow';
@@ -89,7 +89,7 @@ const ActivitiesSlider = ({ items = [] }) => (
 
 const AboutPage = ({ page }) => (
   <div className="main-container">
-    <SiteHeader page={page} />
+    <Header page={page} />
     <IntroSection page={page} />
     <ColumnsSection page={page} />
     <Region region={page.regions?.slideshow} Component={SlideshowSection} />

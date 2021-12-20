@@ -4,7 +4,7 @@ import { useHash } from '@shop/hooks/site';
 
 import { Region } from '@shop/components/Page/Regions';
 
-import SiteHeader from '@shop/components/Site/Header';
+import Header from '@shop/components/Site/Header';
 import IntroSection from '@shop/components/Site/Page/Section/Intro';
 import ColumnsSection from '@shop/components/Site/Page/Section/Columns';
 import CallToActionSection from '@shop/components/Site/Page/Section/CallToAction';
@@ -44,7 +44,7 @@ const Recipes = ({ page, showRecipe }) => {
 
 const TipsPage = ({ page }) => (
   <div className="main-container">
-    <SiteHeader page={page} />
+    <Header page={page} />
     <IntroSection page={page} />
     <ColumnsSection page={page} type="plain" />
     <Region region={page.regions?.slideshow} Component={SlideshowSection} />

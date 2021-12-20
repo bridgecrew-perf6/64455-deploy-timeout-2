@@ -2,9 +2,9 @@ import { useMemo } from 'react';
 
 import { pick, isBlank } from '@foundation/lib/util';
 
-import SiteBundleRecipes from '@shop/components/Site/Bundle/Recipes';
+import BundleRecipes from '@shop/components/Site/Bundle/Recipes';
 
-import SiteBundleSection from '@shop/components/Site/Bundle/Section';
+import BundleSection from '@shop/components/Site/Bundle/Section';
 
 const mealTypes = new Map();
 
@@ -43,13 +43,13 @@ const Bundle = ({ bundle, onItemClick }) => {
   return (
     <>
       {sections.map(section => (
-        <SiteBundleSection
+        <BundleSection
           key={section._key}
           section={section}
           onItemClick={onItemClick}
         >
-          <SiteBundleRecipes items={section.items} onItemClick={onItemClick} />
-        </SiteBundleSection>
+          <BundleRecipes items={section.items} onItemClick={onItemClick} />
+        </BundleSection>
       ))}
     </>
   );

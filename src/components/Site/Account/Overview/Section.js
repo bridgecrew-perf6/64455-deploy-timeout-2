@@ -1,4 +1,4 @@
-import SiteAccountOverviewItem from '@shop/components/Site/Account/Overview/Item';
+import AccountOverviewItem from '@shop/components/Site/Account/Overview/Item';
 
 const Section = section => {
   const { type, title, onItemClick, items = [] } = section;
@@ -14,7 +14,7 @@ const Section = section => {
         data-uk-grid
       >
         {items.map(item => (
-          <SiteAccountOverviewItem
+          <AccountOverviewItem
             key={item._id}
             {...item}
             onItemClick={type === 'recipe' ? onItemClick : null}
@@ -25,7 +25,7 @@ const Section = section => {
   );
 };
 
-const SiteAccountOverviewSection = props => {
+const AccountOverviewSection = props => {
   const { items = [] } = props;
   if (items.length > 0) {
     return <Section {...props} />;
@@ -34,4 +34,4 @@ const SiteAccountOverviewSection = props => {
   }
 };
 
-export default SiteAccountOverviewSection;
+export default AccountOverviewSection;
