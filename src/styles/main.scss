@@ -34,6 +34,10 @@ $inverse-dotnav-item-active-background: rgba(#151515, 0.9);
 @import './purged/theme.scss';
 @import './purged/responsive.scss';
 
+form[data-provider] .uk-input {
+  width: 300px;
+}
+
 .uk-light .uk-form-icon {
   color: $form-icon-color;
 }
