@@ -30,6 +30,14 @@ $inverse-dotnav-item-active-background: rgba(#151515, 0.9);
 @import './purged/theme.scss';
 @import './purged/responsive.scss';
 
+.uk-light .uk-form-icon {
+  color: $form-icon-color;
+}
+
+.uk-light .uk-form-icon:hover {
+  color: $form-icon-hover-color;
+}
+
 .uk-navbar-item.uk-logo .tm-logo {
   margin-left: 15px;
 
