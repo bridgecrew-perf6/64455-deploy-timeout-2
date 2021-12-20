@@ -4,9 +4,7 @@ import { urlFor } from '@app/hooks/image';
 
 import { PortableText } from '@shop/components/Sanity';
 
-import RecipeModal from '@shop/components/Site/Recipe/Modal';
-
-const Recipe = ({ _id, alias, title, image, showRecipe }) => {
+const Recipe = ({ _id, alias, title, image, onItemClick }) => {
   const imageUrl = useMemo(
     () =>
       image ? urlFor(image).width(320).height(240).auto('format').url() : null,
@@ -16,9 +14,9 @@ const Recipe = ({ _id, alias, title, image, showRecipe }) => {
   const onClick = useMemo(
     () => e => {
       e.preventDefault();
-      showRecipe(_id);
+      if (alias?.current) onItemClick(alias?.current);
     },
-    [_id, showRecipe]
+    [alias, onItemClick]
   );
 
   return (
@@ -49,11 +47,11 @@ const Recipe = ({ _id, alias, title, image, showRecipe }) => {
   );
 };
 
-const RecipesBlock = ({
+const RecipesSection = ({
   title,
   body,
   background,
-  showRecipe,
+  onItemClick,
   references = [],
 }) => {
   const columns = useMemo(() => {
@@ -92,17 +90,13 @@ const RecipesBlock = ({
             data-uk-grid
           >
             {references.map(entry => (
-              <Recipe key={entry._id} {...entry} showRecipe={showRecipe} />
+              <Recipe key={entry._id} {...entry} onItemClick={onItemClick} />
             ))}
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-const RecipesSection = props => {
-  return <RecipeModal Main={RecipesBlock} {...props} />;
 };
 
 export default RecipesSection;

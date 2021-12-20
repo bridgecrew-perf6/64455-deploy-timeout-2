@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useUIkit } from '@foundation/lib/uikit';
+import { isBlank } from '@foundation/lib/util';
 
 export const useCountUp = (
   ref,
@@ -74,4 +75,13 @@ export const useModalEvents = (modal, { onShow, onHide }) => {
       util.off(el, 'hide', hide);
     };
   }, [ready, modal, onShow, onHide]);
+};
+
+export const useHash = (prefix, fn) => {
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!isBlank(hash) && hash.startsWith(prefix)) {
+      fn(hash.slice(prefix.length));
+    }
+  }, [prefix, fn]);
 };

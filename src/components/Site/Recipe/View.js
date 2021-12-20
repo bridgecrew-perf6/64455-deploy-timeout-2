@@ -10,7 +10,7 @@ const Image = ({ imageUrl, title, small }) => (
   <div
     className={`tw-element uk-text-center uk-margin-remove-top uk-padding-remove-vertical uk-${
       small ? 'hidden' : 'visible'
-    }@s`}
+    }@m`}
   >
     <img src={imageUrl} alt={title} />
   </div>
@@ -38,7 +38,7 @@ export const View = ({
       <section className="uk-section">
         {children}
         <div
-          className="uk-container"
+          className="uk-container uk-margin-large-bottom"
           data-uk-scrollspy={
             scrollspy
               ? 'target: > div; cls:uk-animation-slide-bottom-medium; delay: 600;'
@@ -46,11 +46,11 @@ export const View = ({
           }
         >
           <div
-            className="uk-child-width-expand uk-grid-medium uk-margin-top"
+            className="tm-recipe uk-child-width-expand uk-grid-medium uk-margin-top"
             data-uk-grid
           >
             {imageUrl && <Image imageUrl={imageUrl} title={title} small />}
-            <div className="uk-width-1-4@m">
+            <div className="tm-recipe-sidebar uk-width-1-3@m">
               <h2 className="entry-title uk-text-left">{title}</h2>
               {!isBlank(ingredients) && (
                 <div className="entry-cats tw-meta uk-text-left uk-margin-large-top uk-margin-bottom">
@@ -64,7 +64,7 @@ export const View = ({
                       {title}
                     </p>
                   )}
-                  <ul className="uk-list uk-list-divider">
+                  <ul className="tm-list-columns uk-list uk-list-divider">
                     {list.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
@@ -72,17 +72,17 @@ export const View = ({
                 </div>
               ))}
             </div>
-            <div>
+            <div className="tm-recipe-main">
               {imageUrl && <Image imageUrl={imageUrl} title={title} />}
               <div className="uk-child-width-1-1 uk-grid-medium" data-uk-grid>
-                <div>
+                <div className="no-page-break">
                   <div className="entry-cats tw-meta uk-text-left">
                     Bereiding
                   </div>
                   <PortableText blocks={body} />
                 </div>
                 {!isBlank(tip) && (
-                  <div>
+                  <div className="no-page-break">
                     <div className="entry-cats tw-meta uk-text-left">Tip</div>
                     <PortableText blocks={tip} />
                   </div>
@@ -96,16 +96,12 @@ export const View = ({
   );
 };
 
-const RecipeView = ({ id, bundle, scrollspy = false }) => {
+const RecipeView = ({ id, scrollspy = false }) => {
   const result = useQuery(
-    ['recipes', id, bundle],
+    ['recipes', id],
     async () => {
       if (isBlank(id)) return { error: 'invalid id' };
-      const response = await fetch(
-        isBlank(bundle)
-          ? `/api/recipes/${id}`
-          : `/api/recipes/${id}?bundle=${bundle}`
-      );
+      const response = await fetch(`/api/recipes/${id}`);
       if (response.ok) {
         return response.json();
       } else {

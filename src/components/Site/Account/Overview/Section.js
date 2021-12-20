@@ -1,9 +1,8 @@
 import SiteAccountOverviewItem from '@shop/components/Site/Account/Overview/Item';
 
-import RecipeModal from '@shop/components/Site/Recipe/Modal';
-
 const Section = section => {
-  const { type, title, items = [] } = section;
+  const { type, title, onItemClick, items = [] } = section;
+
   return (
     <div
       className="tm-account-section uk-margin-large-bottom"
@@ -18,7 +17,7 @@ const Section = section => {
           <SiteAccountOverviewItem
             key={item._id}
             {...item}
-            onItemClick={section.showRecipe}
+            onItemClick={type === 'recipe' ? onItemClick : null}
           />
         ))}
       </div>
@@ -27,13 +26,9 @@ const Section = section => {
 };
 
 const SiteAccountOverviewSection = props => {
-  const { type, items = [] } = props;
+  const { items = [] } = props;
   if (items.length > 0) {
-    if (type === 'recipe') {
-      return <RecipeModal Main={Section} {...props} />;
-    } else {
-      return <Section {...props} />;
-    }
+    return <Section {...props} />;
   } else {
     return null;
   }

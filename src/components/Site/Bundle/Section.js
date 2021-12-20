@@ -1,6 +1,6 @@
 import { isBlank } from '@foundation/lib/util';
 
-const SiteBundleSection = ({ section, onItemClick, children }) => {
+const SiteBundleSection = ({ section, children }) => {
   const { type, title, description, items = [] } = section;
   return (
     <div

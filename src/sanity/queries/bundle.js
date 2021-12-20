@@ -9,7 +9,7 @@ export const bundlePredicate = groq`
 `;
 
 export const bundleProjection = groq`
-  ${coreProjection}, name, type, description,
+  ${coreProjection}, name, type, description, date,
   'images': coalesce(images, []),
   type == 'recipes' => {
     recipes[]->{ ${documentsProjection} }

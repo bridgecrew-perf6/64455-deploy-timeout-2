@@ -50,12 +50,6 @@ $inverse-dotnav-item-active-background: rgba(#151515, 0.9);
   border-left: 0 !important;
 }
 
-@media (max-width: $breakpoint-small) {
-  .tm-consults.tw-carousel-post.style-2 .post-content {
-    padding: 30px;
-  }
-}
-
 .shop-image-container {
   background: $global-muted-background;
 }
@@ -162,4 +156,94 @@ $inverse-dotnav-item-active-background: rgba(#151515, 0.9);
 
 .sidebar-area .cat-item.uk-active a {
   font-weight: bold;
+}
+
+.shop-image-container > a,
+.tm-recipe img {
+  border: solid $global-border-width $global-muted-background;
+}
+
+ul.uk-list-divider > :first-child {
+  border-top: $list-divider-border-width solid $list-divider-border;
+  padding-top: $list-divider-margin-top;
+}
+
+@media (max-width: $breakpoint-small) {
+  .tm-consults.tw-carousel-post.style-2 .post-content {
+    padding: 30px;
+  }
+}
+
+@media print,
+  (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) {
+  ul.tm-list-columns {
+    column-count: 2;
+  }
+
+  ul.tm-list-columns > li {
+    margin: 0 !important;
+    display: inline-block;
+    width: 100%;
+  }
+
+  ul.tm-list-columns > :first-child,
+  ul.tm-list-columns > :nth-child(n + 2) {
+    padding-top: $list-divider-margin-top;
+    padding-bottom: $list-divider-margin-top;
+    border-top: $list-divider-border-width solid $list-divider-border;
+    @if (mixin-exists(hook-list-divider)) {
+      @include hook-list-divider();
+    }
+  }
+}
+
+@media print {
+  .no-page-break,
+  .no-page-break .tw-meta {
+    display: inline-block;
+    width: 100%;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .no-page-break .tw-meta {
+    margin-top: 30px;
+  }
+
+  .uk-offcanvas-page,
+  .uk-offcanvas-container,
+  .uk-offcanvas.uk-open .uk-offcanvas-bar {
+    overflow: visible !important;
+  }
+
+  .uk-offcanvas-container .uk-offcanvas.uk-open {
+    display: block;
+    width: 100%;
+    position: relative;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: auto;
+  }
+
+  .tm-page-header,
+  .tm-page-footer,
+  .uk-breadcrumb,
+  .uk-offcanvas-container .tm-page,
+  .uk-offcanvas-container .uk-offcanvas.uk-open .uk-close {
+    display: none;
+  }
+
+  .tm-recipe-sidebar {
+    margin-top: 30px;
+  }
+
+  // To disable printing of recipes, enable this:
+  //
+  // .tm-recipe {
+  //   display: none !important;
+  //   visibility: hidden !important;
+  //   overflow: hidden !important;
+  //   height: 0 !important;
+  // }
 }

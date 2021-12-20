@@ -2,10 +2,14 @@ import { useMemo } from 'react';
 
 import { groupBy } from '@foundation/lib/util';
 
+import { useHash } from '@shop/hooks/site';
+
 import IntroSection from '@shop/components/Site/Page/Section/Intro';
 
 import SiteAccountOverviewEmpty from '@shop/components/Site/Account/Overview/Empty';
 import SiteAccountOverviewSection from '@shop/components/Site/Account/Overview/Section';
+
+import RecipeModal from '@shop/components/Site/Recipe/Modal';
 
 const sectionClassName = 'uk-padding-remove-vertical uk-margin-bottom';
 
@@ -15,9 +19,11 @@ const groups = [
   { type: 'product', title: 'Producten' },
 ];
 
-const SiteAccountOverview = ({ page, documents = [] }) => {
+const Overview = ({ page, showRecipe, documents = [] }) => {
   const types = useMemo(() => groupBy(documents ?? [], '_type'), [documents]);
   const empty = documents.length === 0;
+
+  useHash('recipe-', showRecipe);
 
   return (
     <section className="uk-section">
@@ -38,6 +44,7 @@ const SiteAccountOverview = ({ page, documents = [] }) => {
                   key={group.type}
                   {...group}
                   items={items}
+                  onItemClick={showRecipe}
                 />
               );
             } else {
@@ -47,6 +54,10 @@ const SiteAccountOverview = ({ page, documents = [] }) => {
       </div>
     </section>
   );
+};
+
+const SiteAccountOverview = props => {
+  return <RecipeModal Main={Overview} {...props} />;
 };
 
 export default SiteAccountOverview;

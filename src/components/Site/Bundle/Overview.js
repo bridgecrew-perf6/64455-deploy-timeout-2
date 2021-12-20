@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 
-import { isBlank } from '@foundation/lib/util';
+import { formatDate, isBlank } from '@foundation/lib/util';
+
+import { useHash } from '@shop/hooks/site';
 
 import RecipeModal from '@shop/components/Site/Recipe/Modal';
 
@@ -10,8 +12,17 @@ import SiteAccountOverviewEmpty from '@shop/components/Site/Account/Overview/Emp
 import types from '@shop/components/Site/Bundle/Types';
 
 const Main = props => {
-  const { type, subtitle, description, recipeIds = [], showRecipe } = props;
+  const {
+    type,
+    subtitle,
+    description,
+    date,
+    showRecipe,
+    recipeIds = [],
+  } = props;
   const Component = useMemo(() => types.get(type), [type]);
+
+  useHash('recipe-', showRecipe);
 
   const count = recipeIds?.length ?? 0;
 
@@ -24,6 +35,13 @@ const Main = props => {
     intro.subtitle = subtitle; // custom
   } else if (type === 'days') {
     intro.subtitle = `Dagprogramma / ${intro.subtitle}`;
+  }
+
+  if (date) {
+    const formatted = formatDate(date);
+    if (!isBlank(formatted)) {
+      intro.subtitle = `${intro.subtitle} / ${formatted}`;
+    }
   }
 
   if (count > 0 && Component) {
@@ -50,7 +68,7 @@ const Main = props => {
 };
 
 const SiteBundleOverview = ({ page }) => {
-  return <RecipeModal Main={Main} {...page} bundle={page._id} />;
+  return <RecipeModal Main={Main} {...page} />;
 };
 
 export default SiteBundleOverview;

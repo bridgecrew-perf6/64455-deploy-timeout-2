@@ -19,7 +19,7 @@ const client = getClient(true); // private client
 
 const bundles = init(client);
 
-function extractRecipeIds(bundle) {
+function extractRecipeIds(bundle, unique = false) {
   const ids = [];
 
   // eslint-disable-next-line func-names
@@ -28,7 +28,7 @@ function extractRecipeIds(bundle) {
       typeof this.parent?.node === 'object' &&
       this.parent?.node._type === 'recipe' &&
       this.key === '_id' &&
-      !ids.includes(value)
+      (!unique || !ids.includes(value))
     ) {
       ids.push(value);
     }

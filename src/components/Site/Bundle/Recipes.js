@@ -30,7 +30,7 @@ const SiteBundleRecipes = ({ items = [], onItemClick }) => {
         data-uk-slider-item="next"
       />
     </div> */}
-      <div className="uk-visible@s uk-background-primary">
+      <div className="uk-visible@m uk-background-primary">
         <a
           className="uk-position-center-left-out uk-position-small"
           href="#"

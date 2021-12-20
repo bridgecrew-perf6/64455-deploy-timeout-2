@@ -17,7 +17,7 @@ const generateLink = item => {
 };
 
 const SiteAccountOverviewItem = item => {
-  const { _id, name, category, image, onItemClick } = item;
+  const { alias, name, category, image, onItemClick } = item;
   const link = buildLink(item, generateLink);
 
   const imageUrl = useMemo(
@@ -30,10 +30,10 @@ const SiteAccountOverviewItem = item => {
     if (typeof onItemClick === 'function') {
       return e => {
         e.preventDefault();
-        onItemClick(_id);
+        onItemClick(alias);
       };
     }
-  }, [_id, onItemClick]);
+  }, [alias, onItemClick]);
 
   return (
     <div className="shop-item">
@@ -51,6 +51,7 @@ const SiteAccountOverviewItem = item => {
                 data-src={imageUrl}
                 width="360"
                 height="270"
+                className="uk-cover uk-animation-fade"
                 uk-img="target: !.uk-slideshow-items"
                 uk-cover="true"
               />
