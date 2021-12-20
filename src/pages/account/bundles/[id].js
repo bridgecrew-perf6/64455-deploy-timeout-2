@@ -1,4 +1,4 @@
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank } from '@foundation/lib/util';
 import { usePage, getPageProps } from '@foundation/next';
 
 import { getClient, traverse } from '@atelierfabien/next-sanity/lib/server';
@@ -70,8 +70,6 @@ export const getServerSideProps = async context => {
     });
 
     props.session = session;
-
-    console.log(JSON.stringify(props, null, 4)); // TODO
 
     return { props };
   } else {

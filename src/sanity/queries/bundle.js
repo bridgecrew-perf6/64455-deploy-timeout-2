@@ -15,13 +15,13 @@ export const bundleProjection = groq`
     recipes[]->{ ${documentsProjection} }
   },
   type == 'groups' => {
-    'groups': groups[]{
+    groups[]{
       ...,
       items[]->{ ${documentsProjection} }
     }
   },
   type == 'days' => {
-    'items': days[]{
+    days[]{
       ...,
       breakfast->{ ${documentsProjection} },
       lunch->{ ${documentsProjection} },
@@ -30,5 +30,5 @@ export const bundleProjection = groq`
       desert->{ ${documentsProjection} },
       side->{ ${documentsProjection} },
       snack->{ ${documentsProjection} }
-    }
+    }|order(number)
   }`;

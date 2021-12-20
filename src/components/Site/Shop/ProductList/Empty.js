@@ -1,5 +1,5 @@
 import { Link, useRouter } from '@foundation/next';
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank } from '@foundation/lib/util';
 
 const ProductListEmpty = () => {
   const router = useRouter();

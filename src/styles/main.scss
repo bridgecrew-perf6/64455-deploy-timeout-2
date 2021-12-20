@@ -1,7 +1,5 @@
 // Override variables before import:
 
-// TODO set dark/secondary color to #151515 (for Snipcart background for example)
-
 $global-font-family: 'Droid Sans', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 $base-body-background: #ffffff;
 $navbar-background: #151515;
@@ -15,10 +13,17 @@ $base-em-color: #666;
 $inverse-global-color: rgba(#fff, 0.85);
 $inverse-breadcrumb-item-color: $inverse-global-color;
 
+// NOTE - these might be defined in the opposite way:
+
 $dotnav-item-background: rgba(#fff, 0.4);
 $dotnav-item-hover-background: rgba(#fff, 0.8);
 $dotnav-item-onclick-background: rgba(#fff, 0.4);
 $dotnav-item-active-background: rgba(#fff, 0.8);
+
+$inverse-dotnav-item-background: rgba(#151515, 0.5);
+$inverse-dotnav-item-hover-background: rgba(#151515, 0.9);
+$inverse-dotnav-item-onclick-background: rgba(#151515, 0.5);
+$inverse-dotnav-item-active-background: rgba(#151515, 0.9);
 
 @import '@atelierfabien/next-base/src/styles/main.scss';
 

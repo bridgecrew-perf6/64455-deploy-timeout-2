@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank } from '@foundation/lib/util';
 
 import { useCountUp } from '@app/hooks/site';
 

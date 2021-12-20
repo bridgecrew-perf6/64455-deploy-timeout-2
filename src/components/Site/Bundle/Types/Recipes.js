@@ -1,5 +1,9 @@
-// import SiteAccountOverviewItem from '@shop/components/Site/Account/Overview/Item';
+import SiteBundleRecipes from '@shop/components/Site/Bundle/Recipes';
 
-const Bundle = () => <h1>Recipes</h1>;
+const Bundle = ({ bundle, onItemClick }) => {
+  return (
+    <SiteBundleRecipes items={bundle.recipes ?? []} onItemClick={onItemClick} />
+  );
+};
 
 export default Bundle;

@@ -1,4 +1,4 @@
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank } from '@foundation/lib/util';
 import { usePage, getPageProps } from '@foundation/next';
 
 import { getClient } from '@atelierfabien/next-sanity/lib/server';

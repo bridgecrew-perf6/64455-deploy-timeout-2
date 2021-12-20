@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { groupBy } from '@atelierfabien/next-foundation/lib/util';
+import { groupBy } from '@foundation/lib/util';
 
 import IntroSection from '@shop/components/Site/Page/Section/Intro';
 

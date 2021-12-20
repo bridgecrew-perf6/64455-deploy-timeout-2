@@ -1,4 +1,4 @@
-import { formatDate, isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { formatDate, isBlank } from '@foundation/lib/util';
 import { PortableText } from '@shop/components/Sanity';
 
 const Item = ({ name, date, comment }) => (

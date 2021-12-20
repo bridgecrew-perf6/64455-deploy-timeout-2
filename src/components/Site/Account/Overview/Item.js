@@ -17,7 +17,7 @@ const generateLink = item => {
 };
 
 const SiteAccountOverviewItem = item => {
-  const { _id, name, image, onItemClick } = item;
+  const { _id, name, category, image, onItemClick } = item;
   const link = buildLink(item, generateLink);
 
   const imageUrl = useMemo(
@@ -46,7 +46,15 @@ const SiteAccountOverviewItem = item => {
             uk-ratio="3/2"
             onClick={onClick}
           >
-            {imageUrl && <img src={imageUrl} uk-cover="true" />}
+            {imageUrl && (
+              <img
+                data-src={imageUrl}
+                width="360"
+                height="270"
+                uk-img="target: !.uk-slideshow-items"
+                uk-cover="true"
+              />
+            )}
           </Link>
         </div>
         <h4 className="uk-text-truncate">
@@ -54,6 +62,9 @@ const SiteAccountOverviewItem = item => {
             {name}
           </Link>
         </h4>
+        {category && (
+          <div className="shop-category">{category ?? '\u00A0'}</div>
+        )}
       </div>
     </div>
   );

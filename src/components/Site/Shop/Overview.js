@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank } from '@foundation/lib/util';
 import { useQuery, useRouter, usePageOptions } from '@foundation/next';
 
 import ProductList from '@shop/components/Site/Shop/ProductList';

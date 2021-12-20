@@ -1,6 +1,6 @@
 import { useRef, useMemo, useState } from 'react';
 
-import { uniqueId } from '@atelierfabien/next-foundation/lib/util';
+import { uniqueId } from '@foundation/lib/util';
 
 import SiteOffcanvasFullscreen from '@shop/components/Site/Offcanvas/Fullscreen';
 

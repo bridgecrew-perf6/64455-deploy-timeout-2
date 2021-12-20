@@ -1,4 +1,4 @@
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank } from '@foundation/lib/util';
 
 import ProductListItem from '@shop/components/Site/Shop/ProductList/Item';
 import ProductListEmpty from '@shop/components/Site/Shop/ProductList/Empty';

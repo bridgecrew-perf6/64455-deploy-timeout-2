@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 
-import { isBlank, uniqueId } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank, uniqueId } from '@foundation/lib/util';
 
 import { PortableText } from '@shop/components/Sanity';
 

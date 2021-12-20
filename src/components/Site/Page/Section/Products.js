@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { Link } from '@foundation/next';
 
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank } from '@foundation/lib/util';
 
 import { useProductUrl } from '@shop/hooks';
 import { urlFor } from '@app/hooks/image';

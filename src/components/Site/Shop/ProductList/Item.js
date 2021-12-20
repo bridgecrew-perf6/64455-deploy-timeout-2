@@ -26,7 +26,15 @@ const ProductListItem = product => {
             title={name}
             uk-ratio="3/2"
           >
-            {imageUrl && <img src={imageUrl} uk-cover="true" />}
+            {imageUrl && (
+              <img
+                data-src={imageUrl}
+                width="360"
+                height="270"
+                uk-img={imageUrl}
+                uk-cover="true"
+              />
+            )}
           </Link>
         </div>
         <h4 className="uk-text-truncate">

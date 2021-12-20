@@ -1,6 +1,6 @@
 import groq from 'groq';
 
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank } from '@foundation/lib/util';
 
 import { getClient } from '@atelierfabien/next-sanity/lib/server';
 

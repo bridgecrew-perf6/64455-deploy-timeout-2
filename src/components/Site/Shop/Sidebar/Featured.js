@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank } from '@foundation/lib/util';
 
 import { useCurrency, Link } from '@foundation/next';
 

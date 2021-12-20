@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank } from '@foundation/lib/util';
 import { useQuery } from '@foundation/next';
 
 import { urlFor } from '@app/hooks/image';

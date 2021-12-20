@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import { Link, useCurrency } from '@foundation/next';
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank } from '@foundation/lib/util';
 
 import { PortableText } from '@shop/components/Sanity';
 

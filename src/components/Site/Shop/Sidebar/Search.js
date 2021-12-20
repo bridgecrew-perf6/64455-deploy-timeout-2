@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect } from 'react';
 
 import { useRouter } from '@foundation/next';
-import { isBlank } from '@atelierfabien/next-foundation/lib/util';
+import { isBlank } from '@foundation/lib/util';
 
 const ShopProductSidebarSearch = ({ className }) => {
   const router = useRouter();
