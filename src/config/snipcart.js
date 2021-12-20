@@ -1,41 +1,48 @@
-import groq from 'groq';
-
-import { getClient } from '@atelierfabien/next-sanity/lib/server';
+/* eslint-disable no-console */
 
 import { processItems } from '@shop/sanity/server/snipcart';
 
-import { queries } from '@atelierfabien/next-auth/server';
+import {
+  ensureUser,
+  ensureUserReferences,
+} from '@atelierfabien/next-auth/user';
 
-const { getUserByEmailQuery } = queries;
+const isDevelopment = process.env.NODE_ENV === 'development';
 
-const client = getClient(true); // private client
-
-const itemsQuery = groq`*[_type == 'product' && ($id == master.id || $id in variants[].id)]`;
-
-export const handleUpdate = async (eventName, payload, _handler) => {
-  console.log('Handling Snipcart Update: %s', eventName);
-
+export const handleUpdate = async (_eventName, payload) => {
   const { email, shippingAddress, items = [], paymentStatus } = payload.content;
 
-  // console.log(payload.content);
-
   if (email && items.length > 0 && paymentStatus === 'Paid') {
-    console.log({ email, shippingAddress, items, paymentStatus });
+    const referenceIds = [];
 
-    const user = await client.fetch(getUserByEmailQuery, { email });
-
-    console.log(user);
+    const user = await ensureUser(email, {
+      name: shippingAddress.fullName,
+      profile: {
+        firstName: shippingAddress.firstName,
+        lastName: shippingAddress.name,
+      },
+    });
 
     await processItems(
       items,
-      async (doc, item) => {
-        console.log(item.id, doc);
+      doc => {
+        referenceIds.push(doc._id); // add product itself
+        if (Array.isArray(doc.digitalGoods)) {
+          referenceIds.push(...doc.digitalGoods);
+        }
       },
       {
-        projection: `_id, _type, digitalGoods`,
+        projection: `_id, 'digitalGoods': digitalGoods[]._ref`,
       }
     );
+
+    const references = await ensureUserReferences(user, referenceIds);
+
+    if (isDevelopment) {
+      console.log(JSON.stringify(user, null, 4));
+      console.log(JSON.stringify(references, null, 4));
+    }
   }
 
-  return false;
+  return true;
 };
