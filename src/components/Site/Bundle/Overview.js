@@ -2,25 +2,42 @@ import { useMemo } from 'react';
 
 import RecipeModal from '@shop/components/Site/Recipe/Modal';
 
+import IntroSection from '@shop/components/Site/Page/Section/Intro';
+import SiteAccountOverviewEmpty from '@shop/components/Site/Account/Overview/Empty';
+
 import types from '@shop/components/Site/Bundle/Types';
 
-const Main = props => {
-  const { name, type } = props;
+const Main = page => {
+  const { type, subtitle, description, recipeIds = [] } = page;
   const Component = useMemo(() => types.get(type), [type]);
 
-  if (Component) {
+  const count = recipeIds?.length ?? 0;
+
+  const intro = {
+    subtitle: subtitle ?? (count === 1 ? `Één recept` : `${count} recepten`),
+    content: { body: description },
+  };
+
+  if (count > 0 && Component) {
     return (
       <div
-        className="tm-account-section uk-margin-large-bottom uk-margin-top"
+        className="tm-account-section uk-margin-large-bottom"
         data-documents-section={type}
       >
-        <h2 className="uk-margin-bottom">{name}</h2>
-        {/* <PortableText blocks={body} /> */}
-        <Component {...props} />
+        <IntroSection page={intro} />
+        <section className="uk-section uk-container">
+          <Component {...page} />
+        </section>
       </div>
     );
   } else {
-    return null;
+    return (
+      <section className="uk-section">
+        <div className="tm-account-section uk-margin-large-bottom uk-text-center">
+          <SiteAccountOverviewEmpty page={page} />
+        </div>
+      </section>
+    );
   }
 };
 

@@ -1,7 +1,7 @@
 const SiteAccountOverviewEmpty = () => {
   return (
     <div>
-      <p>Er zijn momenteel geen items voor uw beschikbaar.</p>
+      <p>Er zijn momenteel geen items beschikbaar.</p>
     </div>
   );
 };

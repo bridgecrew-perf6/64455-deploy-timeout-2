@@ -1,19 +1,13 @@
-import { Link } from '@foundation/next';
+import { usePagePart } from '@foundation/next';
 
-const SiteAccountBreadcrumbs = ({ page }) => {
-  return (
-    <ul className="uk-breadcrumb uk-margin-remove">
-      <Link href="/" as="li">
-        Home
-      </Link>
-      <Link href="/account" as="li">
-        Account
-      </Link>
-      <li className="uk-text-truncate">
-        <span>{page.title ?? page.name}</span>
-      </li>
-    </ul>
-  );
+import CommonBreadcrumbs from '@shop/components/Common/Breadcrumbs';
+
+const ancestors = [{ label: 'Account', href: '/account' }];
+
+const SiteAccountBreadcrumbs = () => {
+  const heading = usePagePart('heading');
+  const breadcrumbs = ancestors.concat(heading?.breadcrumbs ?? []);
+  return <CommonBreadcrumbs items={breadcrumbs} className="uk-margin-bottom" />;
 };
 
 export default SiteAccountBreadcrumbs;

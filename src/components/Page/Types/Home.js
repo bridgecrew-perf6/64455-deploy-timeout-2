@@ -150,12 +150,12 @@ const TestimonialsSlider = ({ title, entries = [] }) => {
 
 const HomePage = ({ page }) => (
   <div className="main-container">
-    <Region region={page.regions.slideshow} Component={SlideshowSection} />
+    <Region region={page.regions?.slideshow} Component={SlideshowSection} />
     <section className="uk-section uk-padding-remove-top uk-margin-top-minus">
       <div className="uk-container">
-        <Region region={page.regions.block1} />
+        <Region region={page.regions?.block1} />
         <Region
-          region={page.regions.block2}
+          region={page.regions?.block2}
           media="right"
           className="tw-tablet-margin"
         />
@@ -164,7 +164,7 @@ const HomePage = ({ page }) => (
     <section className="uk-section uk-background-muted">
       <div className="uk-container">
         <Region
-          region={page.regions.shop}
+          region={page.regions?.shop}
           Component={TextBlock}
           className="tw-element tw-heading uk-text-center"
         />
@@ -192,7 +192,7 @@ const HomePage = ({ page }) => (
       }}
     >
       <Region
-        region={page.regions.testimonials}
+        region={page.regions?.testimonials}
         Component={TestimonialsSlider}
         className="uk-container"
       />

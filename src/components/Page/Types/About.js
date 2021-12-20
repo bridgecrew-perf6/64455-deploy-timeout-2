@@ -92,8 +92,8 @@ const AboutPage = ({ page }) => (
     <SiteHeader page={page} />
     <IntroSection page={page} />
     <ColumnsSection page={page} />
-    <Region region={page.regions.slideshow} Component={SlideshowSection} />
-    <Region region={page.regions.video} Component={VideoSection} />
+    <Region region={page.regions?.slideshow} Component={SlideshowSection} />
+    <Region region={page.regions?.video} Component={VideoSection} />
     <section
       className="uk-section uk-background-cover"
       data-uk-parallax="bgy: -200"
@@ -105,7 +105,7 @@ const AboutPage = ({ page }) => (
     >
       <div className="uk-container">
         <div className="tw-element tw-heading uk-text-center uk-light">
-          <Region region={page.regions.activities} Component={TextBlock} />
+          <Region region={page.regions?.activities} Component={TextBlock} />
         </div>
         <ActivitiesSlider items={page.nodes} />
       </div>

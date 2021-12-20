@@ -15,26 +15,26 @@ const TipsPage = ({ page }) => (
     <SiteHeader page={page} />
     <IntroSection page={page} />
     <ColumnsSection page={page} type="plain" />
-    <Region region={page.regions.slideshow} Component={SlideshowSection} />
-    <Region region={page.regions.video} Component={VideoSection} />
+    <Region region={page.regions?.slideshow} Component={SlideshowSection} />
+    <Region region={page.regions?.video} Component={VideoSection} />
     <Region
       id="breakfast"
-      region={page.regions.breakfast}
+      region={page.regions?.breakfast}
       Component={RecipesSection}
     />
     <Region
       id="lunch"
-      region={page.regions.lunch}
+      region={page.regions?.lunch}
       Component={RecipesSection}
       background="background-stone-yellow.jpg"
     />
     <Region
       id="dinner"
-      region={page.regions.dinner}
+      region={page.regions?.dinner}
       Component={RecipesSection}
     />
     <Region
-      region={page.regions.callToAction}
+      region={page.regions?.callToAction}
       Component={CallToActionSection}
     />
   </div>

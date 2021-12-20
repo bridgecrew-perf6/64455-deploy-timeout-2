@@ -19,13 +19,13 @@ const DefaultPage = ({ page }) => {
       <SiteHeader page={page} />
       <IntroSection page={page} />
       <ColumnsSection page={page} type="plain" />
-      <Region region={page.regions.slideshow} Component={SlideshowSection} />
-      <Region region={page.regions.video} Component={VideoSection} />
-      <Region region={page.regions.statistics} Component={StatsSection} />
-      <Region region={page.regions.products} Component={ProductsSection} />
+      <Region region={page.regions?.slideshow} Component={SlideshowSection} />
+      <Region region={page.regions?.video} Component={VideoSection} />
+      <Region region={page.regions?.statistics} Component={StatsSection} />
+      <Region region={page.regions?.products} Component={ProductsSection} />
       <NewsletterSection />
       <Region
-        region={page.regions.testimonials}
+        region={page.regions?.testimonials}
         Component={TestimonialsSection}
       />
     </div>

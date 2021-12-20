@@ -25,8 +25,8 @@ const ColumnsDefault = ({ page }) => {
           data-uk-scrollspy="target: > div; cls:uk-animation-slide-top-medium; delay: 400;"
           data-uk-grid
         >
-          <Region region={page.regions.column1} Component={ColumnDefault} />
-          <Region region={page.regions.column2} Component={ColumnDefault} />
+          <Region region={page.regions?.column1} Component={ColumnDefault} />
+          <Region region={page.regions?.column2} Component={ColumnDefault} />
         </div>
       </div>
     </section>
@@ -55,8 +55,8 @@ const ColumnsAlt = ({ page }) => {
         data-uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-medium; delay: 400;"
         data-uk-grid
       >
-        <Region region={page.regions.column1} Component={ColumnAlt} />
-        <Region region={page.regions.column2} Component={ColumnAlt} />
+        <Region region={page.regions?.column1} Component={ColumnAlt} />
+        <Region region={page.regions?.column2} Component={ColumnAlt} />
       </div>
     </section>
   );

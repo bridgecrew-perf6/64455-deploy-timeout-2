@@ -1,25 +1,41 @@
-// TODO <title>
-// TODO link back to overview
-// TODO types: ['days', 'groups', 'recipes']
-
 import { isBlank } from '@atelierfabien/next-foundation/lib/util';
 import { usePage, getPageProps } from '@foundation/next';
 
-import { getClient } from '@atelierfabien/next-sanity/lib/server';
+import { getClient, traverse } from '@atelierfabien/next-sanity/lib/server';
 
 import { getSession } from '@atelierfabien/next-auth';
 
-import SiteBundleOverview from '@shop/components/Site/Bundle/Overview';
+import { buildLink } from '@shop/hooks/navigation';
 
-import SiteAccountBreadcrumbs from '@shop/components/Site/Account/Breadcrumbs';
+import SiteHeader from '@shop/components/Site/Header';
 
 import { resolveReferences } from '@shop/lib/server';
+
+import SiteBundleOverview from '@shop/components/Site/Bundle/Overview';
 
 import init from '@shop/sanity/types/bundle';
 
 const client = getClient(true); // private client
 
 const bundles = init(client);
+
+function extractRecipeIds(bundle) {
+  const ids = [];
+
+  // eslint-disable-next-line func-names
+  traverse(bundle).forEach(function (value) {
+    if (
+      typeof this.parent?.node === 'object' &&
+      this.parent?.node._type === 'recipe' &&
+      this.key === '_id' &&
+      !ids.includes(value)
+    ) {
+      ids.push(value);
+    }
+  });
+
+  return ids;
+}
 
 export const getServerSideProps = async context => {
   const { locale, defaultLocale } = context;
@@ -33,20 +49,29 @@ export const getServerSideProps = async context => {
       defaultLocale,
     });
 
-    console.log(JSON.stringify(bundle, null, 4)); // TODO
-
     if (!bundle) return { notFound: true };
 
     const page = await resolveReferences(bundle);
 
-    const props = await getPageProps(context, { page });
+    page.title = page.name;
+    page.recipeIds = extractRecipeIds(bundle);
+
+    const { label, href } = buildLink(bundle);
+
+    const breadcrumbs = []; // construct full breadcrumbs
+    breadcrumbs.push({ label: 'Account', href: '/account' });
+    breadcrumbs.push({ label, href });
+
+    const props = await getPageProps(context, {
+      page,
+      heading: {
+        breadcrumbs,
+      },
+    });
 
     props.session = session;
 
-    // TODO const breadcrumbs = resolvedProps.heading?.breadcrumbs ?? [];
-    // if (category && !isBlank(breadcrumbs)) {
-    //   breadcrumbs.push({ label: category.name, href: category.path.current });
-    // }
+    console.log(JSON.stringify(props, null, 4)); // TODO
 
     return { props };
   } else {
@@ -54,19 +79,13 @@ export const getServerSideProps = async context => {
   }
 };
 
-// TODO header image and title
-
 const Page = () => {
   const page = usePage();
   return (
-    <div className="main-container">
-      <section className="uk-section">
-        <div className="uk-container">
-          <SiteAccountBreadcrumbs page={page} />
-          <SiteBundleOverview page={page} />
-        </div>
-      </section>
-    </div>
+    <>
+      <SiteHeader page={page} />
+      <SiteBundleOverview page={page} />
+    </>
   );
 };
 

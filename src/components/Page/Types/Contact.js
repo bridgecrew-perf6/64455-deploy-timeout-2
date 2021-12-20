@@ -176,7 +176,10 @@ const ContactPage = ({ page }) => {
 
       <section className="uk-section uk-section-xlarge uk-padding-remove-top uk-margin-large-top uk-padding-remove-vertical uk-margin-bottom">
         <div className="uk-container">
-          <Region region={page.regions.accessibility} Component={TextElement} />
+          <Region
+            region={page.regions?.accessibility}
+            Component={TextElement}
+          />
 
           <div className="tw-element uk-text-center uk-margin-remove-top uk-padding-remove-vertical uk-margin-large-bottom">
             <CommonMap className="uk-height-large" zoom={12} grayscale />

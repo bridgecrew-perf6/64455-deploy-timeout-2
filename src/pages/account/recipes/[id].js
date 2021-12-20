@@ -7,6 +7,8 @@ import { getSession } from '@atelierfabien/next-auth';
 
 import init from '@atelierfabien/next-auth/account';
 
+import { buildLink } from '@shop/hooks/navigation';
+
 import { recipeProjection } from '@shop/sanity/queries/recipe';
 
 import authConfig from '@app/config/auth';
@@ -34,8 +36,15 @@ export const getServerSideProps = async context => {
 
     if (!recipe) return { notFound: true };
 
+    const { label, href } = buildLink(recipe);
+
+    const breadcrumbs = [{ label, href }];
+
     const props = await getPageProps(context, {
       page: recipe,
+      heading: {
+        breadcrumbs,
+      },
     });
 
     props.session = session;
@@ -46,12 +55,12 @@ export const getServerSideProps = async context => {
   }
 };
 
-const Page = () => {
+const Page = props => {
   const page = usePage();
   return (
     <View {...page}>
       <div className="uk-container">
-        <SiteAccountBreadcrumbs page={page} />
+        <SiteAccountBreadcrumbs {...props} />
       </div>
     </View>
   );

@@ -45,9 +45,9 @@ const IntroSection = ({
         <div className={className}>
           {showTitle && <h2 className="uk-text-uppercase">{title}</h2>}
           {subtitle && <h4 className="uk-margin-bottom">{subtitle}</h4>}
-          <PortableText blocks={content.body} />
+          <PortableText blocks={content?.body} />
         </div>
-        <Region region={page.regions.image} Component={Image} />
+        <Region region={page.regions?.image} Component={Image} />
       </div>
     </section>
   );
