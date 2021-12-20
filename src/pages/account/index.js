@@ -30,6 +30,6 @@ export const getServerSideProps = async context => {
   return serversideProps;
 };
 
-// TODO Page.authentication = true; // TODO
+Page.authentication = { redirect: true };
 
 export default Page;

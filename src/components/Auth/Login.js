@@ -16,9 +16,7 @@ const AuthEmailSignIn = props => {
   return (
     <form onSubmit={handleSignIn} data-provider="email">
       <fieldset className="uk-fieldset">
-        <legend className="uk-legend uk-light">
-          {t('auth:email.signIn.title')}
-        </legend>
+        <legend className="uk-legend">{t('auth:email.signIn.title')}</legend>
         <div className="uk-margin">
           <div className="uk-inline">
             <span className="uk-form-icon" uk-icon="icon: user" />
@@ -32,7 +30,7 @@ const AuthEmailSignIn = props => {
             />
           </div>
         </div>
-        <div className="uk-margin-medium uk-light">
+        <div className="uk-margin-medium">
           <input
             className="uk-button uk-button-default uk-button-small uk-button-radius"
             type="submit"
@@ -53,13 +51,13 @@ const AuthLogin = props => {
   if (loading) return <div className="uk-light" data-uk-spinner />;
 
   return (
-    <div className="uk-padding-large">
+    <div className="uk-padding-large uk-light">
       {session && (
         <>
-          <p className="uk-light">
+          <p>
             {session?.user?.name} / {session?.user?.email}
           </p>
-          <div className="uk-margin uk-light">
+          <div className="uk-margin">
             <input
               className="uk-button uk-button-default uk-button-small uk-button-radius"
               type="submit"

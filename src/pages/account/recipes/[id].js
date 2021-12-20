@@ -54,6 +54,6 @@ const Page = props => {
   );
 };
 
-// TODO Page.authentication = { redirect: true };
+Page.authentication = { redirect: true };
 
 export default Page;
