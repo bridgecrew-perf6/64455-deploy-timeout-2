@@ -48,33 +48,35 @@ const AuthLogin = props => {
 
   const { t } = useTranslation();
 
-  if (loading) return <div className="uk-light" data-uk-spinner />;
-
-  return (
-    <div className="uk-padding-large uk-light">
-      {session && (
-        <>
-          <p>
-            {session?.user?.name} / {session?.user?.email}
-          </p>
-          <div className="uk-margin">
-            <input
-              className="uk-button uk-button-default uk-button-small uk-button-radius"
-              type="submit"
-              value={t('auth:signOut.button')}
-              onClick={signOut}
-            />
-          </div>
-        </>
-      )}
-      {!session && (
-        <>
-          <AuthEmailSignIn {...form} />
-          {isDevelopment && <AuthCredentialsSignIn {...form} />}
-        </>
-      )}
-    </div>
-  );
+  if (loading) {
+    return <div key="spinner" className="uk-light" data-uk-spinner />;
+  } else {
+    return (
+      <div className="uk-padding-large uk-light">
+        {session && (
+          <>
+            <p>
+              {session?.user?.name} / {session?.user?.email}
+            </p>
+            <div className="uk-margin">
+              <input
+                className="uk-button uk-button-default uk-button-small uk-button-radius"
+                type="submit"
+                value={t('auth:signOut.button')}
+                onClick={signOut}
+              />
+            </div>
+          </>
+        )}
+        {!session && (
+          <>
+            <AuthEmailSignIn {...form} />
+            {isDevelopment && <AuthCredentialsSignIn {...form} />}
+          </>
+        )}
+      </div>
+    );
+  }
 };
 
 export default AuthLogin;
