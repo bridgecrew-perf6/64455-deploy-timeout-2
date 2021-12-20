@@ -7,8 +7,12 @@ $navbar-border: none;
 $navbar-nav-item-active-color: #ffffff;
 $navbar-dropdown-nav-item-active-color: #ffffff;
 $border-rounded-border-radius: 0;
+
 $global-primary-background: #69a228;
+$global-success-background: $global-primary-background;
+$global-warning-background: #bb5d16;
 $global-danger-background: #8a1c1c;
+
 $base-em-color: #666;
 $inverse-global-color: rgba(#fff, 0.85);
 $inverse-breadcrumb-item-color: $inverse-global-color;
