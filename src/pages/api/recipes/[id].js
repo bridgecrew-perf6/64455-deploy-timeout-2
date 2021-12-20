@@ -8,6 +8,8 @@ import { getSession } from '@atelierfabien/next-auth';
 
 import init from '@atelierfabien/next-auth/account';
 
+import { resolveReferences } from '@shop/lib/server';
+
 import {
   publicRecipePredicate,
   recipeProjection,
@@ -54,30 +56,32 @@ const bundleQuery = groq`*[_type == 'recipe' && _id == $id && _id in (${bundleRe
 async function fetchRecipe(id, options = {}) {
   const { userId, bundleId, ...params } = options;
   const hasSession = !isBlank(userId);
+  let recipe;
   if (hasSession && !isBlank(bundleId)) {
-    const recipe = await client.fetch(bundleQuery, {
+    recipe = await client.fetch(bundleQuery, {
       ...params,
       id,
       userId,
       bundleId,
       defaultLocale,
     });
-    return recipe ?? fetchRecipe(id, params);
+    recipe = recipe ?? (await fetchRecipe(id, params));
   } else if (hasSession) {
-    const recipe = await account.getDocument(id, {
+    recipe = await account.getDocument(id, {
       ...params,
       types: authConfig.referencedTypes,
       defaultLocale,
       userId,
     });
-    return recipe ?? fetchRecipe(id, params);
+    recipe = recipe ?? (await fetchRecipe(id, params));
   } else {
-    return client.fetch(publicQuery, {
+    recipe = await client.fetch(publicQuery, {
       ...params,
       id,
       defaultLocale,
     });
   }
+  if (recipe?._id === id) return resolveReferences(recipe);
 }
 
 export default async (req, res) => {

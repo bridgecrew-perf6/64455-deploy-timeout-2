@@ -76,11 +76,18 @@ export const getServerSideProps = async context => {
 
     props.session = session;
 
+    // TODO const breadcrumbs = resolvedProps.heading?.breadcrumbs ?? [];
+    // if (category && !isBlank(breadcrumbs)) {
+    //   breadcrumbs.push({ label: category.name, href: category.path.current });
+    // }
+
     return { props };
   } else {
     return { notFound: true };
   }
 };
+
+// TODO header image and title
 
 const Page = () => {
   const page = usePage();
