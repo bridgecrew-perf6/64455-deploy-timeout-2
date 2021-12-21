@@ -1,11 +1,12 @@
-import { localePaths, usePage } from '@foundation/next';
+import { localePaths } from '@foundation/next';
 import { isBlank } from '@foundation/lib/util';
 
 import { getClient } from '@atelierfabien/next-sanity/lib/server';
 
-import { getClient as getBrowserClient } from '@atelierfabien/next-sanity';
-
-import ProductContainer from '@shop/components/Product/Container';
+import {
+  getClient as getBrowserClient,
+  usePreviewQueryProps,
+} from '@atelierfabien/next-sanity';
 
 import shopConfig from '@app/config/shop';
 
@@ -97,15 +98,16 @@ export const prepareData = (item, _props, context) => {
   return types.product.resolveProps(item, { ...context });
 };
 
-export const Product = () => {
-  const page = usePage();
-  return <ProductContainer item={page} />;
-};
-
-// export const Product = ({ currentPageProps }) => {
-//   return (
-//     <div className="uk-margin-large">
-//       <pre>{JSON.stringify(currentPageProps, null, 4)}</pre>
-//     </div>
-//   );
+// export const Product = props => {
+//   const { page } = usePreviewQueryProps(props, { fn: prepareData });
+//   return <ProductContainer item={page} />;
 // };
+
+export const Product = props => {
+  const { page } = usePreviewQueryProps(props, { fn: prepareData });
+  return (
+    <div className="uk-margin-large">
+      <pre>{JSON.stringify(page, null, 4)}</pre>
+    </div>
+  );
+};
