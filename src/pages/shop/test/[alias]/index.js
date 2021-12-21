@@ -1,4 +1,4 @@
-import { Product, getServerProps } from '@shop/http/products';
+import { Product, getServerSideProps } from '@shop/http/products';
 
 export default Product;
-export { getServerProps };
+export { getServerSideProps };
