@@ -1,4 +1,4 @@
-import { configure } from '@atelierfabien/next-auth/server';
+import configure from '@atelierfabien/next-auth/configure';
 
 export default configure({
   referencedTypes: ['product', 'recipe', 'recipe.bundle'],
