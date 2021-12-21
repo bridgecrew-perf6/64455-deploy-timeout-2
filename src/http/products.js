@@ -5,18 +5,14 @@ import { getClient } from '@atelierfabien/next-sanity/lib/server';
 
 import {
   getClient as getBrowserClient,
-  usePreviewQueryProps,
+  // usePreviewQueryProps,
 } from '@atelierfabien/next-sanity';
-
-import ProductContainer from '@shop/components/Product/Container';
-
-import init from '@app/sanity/types/product';
 
 import shopConfig from '@app/config/shop';
 
-const revalidate = shopConfig.revalidation?.product ?? 0;
+import init from '@app/sanity/types';
 
-// import init from '@app/sanity/types';
+const revalidate = shopConfig.revalidation?.product ?? 0;
 
 // export const getProductPropsByAlias = async alias => {
 //   const context = { locale: 'nl' };
@@ -42,16 +38,16 @@ export const getProductPropsByAlias = async (
 
   const previewOptions = preview ? {} : undefined;
 
-  const products = init(getClient(preview));
+  const types = init(getClient(preview));
 
-  const item = await products.getByAlias(
+  const item = await types.product.getByAlias(
     alias,
     { locale: context.locale },
     previewOptions
   );
 
   if (item?._type === 'product') {
-    const props = await products.resolveProps(item, { ...context });
+    const props = await types.product.resolveProps(item, { ...context });
     const page = props.currentPageProps;
 
     if (preview) {
@@ -91,18 +87,26 @@ export const getStaticPaths = async context => {
       fallback: 'blocking',
     };
   } else {
-    const products = init(getClient());
-    const paths = await products.getStaticPaths(context);
+    const types = init(getClient());
+    const paths = await types.product.getStaticPaths(context);
     return { paths, fallback: false };
   }
 };
 
 export const prepareData = (item, _props, context) => {
-  const products = init(getBrowserClient());
-  return products.resolveProps(item, { ...context });
+  const types = init(getBrowserClient());
+  return types.product.resolveProps(item, { ...context });
 };
 
-export const Product = props => {
-  const { page } = usePreviewQueryProps(props, { fn: prepareData });
-  return <ProductContainer item={page} />;
+// export const Product = props => {
+//   const { page } = usePreviewQueryProps(props, { fn: prepareData });
+//   return <ProductContainer item={page} />;
+// };
+
+export const Product = ({ currentPageProps }) => {
+  return (
+    <div className="uk-margin-large">
+      <pre>{JSON.stringify(currentPageProps, null, 4)}</pre>
+    </div>
+  );
 };
