@@ -5,8 +5,10 @@ import { getClient } from '@atelierfabien/next-sanity/lib/server';
 
 import {
   getClient as getBrowserClient,
-  // usePreviewQueryProps,
+  usePreviewQueryProps,
 } from '@atelierfabien/next-sanity';
+
+import ProductContainer from '@shop/components/Product/Container';
 
 import shopConfig from '@app/config/shop';
 
@@ -98,15 +100,15 @@ export const prepareData = (item, _props, context) => {
   return types.product.resolveProps(item, { ...context });
 };
 
-// export const Product = props => {
-//   const { page } = usePreviewQueryProps(props, { fn: prepareData });
-//   return <ProductContainer item={page} />;
-// };
-
-export const Product = ({ currentPageProps }) => {
-  return (
-    <div className="uk-margin-large">
-      <pre>{JSON.stringify(currentPageProps, null, 4)}</pre>
-    </div>
-  );
+export const Product = props => {
+  const { page } = usePreviewQueryProps(props, { fn: prepareData });
+  return <ProductContainer item={page} />;
 };
+
+// export const Product = ({ currentPageProps }) => {
+//   return (
+//     <div className="uk-margin-large">
+//       <pre>{JSON.stringify(currentPageProps, null, 4)}</pre>
+//     </div>
+//   );
+// };
