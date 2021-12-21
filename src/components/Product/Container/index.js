@@ -3,7 +3,7 @@ import { wrapQuery } from '@foundation/next';
 // import Container from '@shop/components/Page/Container';
 
 import ProductPage from '@shop/components/Product';
-// import ProductContainerJsonLd from '@shop/components/Product/Container/JsonLd';
+import ProductContainerJsonLd from '@shop/components/Product/Container/JsonLd';
 
 import { withProduct, useVariantAsProduct } from '@app/hooks/shop';
 
@@ -29,11 +29,17 @@ const ProductContainer = ({ item, variant, ...props }) => {
   // Reduce the JSON-LD version to the current variant
   const metaItem = useVariantAsProduct(item, variant, true);
 
-  console.log(metaItem);
-
   return (
     // <Container inheritFragments="all">
-    <ProductPage item={item} variant={variant} {...props} />
+    <div>
+      <ProductPage item={item} variant={variant} {...props} />
+      <ProductContainerJsonLd
+        keyOverride={variant?._id}
+        item={metaItem}
+        variant={variant}
+        {...props}
+      />
+    </div>
     // </Container>
   );
 };
