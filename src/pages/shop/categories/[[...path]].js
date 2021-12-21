@@ -1,9 +1,6 @@
-import {
-  default as Page,
-  getStaticProps as getPageProps,
-} from '@base/pages/[...path]';
+import { Page, getStaticProps as getPageProps } from '@shop/http/nodes';
 
-import { getStaticPaths as getCategoryPaths } from '@base/pages/shop/categories/[[...path]]';
+import { getStaticPaths as getCategoryPaths } from '@shop/http/categories';
 
 export default Page;
 

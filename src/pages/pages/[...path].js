@@ -1,8 +1,4 @@
-import {
-  default as Page,
-  getStaticProps,
-  getStaticPaths,
-} from '@base/pages/pages/[...path]';
+import { Page, getStaticProps, getStaticPaths } from '@shop/http/pages';
 
 export default Page;
 export { getStaticProps, getStaticPaths };
