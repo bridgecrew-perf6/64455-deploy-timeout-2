@@ -1,8 +1,4 @@
-import { getStaticProps, getStaticPaths } from '@shop/http/products';
-
-const Product = props => {
-  return <code>{JSON.stringify(props, null, 4)}</code>;
-};
+import { Product, getStaticProps, getStaticPaths } from '@shop/http/products';
 
 export default Product;
 export { getStaticProps, getStaticPaths };
