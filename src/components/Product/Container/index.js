@@ -5,7 +5,7 @@ import { wrapQuery } from '@foundation/next';
 import ProductPage from '@shop/components/Product';
 // import ProductContainerJsonLd from '@shop/components/Product/Container/JsonLd';
 
-import { withProduct } from '@app/hooks/shop';
+import { withProduct, useVariantAsProduct } from '@app/hooks/shop';
 
 import { getProductAvailability } from '@app/pages/api/rpc';
 
@@ -27,7 +27,9 @@ const availabilityQuery = wrapQuery(id => {
 
 const ProductContainer = ({ item, variant, ...props }) => {
   // Reduce the JSON-LD version to the current variant
-  // const metaItem = useVariantAsProduct(item, variant, true);
+  const metaItem = useVariantAsProduct(item, variant, true);
+
+  console.log(metaItem);
 
   return (
     // <Container inheritFragments="all">
