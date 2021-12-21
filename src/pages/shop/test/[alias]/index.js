@@ -1,4 +1,4 @@
-import { Product, getStaticProps, getStaticPaths } from '@shop/http/products';
+import { Product, getServerProps } from '@shop/http/products';
 
 export default Product;
-export { getStaticProps, getStaticPaths };
+export { getServerProps };
