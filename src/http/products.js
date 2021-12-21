@@ -8,26 +8,13 @@ import {
   usePreviewQueryProps,
 } from '@atelierfabien/next-sanity';
 
+import ProductContainer from '@shop/components/Product/Container';
+
 import shopConfig from '@app/config/shop';
 
 import init from '@app/sanity/types';
 
 const revalidate = shopConfig.revalidation?.product ?? 0;
-
-// export const getProductPropsByAlias = async alias => {
-//   const context = { locale: 'nl' };
-
-//   const types = init(getClient());
-
-//   const item = await types.product.getByAlias(alias, context);
-
-//   if (item?._type === 'product') {
-//     const props = await types.product.resolveProps(item, context);
-//     return props.currentPageProps ?? {};
-//   } else {
-//     return { notFound: true };
-//   }
-// };
 
 export const getProductPropsByAlias = async (
   alias,
@@ -98,16 +85,7 @@ export const prepareData = (item, _props, context) => {
   return types.product.resolveProps(item, { ...context });
 };
 
-// export const Product = props => {
-//   const { page } = usePreviewQueryProps(props, { fn: prepareData });
-//   return <ProductContainer item={page} />;
-// };
-
 export const Product = props => {
   const { page } = usePreviewQueryProps(props, { fn: prepareData });
-  return (
-    <div className="uk-margin-large">
-      <pre>{JSON.stringify(page, null, 4)}</pre>
-    </div>
-  );
+  return <ProductContainer item={page} />;
 };
