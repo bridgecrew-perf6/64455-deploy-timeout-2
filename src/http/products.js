@@ -1,12 +1,9 @@
-import { localePaths } from '@foundation/next';
+import { localePaths, usePage } from '@foundation/next';
 import { isBlank } from '@foundation/lib/util';
 
 import { getClient } from '@atelierfabien/next-sanity/lib/server';
 
-import {
-  getClient as getBrowserClient,
-  usePreviewQueryProps,
-} from '@atelierfabien/next-sanity';
+import { getClient as getBrowserClient } from '@atelierfabien/next-sanity';
 
 import ProductContainer from '@shop/components/Product/Container';
 
@@ -100,8 +97,8 @@ export const prepareData = (item, _props, context) => {
   return types.product.resolveProps(item, { ...context });
 };
 
-export const Product = props => {
-  const { page } = usePreviewQueryProps(props, { fn: prepareData });
+export const Product = () => {
+  const page = usePage();
   return <ProductContainer item={page} />;
 };
 
