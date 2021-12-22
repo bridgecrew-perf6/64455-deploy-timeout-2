@@ -8,7 +8,7 @@ import { getSession } from '@atelierfabien/next-auth';
 
 import init from '@atelierfabien/next-auth/account';
 
-import Container from '@shop/components/Page/Container'; // TODO - workaround
+// TODO - workaround
 
 import authConfig from '@app/config/auth';
 
@@ -37,7 +37,11 @@ export const getServerSideProps = async context => {
 // TODO - workaround
 
 const Page = props => {
-  return <Container {...props} />;
+  return (
+    <div className="uk-padding">
+      <pre>{JSON.stringify(props, null, 4)}</pre>
+    </div>
+  );
 };
 
 Page.authentication = { redirect: true };
