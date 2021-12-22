@@ -1,5 +1,7 @@
-const ProductLayout = ({ children }) => {
+import { withPageWithLayout } from '@shop/hooks';
+
+const ProductPage = ({ children }) => {
   return <div>{children}</div>;
 };
 
-export default ProductLayout;
+export default withPageWithLayout('product', ProductPage);
