@@ -1,10 +1,14 @@
-import { Page, getPagePropsByPath } from '@shop/http/nodes';
+// import { Page, getPagePropsByPath } from '@shop/http/nodes';
+
+import { getPagePropsByPath } from '@shop/http/nodes';
 
 import { getClient } from '@atelierfabien/next-sanity/lib/server';
 
 import { getSession } from '@atelierfabien/next-auth';
 
 import init from '@atelierfabien/next-auth/account';
+
+import Container from '@shop/components/Page/Container'; // TODO - workaround
 
 import authConfig from '@app/config/auth';
 
@@ -28,6 +32,12 @@ export const getServerSideProps = async context => {
     }
   }
   return serversideProps;
+};
+
+// TODO - workaround
+
+const Page = props => {
+  return <Container {...props} />;
 };
 
 Page.authentication = { redirect: true };

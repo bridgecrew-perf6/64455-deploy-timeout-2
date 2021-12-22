@@ -25,7 +25,7 @@ const availabilityQuery = wrapQuery(id => {
   });
 });
 
-const Container = ({ children }) => <>{children}</>;
+const Container = ({ children }) => <>{children}</>; // TODO - Workaround
 
 const ProductContainer = ({ item, variant, ...props }) => {
   // Reduce the JSON-LD version to the current variant
