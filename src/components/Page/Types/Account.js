@@ -1,18 +1,15 @@
-// import { withPageWithLayout } from '@shop/hooks';
+import { withPageWithLayout } from '@shop/hooks';
 
-import AccountOverview from '@shop/components/Site/Account/Overview';
-
-import { usePage } from '@foundation/next';
+import SiteHeader from '@shop/components/Site/Header';
+import SiteAccountOverview from '@shop/components/Site/Account/Overview';
 
 const AccountPage = props => {
-  const page = usePage(props);
   return (
     <div className="main-container">
-      <AccountOverview {...props} page={page} />
+      <SiteHeader page={props.page} />
+      <SiteAccountOverview {...props} />
     </div>
   );
 };
 
-// export default withPageWithLayout('account', AccountPage);
-
-export default AccountPage;
+export default withPageWithLayout('account', AccountPage);
