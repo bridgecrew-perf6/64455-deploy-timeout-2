@@ -8,4 +8,9 @@ config.image = {
   useItemRatio: true,
 };
 
+config.revalidation = {
+  category: 60 * 60 * 24, // 24 hours
+  product: 60 * 60 * 24, // 24 hours
+};
+
 export default config;
