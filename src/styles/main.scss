@@ -13,6 +13,9 @@ $global-success-background: $global-primary-background;
 $global-warning-background: #bb5d16;
 $global-danger-background: #8a1c1c;
 
+$base-link-color: $global-primary-background;
+$base-link-hover-color: darken($global-primary-background, 8%);
+
 $base-em-color: #666;
 $inverse-global-color: rgba(#fff, 0.85);
 $inverse-breadcrumb-item-color: $inverse-global-color;
