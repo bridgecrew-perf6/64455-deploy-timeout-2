@@ -9,7 +9,7 @@ import AuthCredentialsSignIn from '@app/components/Auth/Credentials/SignIn';
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 const AuthEmailSignIn = props => {
-  const { handleSignIn, email, setEmail } = props;
+  const { handleSignIn, email, setEmail, disabled } = props;
 
   const { t } = useTranslation();
 
@@ -35,6 +35,7 @@ const AuthEmailSignIn = props => {
             className="uk-button uk-button-default uk-button-small uk-button-radius"
             type="submit"
             value={t('auth:email.signIn.button')}
+            disabled={disabled}
           />
         </div>
       </fieldset>

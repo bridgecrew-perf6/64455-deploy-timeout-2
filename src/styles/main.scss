@@ -58,6 +58,10 @@ form[data-provider] .uk-input {
   border-color: $global-primary-background;
 }
 
+.uk-button.uk-button-radius[disabled] {
+  opacity: 0.4;
+}
+
 .tm-section-intro + .tm-section-columns {
   padding-top: 20px;
 }
