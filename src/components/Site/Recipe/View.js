@@ -50,7 +50,7 @@ export const View = ({
             data-uk-grid
           >
             {imageUrl && <Image imageUrl={imageUrl} title={title} small />}
-            <div className="tm-recipe-sidebar uk-width-1-3@m">
+            <div className="tm-recipe-sidebar uk-width-1-3@m no-page-break">
               <h2 className="entry-title uk-text-left">{title}</h2>
               {!isBlank(ingredients) && (
                 <div className="entry-cats tw-meta uk-text-left uk-margin-large-top uk-margin-bottom">
@@ -58,13 +58,13 @@ export const View = ({
                 </div>
               )}
               {ingredients.map(({ _key, title, list }) => (
-                <div key={_key}>
+                <div key={_key} className="tm-ingredients no-page-break">
                   {!isBlank(title) && (
                     <p className="uk-text-xsmall uk-text-muted uk-text-lowercase">
                       {title}
                     </p>
                   )}
-                  <ul className="tm-list-columns uk-list uk-list-divider">
+                  <ul className="tm-list-columns uk-list uk-list-divider no-page-break">
                     {list.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}

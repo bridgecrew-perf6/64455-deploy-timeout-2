@@ -171,6 +171,10 @@ form[data-provider] .uk-input {
   border: solid $global-border-width $global-muted-background;
 }
 
+.tm-ingredients + .tm-ingredients {
+  margin-top: 50px;
+}
+
 @media (max-width: $breakpoint-small) {
   .tm-consults.tw-carousel-post.style-2 .post-content {
     padding: 30px;
