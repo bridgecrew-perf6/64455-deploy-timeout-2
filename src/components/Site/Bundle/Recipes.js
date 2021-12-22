@@ -16,20 +16,6 @@ const BundleRecipes = ({ items = [], onItemClick }) => {
           ))}
         </ul>
       </div>
-      {/* <div className="uk-hidden@s uk-light">
-      <a
-        className="uk-position-center-left uk-position-small"
-        href="#"
-        data-uk-slidenav-previous
-        data-uk-slider-item="previous"
-      />
-      <a
-        className="uk-position-center-right uk-position-small"
-        href="#"
-        data-uk-slidenav-next
-        data-uk-slider-item="next"
-      />
-    </div> */}
       <div className="uk-visible@m uk-background-primary">
         <a
           className="uk-position-center-left-out uk-position-small"
@@ -44,7 +30,7 @@ const BundleRecipes = ({ items = [], onItemClick }) => {
           data-uk-slider-item="next"
         />
       </div>
-      <div className="uk-margin-medium uk-light">
+      <div className="uk-margin-medium">
         <ul className="uk-slider-nav uk-dotnav uk-flex-center" />
       </div>
     </div>
