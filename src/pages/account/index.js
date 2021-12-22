@@ -1,14 +1,10 @@
-// import { Page, getPagePropsByPath } from '@shop/http/nodes';
-
-import { getPagePropsByPath } from '@shop/http/nodes';
+import { Page, getPagePropsByPath } from '@shop/http/nodes';
 
 import { getClient } from '@atelierfabien/next-sanity/lib/server';
 
 import { getSession } from '@atelierfabien/next-auth';
 
 import init from '@atelierfabien/next-auth/account';
-
-// TODO - workaround
 
 import authConfig from '@app/config/auth';
 
@@ -32,16 +28,6 @@ export const getServerSideProps = async context => {
     }
   }
   return serversideProps;
-};
-
-// TODO - workaround
-
-const Page = props => {
-  return (
-    <div className="uk-padding">
-      <pre>{JSON.stringify(props, null, 4)}</pre>
-    </div>
-  );
 };
 
 Page.authentication = { redirect: true };
