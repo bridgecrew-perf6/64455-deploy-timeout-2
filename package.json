@@ -14,11 +14,11 @@
     "test": "mocha 'test/**/*.test.js' --bail --timeout 10000"
   },
   "dependencies": {
-    "@atelierfabien/next-auth": "^0.0.28",
-    "@atelierfabien/next-base": "^0.0.28",
-    "@atelierfabien/next-foundation": "^0.0.28",
-    "@atelierfabien/next-sanity": "^0.0.28",
-    "@atelierfabien/next-shop": "^0.0.28",
+    "@atelierfabien/next-auth": "^0.0.29",
+    "@atelierfabien/next-base": "^0.0.29",
+    "@atelierfabien/next-foundation": "^0.0.29",
+    "@atelierfabien/next-sanity": "^0.0.29",
+    "@atelierfabien/next-shop": "^0.0.29",
     "@atelierfabien/uikit": "^3.9.4",
     "@carbon/icons-react": "^10.44.0",
     "axios": "^0.24.0",
