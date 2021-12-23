@@ -17,10 +17,6 @@ export const handleUpdate = async (_eventName, payload) => {
 
     const user = await ensureUser(email, {
       name: shippingAddress.fullName,
-      profile: {
-        firstName: shippingAddress.firstName,
-        lastName: shippingAddress.name,
-      },
     });
 
     await processItems(
