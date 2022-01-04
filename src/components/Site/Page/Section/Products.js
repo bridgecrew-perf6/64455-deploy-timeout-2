@@ -15,25 +15,25 @@ const ProductItem = product => {
 
   const imageUrl = useMemo(
     () =>
-      image ? urlFor(image).width(420).height(280).auto('format').url() : null,
+      image ? urlFor(image).width(400).height(500).auto('format').url() : null,
     [image]
   );
 
   return (
     <div>
-      <div className="event-item" data-uk-grid>
-        <div className="entry-media uk-width-1-2">
+      <div className="event-item uk-grid-collapse uk-grid-match" data-uk-grid>
+        <div className="entry-media uk-width-1-2@s">
           <Link
             href={href}
             className="tw-image-hover uk-cover-container"
             title={name}
-            uk-ratio="1/1"
+            uk-ratio="4/5"
           >
             <img src={imageUrl} uk-cover="true" />
           </Link>
         </div>
-        <div className="event-content uk-width-expand">
-          <div className="uk-margin-right">
+        <div className="uk-width-expand">
+          <div className="event-content">
             <div className="tw-meta">{category}</div>
             <h3 className="event-title uk-text-uppercase uk-text-truncate">
               <Link href={href}>{name}</Link>
