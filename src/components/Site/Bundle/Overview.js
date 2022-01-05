@@ -11,6 +11,27 @@ import AccountOverviewEmpty from '@shop/components/Site/Account/Overview/Empty';
 
 import types from '@shop/components/Site/Bundle/Types';
 
+const Intro = ({ page, files = [] }) => {
+  if (files.length > 0) {
+    return (
+      <IntroSection page={page} className="tw-element tw-heading">
+        <h4 className="uk-text-uppercase">Downloads</h4>
+        <ul className="uk-list uk-list-hyphen">
+          {files.map(file => (
+            <li key={file._key}>
+              <a href={file.asset?.url} target="_blank" rel="noreferrer">
+                {file.label ?? file.asset?.originalFilename}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </IntroSection>
+    );
+  } else {
+    return <IntroSection page={page} />;
+  }
+};
+
 const Main = props => {
   const {
     type,
@@ -19,6 +40,7 @@ const Main = props => {
     date,
     showRecipe,
     recipeIds = [],
+    files = [],
   } = props;
   const Component = useMemo(() => types.get(type), [type]);
 
@@ -50,7 +72,7 @@ const Main = props => {
         className="tm-account-section uk-margin-large-bottom"
         data-documents-section={type}
       >
-        <IntroSection page={intro} />
+        <Intro page={intro} files={files} />
         <section className="uk-section uk-container">
           <Component bundle={props} onItemClick={showRecipe} />
         </section>

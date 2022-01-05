@@ -20,6 +20,8 @@ $base-em-color: #666;
 $inverse-global-color: rgba(#fff, 0.85);
 $inverse-breadcrumb-item-color: $inverse-global-color;
 
+$list-padding-left: 15px;
+
 @import '@atelierfabien/next-base/src/styles/main.scss';
 
 @import './purged/theme.scss';

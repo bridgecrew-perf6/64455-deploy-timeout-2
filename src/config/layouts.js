@@ -120,6 +120,7 @@ layoutResolvers.set('home', async (client, page, options) => {
 
 layoutResolvers.set('about', async (client, page, options) => {
   const { locale, defaultLocale } = options;
+
   page.nodes = await client.fetch(
     groq`*[_type == 'navigation.node' && i18n.nl.path.current == '/aanbod']{
       ${nodesProjection}

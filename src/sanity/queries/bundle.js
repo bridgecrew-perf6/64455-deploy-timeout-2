@@ -11,6 +11,7 @@ export const bundlePredicate = groq`
 export const bundleProjection = groq`
   ${coreProjection}, name, type, description, date,
   'images': coalesce(images, []),
+  'files': coalesce(files[]{ ..., asset-> }, []),
   type == 'recipes' => {
     recipes[]->{ ${documentsProjection} }
   },
